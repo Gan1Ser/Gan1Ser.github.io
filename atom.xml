@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liver.ink</id>
     <title>GanSer</title>
-    <updated>2022-04-13T00:10:36.068Z</updated>
+    <updated>2022-04-13T00:11:37.560Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liver.ink"/>
     <link rel="self" href="https://liver.ink/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://liver.ink/favicon.ico</icon>
     <rights>All rights reserved 2022, GanSer</rights>
     <entry>
-        <title type="html"><![CDATA[深度学习--张量]]></title>
+        <title type="html"><![CDATA[深度学习--张量算法]]></title>
         <id>https://liver.ink/post/shen-du-xue-xi-zhang-liang/</id>
         <link href="https://liver.ink/post/shen-du-xue-xi-zhang-liang/">
         </link>
