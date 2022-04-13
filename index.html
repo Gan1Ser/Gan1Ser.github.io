@@ -6,7 +6,7 @@
 
 <title>GanSer</title>
 
-<link rel="shortcut icon" href="https://liver.ink/favicon.ico?v=1649808692609">
+<link rel="shortcut icon" href="https://liver.ink/favicon.ico?v=1649808983694">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://liver.ink/styles/main.css">
@@ -77,7 +77,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1649808692609" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1649808983694" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -93,340 +93,30 @@
                 <div class="post-left">
                     <div>
                         
-                        <a href="https://liver.ink/post/shen-du-xue-xi-zhang-liang/">
+                        <a href="https://liver.ink/post/shen-du-xue-xi-zhang-liang-suan-fa/">
                             <span class="post-title gt-c-content-color-first">深度学习--张量算法</span>
                         </a>
                     </div>
                     <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        <h1 id="张量算法">张量算法</h1>
-<h2 id="一-张量算法的基本性质">一. 张量算法的基本性质</h2>
-<blockquote>
-<p>性质：给定具有相同形状的任意张量，任何按元素二元运算的结果都将是相同形状的张量</p>
-<p>代码：</p>
-<pre><code class="language-py">from turtle import clone
-import torch
-x = torch.arange(24).reshape(2,3,4)
-y = x.clone()   #通过分配新内存，将x的一个副本分配给y
-print(x + y) #同形状张量相加
-print(x * y) #同形状张量相乘
-print(x + 2) #张量加常数
-print(x * 2) #张量乘常数
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor([[[ 0,  2,  4,  6],
-   [16, 18, 20, 22]],
-
-  [[24, 26, 28, 30],
-   [32, 34, 36, 38],
-   [40, 42, 44, 46]]])
-tensor([[[  0,   1,   4,   9],
-   [ 16,  25,  36,  49],
-   [ 64,  81, 100, 121]],
-
-  [[144, 169, 196, 225],
-   [256, 289, 324, 361],
-   [400, 441, 484, 529]]])
-tensor([[[ 2,  3,  4,  5],
-   [ 6,  7,  8,  9],
-   [10, 11, 12, 13]],
-
-  [[14, 15, 16, 17],
-   [18, 19, 20, 21],
-   [22, 23, 24, 25]]])
-tensor([[[ 0,  2,  4,  6],
-   [ 8, 10, 12, 14],
-   [16, 18, 20, 22]],
-
-  [[24, 26, 28, 30],
-   [32, 34, 36, 38],
-   [40, 42, 44, 46]]])
-</code></pre>
-<p>ps：全都是对应元素的运算</p>
-</blockquote>
-<h2 id="二-降维">二. 降维</h2>
-<ul>
-<li>元素/分量 求和</li>
-</ul>
-<blockquote>
-<p>方法：调用sum()函数</p>
-<p>代码：</p>
-<pre><code class="language-py">from turtle import clone
-import torch
-x = torch.arange(24, dtype = torch.float32).reshape(2,3,4)
-print(x.sum())
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor(276.)
-</code></pre>
-<p>ps: <em>可以给任意形状的张量求和，默认情况下，调⽤求和函数会沿所有的轴降低张量的维度，使它变为⼀个标量。我们还可以指定张量沿哪⼀个轴来通过求和降低维度</em></p>
-<blockquote>
-<p>轴0：所有的行元素</p>
-<p>轴1：所有的列元素</p>
-<p>ps: <em>张量中轴0为竖着的，轴1为横着的</em></p>
-</blockquote>
-<p>代码：</p>
-<pre><code class="language-py">from turtle import clone
-import torch
-x = torch.arange(6, dtype = torch.float32).reshape(3,2)
-print(x)
-print(x.sum(axis = 0))
-print(x.sum(axis = 1))
-print(x.sum(axis = [0,1])) #沿着行和列进行求和等同于整体求和
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor([[0., 1.],
-  [2., 3.],
-  [4., 5.]])
-tensor([6., 9.])
-tensor([1., 5., 9.])
-tensor(15.)
-</code></pre>
-</blockquote>
-<ul>
-<li>平均值(mean或average)</li>
-</ul>
-<blockquote>
-<p>在代码中，可以调用函数来计算任意形状张量的平均值</p>
-<p>代码：</p>
-<pre><code class="language-py">import torch
-x = torch.arange(6, dtype = float32).reshape(2,3)
-print(s.mean())
-print(s.sum() / s.numel())
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor([[0., 1.],
-  [2., 3.],
-  [4., 5.]])
-tensor(2.5000)
-tensor(2.5000)
-</code></pre>
-<p>ps：我们可以指定轴进行降维</p>
-<p>代码：</p>
-<pre><code class="language-py">import torch
-x = torch.arange(6, dtype = float32).reshape(2,3)
-print(s.mean(axis = 0))
-print(s.sum(axis = 0) / s.shape[0]) #注意这里的[]
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor([[0., 1.],
-  [2., 3.],
-  [4., 5.]])
-tensor([2., 3.])
-tensor([2., 3.])
-</code></pre>
-</blockquote>
-<h2 id="三-非降维求和">三. 非降维求和</h2>
-<p><em>有时候在调用函数来计算总和或者平均值时轴数保持不变会很有用</em></p>
-<blockquote>
-<p>方法：通过传入参数使轴数不变</p>
-<p>代码：</p>
-<pre><code class="language-py">import torch
-x = torch.arange(6, dtype = torch.float32).reshape(3,2)
-print(x)
-print(x.mean(axis = 1, keepdim = True))
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">#True
-tensor([[0., 1.],
-     [2., 3.],
-     [4., 5.]])
-tensor([[0.5000],
-     [2.5000],
-     [4.5000]])
-#False
-tensor([0.5000, 2.5000, 4.5000])
-</code></pre>
-</blockquote>
-<p><em>例如，由于sum_A在对每⾏进⾏求和后仍保持两个轴，我们可以通过⼴播将A除以sum_A</em></p>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-py">import torch
-x = torch.arange(6, dtype = torch.float32).reshape(2,3)
-sum_x = x.sum(axis = 1, keepdim = True)
-print(x / sum_x)
-print(sum_x.size())
-print(sum_x.shape)
-print(sum_x.numel())
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor([[0.0000, 0.3333, 0.6667],
-  [0.2500, 0.3333, 0.4167]])
-torch.Size([2, 1])
-2
-</code></pre>
-</blockquote>
-<p><em>如果我们想沿某个轴计算A元素的累积总和，比如axis=0（按行计算），我们可以调用cumsum函数。此函数不会沿任何轴降低输⼊张量的维度。</em></p>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-py">import torch
-x = torch.arange(6, dtype = torch.float32).reshape(2,3)
-print(x.cumsum(axis = 0))
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor([[0., 1.],
-  [2., 3.],
-  [4., 5.]])
-tensor([[0., 1.],
-  [2., 4.],
-  [6., 9.]])
-#层层叠加：0 = 0， 0 + 2 = 2， 0 + 2 + 4 = 6
-</code></pre>
-</blockquote>
-<h2 id="四-点积">四. 点积</h2>
-<p><em>给定两个向量x, y ∈ Rd，它们的点积（dot product）x⊤y （或⟨x, y⟩）是相同位置的<strong>按元素乘积的和</strong>：x⊤y = ∑id=1 xiyi。</em></p>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-py">import torch
-x = torch.arange(6, dtype = torch.float32)
-y = torch.ones(6, dtype = torch.float32)
-print(torch.dot(x, y))
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-python">tensor(15.)
-</code></pre>
-<p>ps:</p>
-<blockquote>
-<p>点积在很多场合都很有⽤。例如，给定⼀组由向量x ∈ Rd表⽰的值，和⼀组由w ∈ Rd表⽰的权重。x中的值根据权重w的加权和，可以表⽰为点积x⊤w。当权重为⾮负数且和为1（即(∑id=1 wi = 1)）时，点积表⽰加权平均（weighted average）。将两个向量规范化得到单位⻓度后，点积表⽰它们夹⻆的余弦</p>
-</blockquote>
-</blockquote>
-<h2 id="五-矩阵-向量积">五. 矩阵-向量积</h2>
-<blockquote>
-<p>ps:注意矩阵A和X的维数(长度)必须相同</p>
-</blockquote>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-py">import torch
-
-a = torch.arange(20, dtype = torch.float32).reshape(5,4)
-b = torch.ones(4, dtype = torch.float32)
-print(a)
-print(a.shape)
-print(b.shape)
-print(torch.mv(a,b))
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor([[ 0.,  1.,  2.,  3.],
-  [ 4.,  5.,  6.,  7.],
-  [ 8.,  9., 10., 11.],
-  [12., 13., 14., 15.],
-  [16., 17., 18., 19.]])
-torch.Size([5, 4])
-torch.Size([4])
-tensor([ 6., 22., 38., 54., 70.])
-</code></pre>
-</blockquote>
-<h2 id="六-矩阵-矩阵乘法">六. 矩阵-矩阵乘法</h2>
-<blockquote>
-<p>我们可以将矩阵-矩阵乘法AB看作是简单地执⾏m次矩阵-向量积，并将结果拼接在⼀起，形成⼀个n × m矩阵。在下⾯的代码中，我们在A和B上执⾏矩阵乘法。这⾥的A是⼀个5⾏4列的矩阵，B是⼀个4⾏3列的矩阵。两者相乘后，我们得到了⼀个5⾏3列的矩阵。</p>
-</blockquote>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-python">import torch
-A = torch.arange(20, dtype = torch.float32).reshape(5,4)
-B = torch.ones(4,3)
-print(torch.mm(A,B))
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-python">tensor([[ 6.,  6.,  6.],
-  [22., 22., 22.],
-  [38., 38., 38.],
-  [54., 54., 54.],
-  [70., 70., 70.]])
-</code></pre>
-<p>ps：矩阵-矩阵乘法可以简单地称为<strong>矩阵乘法</strong>，不应与<strong>Hadnmard积</strong>混淆</p>
-</blockquote>
-<h2 id="七-范数">七. 范数</h2>
-<blockquote>
-<p>线性代数中最有用的⼀些运算符是范数（norm）。非正式地说，一个向量的范数告诉我们⼀个向量有多大。这里考虑的大小（size）概念不涉及维度，而是分量的大小</p>
-<p>在线性代数中，向量范数是将向量映射到标量的函数f。给定任意向量x，向量范数要满⾜⼀些属性。</p>
-<ul>
-<li>范数要满足的一些属性：</li>
-</ul>
-<blockquote>
-<ul>
-<li>
-<p>第⼀个性质是：如果我们按常数因⼦α缩放向量的所有元素，其范数也会按相同常数因⼦的绝对值缩放：</p>
-<p>f(αx) = |α|f(x)</p>
-</li>
-<li>
-<p>第⼆个性质是我们熟悉的三⻆不等式:<br>
-f(x + y) ≤ f(x) + f(y).</p>
-</li>
-<li>
-<p>第三个性质简单地说范数必须是⾮负的:<br>
-f(x) ≥ 0<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-<figure data-type="image" tabindex="1"><img src="https://imgs.wiki/imgs/2022/04/13/9ef9571813db0d4b.png" alt="" loading="lazy"></figure>
-</li>
-</ul>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>范数的计算：</p>
-<ul>
-<li>L2范数的计算：</li>
-</ul>
-<p>在L2范数中常常省略下标2，也就是说||x|| == ||x||2.在代码中，按照如下方式计算向量的L2范数（模长）</p>
-<p>代码：</p>
-<pre><code class="language-python">import torch
-u = torch.tensor([3.0,-4.0])
-b = torch.norm(u)
-print(b)
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-python">tensor(5.)
-</code></pre>
-<p>ps:在深度学习中我们更常使用L2范数的平方</p>
-<ul>
-<li>L1范数的计算</li>
-</ul>
-<p>L1范数表示向量元素的绝对值之和</p>
-<p>代码：</p>
-<pre><code class="language-python">import torch
-u = torch.tensor([3.0, -4.0])
-b = torch.abs(u).sum()
-print(b)
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-python">tensor(7.)
-</code></pre>
-<ul>
-<li>矩阵范数的计算</li>
-</ul>
-<p><strong>矩阵X ∈ Rm×n的Frobenius范数（Frobenius norm）是矩阵元素平方和的平方根</strong></p>
-<p>代码：</p>
-<pre><code class="language-python">print(torch.norm(torch.ones(4,9)))
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-python">tensor(6.)
-</code></pre>
-<figure data-type="image" tabindex="2"><img src="https://imgs.wiki/imgs/2022/04/13/e5df607e49ce2358.png" alt="" loading="lazy"></figure>
-</blockquote>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>这是有道理的。因为在⼤多数情况下，任何东西的最⼩的⼤⼩是0。最后⼀个性质要求范数最⼩为0，当且仅当向量全由0组成。∀i, [x]i = 0 ⇔ f(x) = 0 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-
+                        
                     </div>
                     <div class="post-info">
                         <time class="post-time gt-c-content-color-first">
                             发布于 · 2022-04-13 ·
                         </time>
                         
-                            <a href="https://liver.ink/tag/TE_R9hpvN/" class="post-tag">
-                                # 张量算法
-                            </a>
-                        
                             <a href="https://liver.ink/tag/Ovkfy1JmnW/" class="post-tag">
                                 # 深度学习
+                            </a>
+                        
+                            <a href="https://liver.ink/tag/TE_R9hpvN/" class="post-tag">
+                                # 张量算法
                             </a>
                         
                     </div>
                 </div>
                 
-                    <a href="https://liver.ink/post/shen-du-xue-xi-zhang-liang/" class="post-feature-image"
+                    <a href="https://liver.ink/post/shen-du-xue-xi-zhang-liang-suan-fa/" class="post-feature-image"
                        style="background-image: url('https://imgs.wiki/imgs/2022/04/13/a02e5bebdee2cfc1.jpg')">
                     </a>
                 
@@ -437,7 +127,7 @@ print(b)
                     <div>
                         
                         <a href="https://liver.ink/post/shen-du-xue-xi-ru-men-bi-ji/">
-                            <span class="post-title gt-c-content-color-first">深度学习--入门笔记</span>
+                            <span class="post-title gt-c-content-color-first">深度学习--张量数据</span>
                         </a>
                     </div>
                     <div class="gt-post-content post-abstract gt-c-content-color-second">
