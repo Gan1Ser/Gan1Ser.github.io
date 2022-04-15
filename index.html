@@ -6,7 +6,7 @@
 
 <title>GanSer</title>
 
-<link rel="shortcut icon" href="https://liver.ink/favicon.ico?v=1649942350225">
+<link rel="shortcut icon" href="https://liver.ink/favicon.ico?v=1650065646418">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://liver.ink/styles/main.css">
@@ -77,7 +77,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1649942350225" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1650065646418" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -93,126 +93,41 @@
                 <div class="post-left">
                     <div>
                         
+                        <a href="https://liver.ink/post/shen-du-xue-xi-xian-xing-dai-shu/">
+                            <span class="post-title gt-c-content-color-first">深度学习--线性代数</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 2022-04-16 ·
+                        </time>
+                        
+                    </div>
+                </div>
+                
+                    <a href="https://liver.ink/post/shen-du-xue-xi-xian-xing-dai-shu/" class="post-feature-image"
+                       style="background-image: url('https://imgs.wiki/imgs/2022/04/16/69242edf748cc478.png')">
+                    </a>
+                
+            </div>
+        
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
                         <a href="https://liver.ink/post/shen-du-xue-xi-shu-ju-chu-li/">
                             <span class="post-title gt-c-content-color-first">深度学习--数据处理</span>
                         </a>
                     </div>
                     <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        <blockquote>
-<p>利用pandas进行数据预处理</p>
-</blockquote>
-<h2 id="一读取数据集">一.读取数据集</h2>
-<ul>
-<li>
-<p>创建一个人工数据集(<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>文件)</p>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-py">import os
-
-os.makedirs(os.path.join('..','data'),exist_ok = True)
-data_file = os.path.join('..','data','house_ting.csv')
-with open(data_file, 'w') as f:
-f.write('NumRooms,Alley,Price\n') # 列名
-f.write('NA,Pave,127500\n') # 每⾏表⽰⼀个数据样本
-f.write('2,NA,106000\n')
-f.write('4,NA,178100\n')
-f.write('NA,NA,140000\n')
-
-import pandas as pd
-
-data = pd.read_csv(data_file)
-print(data)
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">NumRooms Alley   Price
-0       NaN  Pave  127500
-1       2.0   NaN  106000
-2       4.0   NaN  178100
-3       NaN   NaN  140000
-</code></pre>
-</blockquote>
-</li>
-<li>
-<p>处理缺失值</p>
-<p><strong>NaN代表缺失值</strong>：处理方法包括 <u>插值法和删除法</u></p>
-<ul>
-<li>
-<p>插值法：通过位置索引iloc，将data分为inputs和outputs,其中前者为data的前两列，而后者为data的最后一列，对于inputs中缺少的数值，我们有同一列的均值替换“NaN“项</p>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-py">inputs, outputs = data.iloc[:, 0:2],data.iloc[:, 2]
-inputs = inputs.fillna(inputs.mean())
-print(inputs)
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">NumRooms Alley
-0       3.0  Pave
-1       2.0   NaN
-2       4.0   NaN
-3       3.0   NaN
-</code></pre>
-<p>由于“巷⼦类型”（“Alley”）列只接受两种类型的类别值“Pave”和“NaN”，pandas可以⾃动将此列转换为两列“Alley_Pave”和“Alley_nan”。巷⼦类型为“Pave”的⾏会将“Alley_Pave”的值设置为1，“Alley_nan”的值设置为0。缺少巷⼦类型的⾏会将“Alley_Pave”和“Alley_nan”分别设置为0和1。</p>
-<p>代码：</p>
-<pre><code class="language-py">data = pd.read_csv(data_file)
-inputs, outputs = data.iloc[:, 0:2],data.iloc[:, 2]
-inputs = inputs.fillna(inputs.mean())
-inputs = pd.get_dummies(inputs, dummy_na = True#不忽略缺失值)
-print(inputs)
-</code></pre>
-</blockquote>
-</li>
-<li>
-<p>删除法</p>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-py">import pandas as pd
-
-data = pd.read_csv(data_file)
-inputs, outputs = data.iloc[:, 0:2],data.iloc[:, 2]
-nan_num = inputs.isnull().sum(axis = 0) #找出每列的缺失值个数
-nan_max_id = nan_num.idxmax() #找出缺失值最多的列的索引
-inputs = inputs.drop([nan_max_id], axis = 1)
-inputs = inputs.fillna(inputs.mean())
-print(inputs)
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">NumRooms
-0       3.0
-1       2.0
-2       4.0
-3       3.0
-</code></pre>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="二-转换为张量格式">二. 转换为张量格式</h2>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-python">X, y = torch.tensor(inputs.values), torch.tensor(output.values)
-print(f'{X}\n{y}')
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor([[3., 1., 0.],
-     [2., 0., 1.],
-     [4., 0., 1.],
-     [3., 0., 1.]], dtype=torch.float64)
-tensor([127500, 106000, 178100, 140000])
-</code></pre>
-</blockquote>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>逗号分隔值文件 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-
+                        
                     </div>
                     <div class="post-info">
                         <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-04-14 ·
+                            发布于 · 2022-04-16 ·
                         </time>
                         
                             <a href="https://liver.ink/tag/w0aAVvR9o/" class="post-tag">
@@ -223,8 +138,8 @@ tensor([127500, 106000, 178100, 140000])
                                 # csv
                             </a>
                         
-                            <a href="https://liver.ink/tag/8uzCh3k02/" class="post-tag">
-                                # 深度学习入门
+                            <a href="https://liver.ink/tag/Ovkfy1JmnW/" class="post-tag">
+                                # 深度学习
                             </a>
                         
                     </div>

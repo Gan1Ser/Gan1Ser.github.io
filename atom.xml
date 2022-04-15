@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liver.ink</id>
     <title>GanSer</title>
-    <updated>2022-04-15T05:37:00.363Z</updated>
+    <updated>2022-04-15T23:34:12.623Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liver.ink"/>
     <link rel="self" href="https://liver.ink/atom.xml"/>
@@ -11,122 +11,140 @@
     <icon>https://liver.ink/favicon.ico</icon>
     <rights>All rights reserved 2022, GanSer</rights>
     <entry>
+        <title type="html"><![CDATA[深度学习--线性代数]]></title>
+        <id>https://liver.ink/post/shen-du-xue-xi-xian-xing-dai-shu/</id>
+        <link href="https://liver.ink/post/shen-du-xue-xi-xian-xing-dai-shu/">
+        </link>
+        <updated>2022-04-15T23:32:20.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="一标量零维张量">一.标量（零维张量）</h2>
+<blockquote>
+<p>标量：标量是只有一个元素的张量</p>
+<p>代码：</p>
+<pre><code class="language-py">import torch
+a = torch.tTensor(1)
+b = torch.tensor(2)
+</code></pre>
+<p>输出:</p>
+<pre><code class="language-py">tensor(1)
+tensor(2)
+</code></pre>
+</blockquote>
+<h2 id="二向量一维张量">二.向量（一维张量）</h2>
+<blockquote>
+<p>向量：向量是标量值组成的列表，这项标量值成为向量的元素或分量</p>
+<p>ps：向量的值具有实际意义，如我们正在研究医院患者可能⾯临的心脏病发作风险，我们可能会用⼀个向量来表⽰每个<br>
+患者，其分量为最近的生命体征、胆固醇水平、每天运动时间等</p>
+<p>代码：</p>
+<pre><code class="language-py">x = torch.arange(4)
+print(x)
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-py">tensor([0, 1, 2, 3])
+</code></pre>
+<p>ps：可以使用下标来引用向量的任⼀元素，可以用xi来引用第i个元素(为什么是xi呢?因为是一维向量)(大部分文献认为列向量是向量的默认向量)。</p>
+<ul>
+<li>长度、维度和形状</li>
+</ul>
+<blockquote>
+<p>向量只是一个数字数组在数学表⽰法中，如果我们想说<br>
+⼀个向量x由n个实值标量组成，我们可以将其表⽰为x ∈ Rn。向量的⻓度通常称为向量的维度（dimension）</p>
+</blockquote>
+<ul>
+<li>访问张量的长度(len)</li>
+</ul>
+<pre><code class="language-py">print(len(x))   #4就是该向量的维度
+</code></pre>
+<ul>
+<li>访问形状(.shape)(形状（shape）是<br>
+⼀个元素组，列出了张量沿每个轴的⻓度（维数）。对于只有⼀个轴的张量，形状只有⼀个元素)</li>
+</ul>
+<pre><code class="language-py">print(x.shape)  #torch.Size([4])
+</code></pre>
+<p>ps：维度（dimension）这个词在不同上下⽂时往往会有不同的含义，这经常会使⼈感到困惑。为了清楚<br>
+起⻅，我们在此明确⼀下：向量或轴的维度被⽤来表⽰向量或轴的⻓度，即向量或轴的元素数量。然⽽，张<br>
+量的维度⽤来表⽰张量具有的轴数。在这个意义上，张量的某个轴的维数就是这个轴的⻓度。</p>
+</blockquote>
+<h2 id="三-矩阵-二维张量">三. 矩阵 (二维张量)</h2>
+<blockquote>
+<p>正如向量将标量从零阶推广到一阶，矩阵将向量从一阶推广到二阶。矩阵，我们通常⽤粗体、大写字母来表⽰（例如，X、Y和Z），在代码中表示为具有两个轴的张量。</p>
+<p>在数学表⽰法中，我们使⽤A ∈ Rm×n 来表⽰矩阵A，其由m⾏和n列的实值标量组成。我们可以将任意矩<br>
+阵A ∈ Rm×n视为⼀个表格，其中每个元素aij属于第i⾏第j列</p>
+<p>代码：</p>
+<pre><code class="language-py">import torch
+x = torch.arange(20).reshape(5,4)
+print(x)
+print(x[3,2])
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-py">tensor([[ 0,  1,  2,  3],
+  [ 4,  5,  6,  7],
+  [ 8,  9, 10, 11],
+  [12, 13, 14, 15],
+  [16, 17, 18, 19]])
+tensor(14)
+</code></pre>
+<blockquote>
+<ul>
+<li>转置矩阵：当我们交换矩阵的⾏和列时，结果称为矩阵的转置（transpose）</li>
+</ul>
+<p>代码：</p>
+<pre><code class="language-py">import torch
+x = torch.arange(20).reshape(5,4)
+print(x.T)
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-py">tensor([[ 0,  4,  8, 12, 16],
+        [ 1,  5,  9, 13, 17],
+        [ 2,  6, 10, 14, 18],
+        [ 3,  7, 11, 15, 19]])
+</code></pre>
+<ul>
+<li>作为⽅阵的⼀种特殊类型，对称矩阵（symmetric matrix）A等于其转置：A = A⊤。这⾥我们定义⼀个对称<br>
+矩阵</li>
+</ul>
+<p>代码：</p>
+<pre><code class="language-py">import torch
+
+a = torch.tensor([[1,2,3],[2,3,4],[3,4,5]])
+print(a.T)
+print(a.T == a)
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-py">tensor([[1, 2, 3],
+        [2, 3, 4],
+        [3, 4, 5]])
+tensor([[True, True, True],
+        [True, True, True],
+        [True, True, True]])
+</code></pre>
+</blockquote>
+</blockquote>
+<h2 id="四-张量-多维张量">四. 张量 (多维张量)</h2>
+<blockquote>
+<p>就像向量是标量的推广，矩阵是向量的推广⼀样，我们可以构建具有更多轴的数据结构。张量为我们提供了描述具有任意数量轴的n维数组的通用方法。</p>
+<p>代码：</p>
+<pre><code class="language-py">import torch
+x = torch.arange(24).reshape(2,3,4)
+print(x)
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-py">tensor([[[ 0,  1,  2,  3],
+      [ 4,  5,  6,  7],
+      [ 8,  9, 10, 11]],
+
+     [[12, 13, 14, 15],
+      [16, 17, 18, 19],
+      [20, 21, 22, 23]]])
+</code></pre>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[深度学习--数据处理]]></title>
         <id>https://liver.ink/post/shen-du-xue-xi-shu-ju-chu-li/</id>
         <link href="https://liver.ink/post/shen-du-xue-xi-shu-ju-chu-li/">
         </link>
-        <updated>2022-04-14T13:15:54.000Z</updated>
-        <summary type="html"><![CDATA[<blockquote>
-<p>利用pandas进行数据预处理</p>
-</blockquote>
-<h2 id="一读取数据集">一.读取数据集</h2>
-<ul>
-<li>
-<p>创建一个人工数据集(<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>文件)</p>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-py">import os
-
-os.makedirs(os.path.join('..','data'),exist_ok = True)
-data_file = os.path.join('..','data','house_ting.csv')
-with open(data_file, 'w') as f:
-f.write('NumRooms,Alley,Price\n') # 列名
-f.write('NA,Pave,127500\n') # 每⾏表⽰⼀个数据样本
-f.write('2,NA,106000\n')
-f.write('4,NA,178100\n')
-f.write('NA,NA,140000\n')
-
-import pandas as pd
-
-data = pd.read_csv(data_file)
-print(data)
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">NumRooms Alley   Price
-0       NaN  Pave  127500
-1       2.0   NaN  106000
-2       4.0   NaN  178100
-3       NaN   NaN  140000
-</code></pre>
-</blockquote>
-</li>
-<li>
-<p>处理缺失值</p>
-<p><strong>NaN代表缺失值</strong>：处理方法包括 <u>插值法和删除法</u></p>
-<ul>
-<li>
-<p>插值法：通过位置索引iloc，将data分为inputs和outputs,其中前者为data的前两列，而后者为data的最后一列，对于inputs中缺少的数值，我们有同一列的均值替换“NaN“项</p>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-py">inputs, outputs = data.iloc[:, 0:2],data.iloc[:, 2]
-inputs = inputs.fillna(inputs.mean())
-print(inputs)
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">NumRooms Alley
-0       3.0  Pave
-1       2.0   NaN
-2       4.0   NaN
-3       3.0   NaN
-</code></pre>
-<p>由于“巷⼦类型”（“Alley”）列只接受两种类型的类别值“Pave”和“NaN”，pandas可以⾃动将此列转换为两列“Alley_Pave”和“Alley_nan”。巷⼦类型为“Pave”的⾏会将“Alley_Pave”的值设置为1，“Alley_nan”的值设置为0。缺少巷⼦类型的⾏会将“Alley_Pave”和“Alley_nan”分别设置为0和1。</p>
-<p>代码：</p>
-<pre><code class="language-py">data = pd.read_csv(data_file)
-inputs, outputs = data.iloc[:, 0:2],data.iloc[:, 2]
-inputs = inputs.fillna(inputs.mean())
-inputs = pd.get_dummies(inputs, dummy_na = True#不忽略缺失值)
-print(inputs)
-</code></pre>
-</blockquote>
-</li>
-<li>
-<p>删除法</p>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-py">import pandas as pd
-
-data = pd.read_csv(data_file)
-inputs, outputs = data.iloc[:, 0:2],data.iloc[:, 2]
-nan_num = inputs.isnull().sum(axis = 0) #找出每列的缺失值个数
-nan_max_id = nan_num.idxmax() #找出缺失值最多的列的索引
-inputs = inputs.drop([nan_max_id], axis = 1)
-inputs = inputs.fillna(inputs.mean())
-print(inputs)
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">NumRooms
-0       3.0
-1       2.0
-2       4.0
-3       3.0
-</code></pre>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="二-转换为张量格式">二. 转换为张量格式</h2>
-<blockquote>
-<p>代码：</p>
-<pre><code class="language-python">X, y = torch.tensor(inputs.values), torch.tensor(output.values)
-print(f'{X}\n{y}')
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor([[3., 1., 0.],
-     [2., 0., 1.],
-     [4., 0., 1.],
-     [3., 0., 1.]], dtype=torch.float64)
-tensor([127500, 106000, 178100, 140000])
-</code></pre>
-</blockquote>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>逗号分隔值文件 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></summary>
+        <updated>2022-04-15T23:30:20.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
 <p>利用pandas进行数据预处理</p>
 </blockquote>
@@ -230,7 +248,6 @@ print(f'{X}\n{y}')
 tensor([127500, 106000, 178100, 140000])
 </code></pre>
 </blockquote>
-<!-- more -->
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
