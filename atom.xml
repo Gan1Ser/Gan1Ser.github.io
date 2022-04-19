@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liver.ink</id>
     <title>GanSer</title>
-    <updated>2022-04-15T23:40:20.066Z</updated>
+    <updated>2022-04-19T00:26:33.716Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liver.ink"/>
     <link rel="self" href="https://liver.ink/atom.xml"/>
@@ -10,6 +10,142 @@
     <logo>https://liver.ink/images/avatar.png</logo>
     <icon>https://liver.ink/favicon.ico</icon>
     <rights>All rights reserved 2022, GanSer</rights>
+    <entry>
+        <title type="html"><![CDATA[深度学习--微积分]]></title>
+        <id>https://liver.ink/post/shen-du-xue-xi-wei-ji-fen/</id>
+        <link href="https://liver.ink/post/shen-du-xue-xi-wei-ji-fen/">
+        </link>
+        <updated>2022-04-18T00:21:19.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="微积分">微积分</h1>
+<h2 id="一-导数与微分">一. 导数与微分</h2>
+<blockquote>
+<p>导数的代码实现(求极限)：</p>
+<p>代码：</p>
+<pre><code class="language-python">import numpy as np
+
+from IPython import display
+from d2l import torch as d2l
+
+def f(x):
+ return 3 * x ** 2 - 4 * x
+
+def numerical_lim(f,x,h):
+ return (f(x + h) - f(x)) / h
+
+h = 0.1
+for i in range(5):
+ print(f'h = {h:.5f}, numercal limit = {numerical_lim(f, 1, h):.5f}')
+ h *= 0.1
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-python">h = 0.10000, numercal limit = 2.30000
+h = 0.01000, numercal limit = 2.03000
+h = 0.00100, numercal limit = 2.00300
+h = 0.00010, numercal limit = 2.00030
+h = 0.00001, numercal limit = 2.00003
+</code></pre>
+</blockquote>
+<blockquote>
+<p>导数的数学求法：略</p>
+</blockquote>
+<h2 id="二-matplotlib-使用">二. Matplotlib 使用</h2>
+<figure data-type="image" tabindex="1"><img src="D:%5C%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0%5C%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%5C%E5%9B%BE%E7%89%87%5CMatplotlib.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>代码：</p>
+<pre><code>import numpy as np
+
+from IPython import display
+from d2l import torch as d2l
+
+def f(x):
+ return 3 * x ** 2 - 4 * x
+
+def numerical_lim(f,x,h):
+ return (f(x + h) - f(x)) / h
+h = 0.1
+for i in range(5):
+ print(f'h = {h:.5f}, numercal limit = {numerical_lim(f, 1, h):.5f}')
+ h *= 0.1
+
+def use_svg_display():   #@save
+ '''使用svg格式在Jupyter中显示绘图'''
+ display.set_matplotlib_formats('svg')
+
+&quot;&quot;&quot;我们定义set_figsize函数来设置图表⼤⼩。注意,这⾥我们直接使⽤d2l.plt,因为导⼊语句 from mat-
+plotlib import pyplot as plt已标记为保存到d2l包中。&quot;&quot;&quot;
+def set_figsize(figsize = (3.5, 2.5)): #@save
+ &quot;&quot;&quot;设置matplotlib的图表大小&quot;&quot;&quot;
+ use_svg_display()
+ d2l.plt.rcParams['figure.figsize'] = figsize
+&quot;&quot;&quot;下⾯的set_axes函数⽤于设置由matplotlib⽣成图表的轴的属性&quot;&quot;&quot;
+def set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend):
+ &quot;&quot;&quot;设置matplotlib的轴&quot;&quot;&quot;
+ axes.set_xlabel(xlabel)
+ axes.set_ylabel(ylabel)
+ axes.set_xscale(xscale)
+ axes.set_yscale(yscale)
+ axes.set_xlim(xlim)
+ axes.set_ylim(ylim)
+ if legend:
+     axes.legend(legend)
+ axes.grid()
+def plot(X, Y =None, xlabel = None, ylabel = None, legend = None, xlim = None,
+      ylim = None, xscale = 'linear', yscale = 'linear',
+     fmts = ('-', 'm--', 'g-', 'r:'), figsize = (3.5,2.5), axes = None):
+ '''绘制数据点'''
+ if legend is None:
+     legend = []
+
+ set_figsize(figsize)
+ axes = axes if axes else d2l.plt.gca()
+
+ #如果x有一个轴，输出True
+ def has_one_axis(X):
+     return (hasattr(X, 'ndim') and x.ndim == 1 or isinstance(X, list)
+         and not hasattr(X[0], '__len__'))
+ 
+ if has_one_axis(X):
+     X = [X]
+ if Y is None:
+     X, Y = [[]] * len(X), X
+ 
+ elif has_one_axis(Y):
+     Y = [Y]
+ if len(X) != len(Y):
+     X = X * len(Y)
+ axes.cla()
+ for x, y, fmt in zip(X,Y,fmts):
+     if len(x):
+         axes.plot(x,y,fmt)
+     else:
+         axes.plot(y, fmt)
+
+ set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend)
+
+x = np.arange(0,3,0.1)
+plot(x, [f(x), 2 * x - 3], 'x', 'f(x)',legend=['f(x)', 'Tangent line (x=1)'])
+
+
+h = 0.1
+for i in range(5):
+ print(f'h = {h:.5f}, numercal limit = {numerical_lim(f, 1, h):.5f}')
+ h *= 0.1
+</code></pre>
+</blockquote>
+<h2 id="三-偏导数">三. 偏导数</h2>
+<p>数学知识: 略</p>
+<h2 id="四-梯度">四. 梯度</h2>
+<figure data-type="image" tabindex="2"><img src="https://imgs.wiki/imgs/2022/04/19/2e45bc0d0edbee3e.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>简单而言<strong>梯度</strong>就是一个包含了发f(x)所有偏导数的向量</p>
+</blockquote>
+<h2 id="五-链式法则">五. 链式法则</h2>
+<figure data-type="image" tabindex="3"><img src="https://imgs.wiki/imgs/2022/04/19/dd31ab5a04d423db.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>多元函数的复合求导法则</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[深度学习--线性代数]]></title>
         <id>https://liver.ink/post/shen-du-xue-xi-xian-xing-dai-shu/</id>

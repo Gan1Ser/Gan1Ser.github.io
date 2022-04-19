@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>深度学习--数据处理 | GanSer</title>
+<title>深度学习--微积分 | GanSer</title>
 
 <link rel="shortcut icon" href="https://liver.ink/favicon.ico?v=1650327962688">
 
@@ -89,137 +89,155 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    深度学习--数据处理
+                    深度学习--微积分
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2022-04-16 ·
+                        · 2022-04-18 ·
                     </time>
                     
-                        <a href="https://liver.ink/tag/w0aAVvR9o/" class="post-tags">
-                            # 数据处理
+                        <a href="https://liver.ink/tag/HHbRJw5mt/" class="post-tags">
+                            # 微积分基础
                         </a>
                     
-                        <a href="https://liver.ink/tag/LmuGRDHVGI/" class="post-tags">
-                            # csv
+                        <a href="https://liver.ink/tag/GY0Ud6Lz_6/" class="post-tags">
+                            # 梯度
                         </a>
                     
-                        <a href="https://liver.ink/tag/Ovkfy1JmnW/" class="post-tags">
-                            # 深度学习
+                        <a href="https://liver.ink/tag/8uzCh3k02/" class="post-tags">
+                            # 深度学习入门
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <blockquote>
-<p>利用pandas进行数据预处理</p>
-</blockquote>
-<h2 id="一读取数据集">一.读取数据集</h2>
-<ul>
-<li>
-<p>创建一个人工数据集(<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>文件)</p>
+                    <h1 id="微积分">微积分</h1>
+<h2 id="一-导数与微分">一. 导数与微分</h2>
 <blockquote>
+<p>导数的代码实现(求极限)：</p>
 <p>代码：</p>
-<pre><code class="language-py">import os
+<pre><code class="language-python">import numpy as np
 
-os.makedirs(os.path.join('..','data'),exist_ok = True)
-data_file = os.path.join('..','data','house_ting.csv')
-with open(data_file, 'w') as f:
-f.write('NumRooms,Alley,Price\n') # 列名
-f.write('NA,Pave,127500\n') # 每⾏表⽰⼀个数据样本
-f.write('2,NA,106000\n')
-f.write('4,NA,178100\n')
-f.write('NA,NA,140000\n')
+from IPython import display
+from d2l import torch as d2l
 
-import pandas as pd
+def f(x):
+ return 3 * x ** 2 - 4 * x
 
-data = pd.read_csv(data_file)
-print(data)
+def numerical_lim(f,x,h):
+ return (f(x + h) - f(x)) / h
+
+h = 0.1
+for i in range(5):
+ print(f'h = {h:.5f}, numercal limit = {numerical_lim(f, 1, h):.5f}')
+ h *= 0.1
 </code></pre>
 <p>输出：</p>
-<pre><code class="language-py">NumRooms Alley   Price
-0       NaN  Pave  127500
-1       2.0   NaN  106000
-2       4.0   NaN  178100
-3       NaN   NaN  140000
+<pre><code class="language-python">h = 0.10000, numercal limit = 2.30000
+h = 0.01000, numercal limit = 2.03000
+h = 0.00100, numercal limit = 2.00300
+h = 0.00010, numercal limit = 2.00030
+h = 0.00001, numercal limit = 2.00003
 </code></pre>
 </blockquote>
-</li>
-<li>
-<p>处理缺失值</p>
-<p><strong>NaN代表缺失值</strong>：处理方法包括 <u>插值法和删除法</u></p>
-<ul>
-<li>
-<p>插值法：通过位置索引iloc，将data分为inputs和outputs,其中前者为data的前两列，而后者为data的最后一列，对于inputs中缺少的数值，我们有同一列的均值替换“NaN“项</p>
 <blockquote>
-<p>代码：</p>
-<pre><code class="language-py">inputs, outputs = data.iloc[:, 0:2],data.iloc[:, 2]
-inputs = inputs.fillna(inputs.mean())
-print(inputs)
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">NumRooms Alley
-0       3.0  Pave
-1       2.0   NaN
-2       4.0   NaN
-3       3.0   NaN
-</code></pre>
-<p>由于“巷⼦类型”（“Alley”）列只接受两种类型的类别值“Pave”和“NaN”，pandas可以⾃动将此列转换为两列“Alley_Pave”和“Alley_nan”。巷⼦类型为“Pave”的⾏会将“Alley_Pave”的值设置为1，“Alley_nan”的值设置为0。缺少巷⼦类型的⾏会将“Alley_Pave”和“Alley_nan”分别设置为0和1。</p>
-<p>代码：</p>
-<pre><code class="language-py">data = pd.read_csv(data_file)
-inputs, outputs = data.iloc[:, 0:2],data.iloc[:, 2]
-inputs = inputs.fillna(inputs.mean())
-inputs = pd.get_dummies(inputs, dummy_na = True#不忽略缺失值)
-print(inputs)
-</code></pre>
+<p>导数的数学求法：略</p>
 </blockquote>
-</li>
-<li>
-<p>删除法</p>
+<h2 id="二-matplotlib-使用">二. Matplotlib 使用</h2>
+<figure data-type="image" tabindex="1"><img src="D:%5C%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0%5C%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%5C%E5%9B%BE%E7%89%87%5CMatplotlib.png" alt="" loading="lazy"></figure>
 <blockquote>
 <p>代码：</p>
-<pre><code class="language-py">import pandas as pd
+<pre><code>import numpy as np
 
-data = pd.read_csv(data_file)
-inputs, outputs = data.iloc[:, 0:2],data.iloc[:, 2]
-nan_num = inputs.isnull().sum(axis = 0) #找出每列的缺失值个数
-nan_max_id = nan_num.idxmax() #找出缺失值最多的列的索引
-inputs = inputs.drop([nan_max_id], axis = 1)
-inputs = inputs.fillna(inputs.mean())
-print(inputs)
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">NumRooms
-0       3.0
-1       2.0
-2       4.0
-3       3.0
+from IPython import display
+from d2l import torch as d2l
+
+def f(x):
+ return 3 * x ** 2 - 4 * x
+
+def numerical_lim(f,x,h):
+ return (f(x + h) - f(x)) / h
+h = 0.1
+for i in range(5):
+ print(f'h = {h:.5f}, numercal limit = {numerical_lim(f, 1, h):.5f}')
+ h *= 0.1
+
+def use_svg_display():   #@save
+ '''使用svg格式在Jupyter中显示绘图'''
+ display.set_matplotlib_formats('svg')
+
+&quot;&quot;&quot;我们定义set_figsize函数来设置图表⼤⼩。注意,这⾥我们直接使⽤d2l.plt,因为导⼊语句 from mat-
+plotlib import pyplot as plt已标记为保存到d2l包中。&quot;&quot;&quot;
+def set_figsize(figsize = (3.5, 2.5)): #@save
+ &quot;&quot;&quot;设置matplotlib的图表大小&quot;&quot;&quot;
+ use_svg_display()
+ d2l.plt.rcParams['figure.figsize'] = figsize
+&quot;&quot;&quot;下⾯的set_axes函数⽤于设置由matplotlib⽣成图表的轴的属性&quot;&quot;&quot;
+def set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend):
+ &quot;&quot;&quot;设置matplotlib的轴&quot;&quot;&quot;
+ axes.set_xlabel(xlabel)
+ axes.set_ylabel(ylabel)
+ axes.set_xscale(xscale)
+ axes.set_yscale(yscale)
+ axes.set_xlim(xlim)
+ axes.set_ylim(ylim)
+ if legend:
+     axes.legend(legend)
+ axes.grid()
+def plot(X, Y =None, xlabel = None, ylabel = None, legend = None, xlim = None,
+      ylim = None, xscale = 'linear', yscale = 'linear',
+     fmts = ('-', 'm--', 'g-', 'r:'), figsize = (3.5,2.5), axes = None):
+ '''绘制数据点'''
+ if legend is None:
+     legend = []
+
+ set_figsize(figsize)
+ axes = axes if axes else d2l.plt.gca()
+
+ #如果x有一个轴，输出True
+ def has_one_axis(X):
+     return (hasattr(X, 'ndim') and x.ndim == 1 or isinstance(X, list)
+         and not hasattr(X[0], '__len__'))
+ 
+ if has_one_axis(X):
+     X = [X]
+ if Y is None:
+     X, Y = [[]] * len(X), X
+ 
+ elif has_one_axis(Y):
+     Y = [Y]
+ if len(X) != len(Y):
+     X = X * len(Y)
+ axes.cla()
+ for x, y, fmt in zip(X,Y,fmts):
+     if len(x):
+         axes.plot(x,y,fmt)
+     else:
+         axes.plot(y, fmt)
+
+ set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend)
+
+x = np.arange(0,3,0.1)
+plot(x, [f(x), 2 * x - 3], 'x', 'f(x)',legend=['f(x)', 'Tangent line (x=1)'])
+
+
+h = 0.1
+for i in range(5):
+ print(f'h = {h:.5f}, numercal limit = {numerical_lim(f, 1, h):.5f}')
+ h *= 0.1
 </code></pre>
 </blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="二-转换为张量格式">二. 转换为张量格式</h2>
+<h2 id="三-偏导数">三. 偏导数</h2>
+<p>数学知识: 略</p>
+<h2 id="四-梯度">四. 梯度</h2>
+<figure data-type="image" tabindex="2"><img src="https://imgs.wiki/imgs/2022/04/19/2e45bc0d0edbee3e.png" alt="" loading="lazy"></figure>
 <blockquote>
-<p>代码：</p>
-<pre><code class="language-python">X, y = torch.tensor(inputs.values), torch.tensor(output.values)
-print(f'{X}\n{y}')
-</code></pre>
-<p>输出：</p>
-<pre><code class="language-py">tensor([[3., 1., 0.],
-     [2., 0., 1.],
-     [4., 0., 1.],
-     [3., 0., 1.]], dtype=torch.float64)
-tensor([127500, 106000, 178100, 140000])
-</code></pre>
+<p>简单而言<strong>梯度</strong>就是一个包含了发f(x)所有偏导数的向量</p>
 </blockquote>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>逗号分隔值文件 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
+<h2 id="五-链式法则">五. 链式法则</h2>
+<figure data-type="image" tabindex="3"><img src="https://imgs.wiki/imgs/2022/04/19/dd31ab5a04d423db.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>多元函数的复合求导法则</p>
+</blockquote>
 
                 </div>
             </article>
@@ -228,14 +246,14 @@ tensor([127500, 106000, 178100, 140000])
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://liver.ink/post/shen-du-xue-xi-zhang-liang-suan-fa/" class="post-title gt-a-link">
-                    深度学习--张量算法
+                <a href="https://liver.ink/post/shen-du-xue-xi-xian-xing-dai-shu/" class="post-title gt-a-link">
+                    深度学习--线性代数
                 </a>
             </div>
         
 
         
-            <span id="/post/shen-du-xue-xi-shu-ju-chu-li/" class="leancloud_visitors" data-flag-title="深度学习--数据处理">
+            <span id="/post/shen-du-xue-xi-wei-ji-fen/" class="leancloud_visitors" data-flag-title="深度学习--微积分">
                 <em class="post-meta-item-text">阅读量 </em>
                 <i class="leancloud-visitors-count">0</i>
             </span>
