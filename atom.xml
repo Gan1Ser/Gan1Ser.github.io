@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://liver.ink</id>
     <title>GanSer</title>
-    <updated>2022-04-19T00:26:33.716Z</updated>
+    <updated>2022-06-01T08:33:15.039Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://liver.ink"/>
     <link rel="self" href="https://liver.ink/atom.xml"/>
@@ -10,6 +10,294 @@
     <logo>https://liver.ink/images/avatar.png</logo>
     <icon>https://liver.ink/favicon.ico</icon>
     <rights>All rights reserved 2022, GanSer</rights>
+    <entry>
+        <title type="html"><![CDATA[学习通未完成作业----微信推送]]></title>
+        <id>https://liver.ink/post/xue-xi-tong-wei-wan-cheng-zuo-ye-wei-xin-tui-song/</id>
+        <link href="https://liver.ink/post/xue-xi-tong-wei-wan-cheng-zuo-ye-wei-xin-tui-song/">
+        </link>
+        <updated>2022-06-01T07:51:03.000Z</updated>
+        <summary type="html"><![CDATA[<p>😆小伙伴们都放假了，说起这一年陪伴最久最久的当属学习通了。可有些时候总是忘记作业截止时间那个后悔呀😅恼怒呀🤣。<br>
+🤡本程序需要抓学习通的Cookie和User-Agent，之后代码直接粘贴到腾讯的云函数内即可，需要安装bs4和lxml库，使用方糖（Severs酱）或者Wxpusher推送，默认使用Wxpusher。<br>
+😤下面开始教程：</p>
+<ul>
+<li>第一步：登录腾讯云，进去创建一个空白函数</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://imgs.wiki/imgs/2022/06/01/a3e883165a07e24c.png" alt="" loading="lazy"></figure>
+<ul>
+<li>第二步：安装bs4和lxml库，在终端界面使用</li>
+</ul>
+<pre><code class="language-python">cd src
+pip3 install bs4 -t .
+pip3 install lxml -t .
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://imgs.wiki/imgs/2022/06/01/90ddecb8e2487136.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://imgs.wiki/imgs/2022/06/01/0c855d57b1b256e9.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://imgs.wiki/imgs/2022/06/01/6857675e07a5ee03.png" alt="" loading="lazy"></figure>
+<ul>
+<li>第三步：代码段复制到在线编辑框，代码内填入Cookie，User-Agent，推送的id就可以了,使用方糖的话把代码的注释打开，下面的body和request.post注释上或者删掉就行。改完代码记得点一下编辑框右上角的部署，这样代码才能生效。</li>
+</ul>
+<pre><code class="language-python"># -*- coding: utf8 -*-
+import requests
+from bs4 import BeautifulSoup
+import json
+import re
+import datetime
+
+# 方糖推送（需要输入方糖推送的sckey）sckey = ''
+ftqqUrl = &quot;https://sc.ftqq.com/%s.send&quot; % (sckey)
+
+# wxpusher推送（需要输入wxpusher的apptoken）appToken = &quot;&quot;
+wxurl = &quot;http://wxpusher.zjiecode.com/api/send/message&quot;
+
+getAllCourseDataUrl = 'http://mooc1-api.chaoxing.com/mycourse/backclazzdata?view=json&amp;rss=1'
+
+headers = {
+    'Host': 'mooc1-api.chaoxing.com',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Cookie': '在这里输入你的学习通cookie',
+    'User-Agent': '在这里输入你的user-Agent',
+    'Accept-Language': 'zh-cn',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Connection': 'keep-alive'
+}
+wx_header = {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+}
+
+
+def checkHomework():
+    status = &quot;未完成作业概览：\n&quot;
+    courses = getDataUrl()
+    allTodoWork = []
+    for name in courses:
+        url = courses[name]
+        homework = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(homework, 'lxml')
+        work = soup.find_all('li')
+        for i in range(len(work)):
+            if work.div.span.string == &quot;未交&quot; and work.find('span', class_='fr') is not None:
+                # status = status + '\n' + name + '\n'
+                restTime = work.find('span', class_='fr').string
+                # 剩余具体小时数
+                restHour = re.findall(r&quot;剩余(.+?)小时&quot;, restTime)
+                # 剩余多出来的分钟数
+                restMinute = re.findall(r&quot;小时(.+?)分钟&quot;, restTime)
+                # 当前时间加上剩余小时
+                endTime1 = datetime.datetime.now() + datetime.timedelta(hours=int(restHour[0]))
+                # 最后加上分钟数即可算出具体的截止时间
+                endTime2 = endTime1 + datetime.timedelta(minutes=int(restMinute[0]))
+                # 当前作业状态
+                workStatus = '\n' + name + '\n' + work[
+                    i].div.p.string + '\n' + restTime + '\n' + '截止时间：' + endTime2.strftime(
+                    &quot;%Y-%m-%d %H:%M:%S&quot;) + '\n'
+                allTodoWork.append(workStatus)
+    # 重新排序，时间截止日期近的排在前面
+    allTodoWork.sort(key=lambda t: int(re.findall(r&quot;剩余(.+?)小时&quot;, t)[0]))
+    for i in range(len(allTodoWork)):
+        status = status + allTodoWork
+    print(status)
+    # payload = {'text': '作业未完成通知', 'desp': status}
+    # requests.post(ftqqUrl, params=payload)
+    body = {
+        &quot;appToken&quot;: appToken,
+        &quot;content&quot;: status,
+        &quot;summary&quot;: &quot;&quot;,
+        &quot;contentType&quot;: 1,
+        &quot;topicIds&quot;: [],
+        &quot;uids&quot;: [&quot;在这里需要输入你的wxpusher的UID&quot;],
+    }
+    requests.post(wxurl, headers=wx_header, data=json.dumps(body))
+
+
+# 获取所有本学期内的课程名及对应url
+def getDataUrl():
+    allCourse = requests.get(getAllCourseDataUrl, headers=headers).text
+    allCourseJson = json.loads(allCourse)
+    channelList = allCourseJson['channelList']
+    cpi = ''
+    for c in range(len(channelList)):
+        # 获取最近添加的课程的cpi，使用该cpi来判断其它课程是否为本学期的
+        if 'cpi' in channelList[c]:
+            cpi = channelList[c]['cpi']
+            break
+    realCourse = []
+    finalCourseData = {}
+    for i in range(len(channelList)):
+        if 'cpi' in channelList and channelList['cpi'] == cpi:
+            realCourse.append(channelList['content']['course']['data'][0])
+
+    for t in range(len(realCourse)):
+        courseName = realCourse[t]['name']
+        courseSquareUrl = realCourse[t]['courseSquareUrl']
+        courseId = re.findall(r'courseId=(.+?)&amp;', courseSquareUrl)[0]
+        classId = re.findall(r'classId=(.+?)&amp;', courseSquareUrl)[0]
+        courseWorkUrl = 'https://mooc1-api.chaoxing.com/work/task-list?courseId=' + courseId + '&amp;classId=' + classId + '&amp;cpi=' + str(
+            cpi)
+        tmpDict = {courseName: courseWorkUrl}
+        finalCourseData.update(tmpDict)
+    return finalCourseData
+
+
+def main_handler(event, context):
+    return checkHomework()
+
+
+if __name__ == '__main__':
+    checkHomework()
+</code></pre>
+<ul>
+<li>
+<p>第四步：进入函数配置，配置一下时间的环境变量，设置为上海时间<br>
+<img src="https://imgs.wiki/imgs/2022/06/01/60ba24ef4a7238af.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>第五步：进入触发管理，设置触发器，我这里设置的是每天7：30，12：30，18：30推送一次，可以根据自己的需要使用cron表达式更改推送时间</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="5"><img src="https://imgs.wiki/imgs/2022/06/01/3085b29afd0dabd5.png" alt="" loading="lazy"></figure>
+]]></summary>
+        <content type="html"><![CDATA[<p>😆小伙伴们都放假了，说起这一年陪伴最久最久的当属学习通了。可有些时候总是忘记作业截止时间那个后悔呀😅恼怒呀🤣。<br>
+🤡本程序需要抓学习通的Cookie和User-Agent，之后代码直接粘贴到腾讯的云函数内即可，需要安装bs4和lxml库，使用方糖（Severs酱）或者Wxpusher推送，默认使用Wxpusher。<br>
+😤下面开始教程：</p>
+<ul>
+<li>第一步：登录腾讯云，进去创建一个空白函数</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://imgs.wiki/imgs/2022/06/01/a3e883165a07e24c.png" alt="" loading="lazy"></figure>
+<ul>
+<li>第二步：安装bs4和lxml库，在终端界面使用</li>
+</ul>
+<pre><code class="language-python">cd src
+pip3 install bs4 -t .
+pip3 install lxml -t .
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://imgs.wiki/imgs/2022/06/01/90ddecb8e2487136.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://imgs.wiki/imgs/2022/06/01/0c855d57b1b256e9.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://imgs.wiki/imgs/2022/06/01/6857675e07a5ee03.png" alt="" loading="lazy"></figure>
+<ul>
+<li>第三步：代码段复制到在线编辑框，代码内填入Cookie，User-Agent，推送的id就可以了,使用方糖的话把代码的注释打开，下面的body和request.post注释上或者删掉就行。改完代码记得点一下编辑框右上角的部署，这样代码才能生效。</li>
+</ul>
+<pre><code class="language-python"># -*- coding: utf8 -*-
+import requests
+from bs4 import BeautifulSoup
+import json
+import re
+import datetime
+
+# 方糖推送（需要输入方糖推送的sckey）sckey = ''
+ftqqUrl = &quot;https://sc.ftqq.com/%s.send&quot; % (sckey)
+
+# wxpusher推送（需要输入wxpusher的apptoken）appToken = &quot;&quot;
+wxurl = &quot;http://wxpusher.zjiecode.com/api/send/message&quot;
+
+getAllCourseDataUrl = 'http://mooc1-api.chaoxing.com/mycourse/backclazzdata?view=json&amp;rss=1'
+
+headers = {
+    'Host': 'mooc1-api.chaoxing.com',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Cookie': '在这里输入你的学习通cookie',
+    'User-Agent': '在这里输入你的user-Agent',
+    'Accept-Language': 'zh-cn',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Connection': 'keep-alive'
+}
+wx_header = {
+    &quot;Content-Type&quot;: &quot;application/json&quot;,
+}
+
+
+def checkHomework():
+    status = &quot;未完成作业概览：\n&quot;
+    courses = getDataUrl()
+    allTodoWork = []
+    for name in courses:
+        url = courses[name]
+        homework = requests.get(url, headers=headers).text
+        soup = BeautifulSoup(homework, 'lxml')
+        work = soup.find_all('li')
+        for i in range(len(work)):
+            if work.div.span.string == &quot;未交&quot; and work.find('span', class_='fr') is not None:
+                # status = status + '\n' + name + '\n'
+                restTime = work.find('span', class_='fr').string
+                # 剩余具体小时数
+                restHour = re.findall(r&quot;剩余(.+?)小时&quot;, restTime)
+                # 剩余多出来的分钟数
+                restMinute = re.findall(r&quot;小时(.+?)分钟&quot;, restTime)
+                # 当前时间加上剩余小时
+                endTime1 = datetime.datetime.now() + datetime.timedelta(hours=int(restHour[0]))
+                # 最后加上分钟数即可算出具体的截止时间
+                endTime2 = endTime1 + datetime.timedelta(minutes=int(restMinute[0]))
+                # 当前作业状态
+                workStatus = '\n' + name + '\n' + work[
+                    i].div.p.string + '\n' + restTime + '\n' + '截止时间：' + endTime2.strftime(
+                    &quot;%Y-%m-%d %H:%M:%S&quot;) + '\n'
+                allTodoWork.append(workStatus)
+    # 重新排序，时间截止日期近的排在前面
+    allTodoWork.sort(key=lambda t: int(re.findall(r&quot;剩余(.+?)小时&quot;, t)[0]))
+    for i in range(len(allTodoWork)):
+        status = status + allTodoWork
+    print(status)
+    # payload = {'text': '作业未完成通知', 'desp': status}
+    # requests.post(ftqqUrl, params=payload)
+    body = {
+        &quot;appToken&quot;: appToken,
+        &quot;content&quot;: status,
+        &quot;summary&quot;: &quot;&quot;,
+        &quot;contentType&quot;: 1,
+        &quot;topicIds&quot;: [],
+        &quot;uids&quot;: [&quot;在这里需要输入你的wxpusher的UID&quot;],
+    }
+    requests.post(wxurl, headers=wx_header, data=json.dumps(body))
+
+
+# 获取所有本学期内的课程名及对应url
+def getDataUrl():
+    allCourse = requests.get(getAllCourseDataUrl, headers=headers).text
+    allCourseJson = json.loads(allCourse)
+    channelList = allCourseJson['channelList']
+    cpi = ''
+    for c in range(len(channelList)):
+        # 获取最近添加的课程的cpi，使用该cpi来判断其它课程是否为本学期的
+        if 'cpi' in channelList[c]:
+            cpi = channelList[c]['cpi']
+            break
+    realCourse = []
+    finalCourseData = {}
+    for i in range(len(channelList)):
+        if 'cpi' in channelList and channelList['cpi'] == cpi:
+            realCourse.append(channelList['content']['course']['data'][0])
+
+    for t in range(len(realCourse)):
+        courseName = realCourse[t]['name']
+        courseSquareUrl = realCourse[t]['courseSquareUrl']
+        courseId = re.findall(r'courseId=(.+?)&amp;', courseSquareUrl)[0]
+        classId = re.findall(r'classId=(.+?)&amp;', courseSquareUrl)[0]
+        courseWorkUrl = 'https://mooc1-api.chaoxing.com/work/task-list?courseId=' + courseId + '&amp;classId=' + classId + '&amp;cpi=' + str(
+            cpi)
+        tmpDict = {courseName: courseWorkUrl}
+        finalCourseData.update(tmpDict)
+    return finalCourseData
+
+
+def main_handler(event, context):
+    return checkHomework()
+
+
+if __name__ == '__main__':
+    checkHomework()
+</code></pre>
+<ul>
+<li>
+<p>第四步：进入函数配置，配置一下时间的环境变量，设置为上海时间<br>
+<img src="https://imgs.wiki/imgs/2022/06/01/60ba24ef4a7238af.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>第五步：进入触发管理，设置触发器，我这里设置的是每天7：30，12：30，18：30推送一次，可以根据自己的需要使用cron表达式更改推送时间</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="5"><img src="https://imgs.wiki/imgs/2022/06/01/3085b29afd0dabd5.png" alt="" loading="lazy"></figure>
+<!-- more -->
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[深度学习--微积分]]></title>
         <id>https://liver.ink/post/shen-du-xue-xi-wei-ji-fen/</id>
