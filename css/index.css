@@ -13176,7 +13176,6 @@ li.card-archive-list-item {
   background-color: var(--anzhiyu-theme);
   border-radius: var(--anzhiyu-border-radius);
   padding: 3px 3px;
-  border: 1px solid transparent;
 }
 @media screen and (min-width: 1201px) {
   #content-inner #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a:hover,
@@ -18148,19 +18147,26 @@ canvas {
   top: -20px;
 
 }
-
+[data-theme="light"] {
 .back-home-button .back-menu-list-groups {
   background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 93%);
-}
+}}
+[data-theme="light"] {
 #rightMenu {
   background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 93%);
 }
+
+#flink-banners {
+  background: #ffffff6e;
+}
+
 #nav-music .aplayer {
   background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 93%) !important;
-}
+}}
+[data-theme="light"] {
 #nav .menus_items .menus_item .menus_item_child {
   background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 93%) !important;
-}
+}}
 
 :root {
   --icedream-color: #49A6E9;
@@ -18391,6 +18397,14 @@ canvas {
 details.folding-tag summary {
   margin: -19px !important;
 }
+.cf-article[data-v-56cae500] {
+  margin: 13px !important;
+  margin-left: -2px !important;
+}
+[data-theme="light"] {
+.cf-article {
+  background: #ffffff6e !important;
+}}
 #aside-content .card-widget#card-wechat {
   background: #57bd6a;
   display: flex;
@@ -21048,15 +21062,16 @@ body[data-type="fcircle"] #page {
   color: var(--anzhiyu-fontcolor);
   font-weight: 700;
 }
+[data-theme="light"] {
 #random-post {
   min-height: 32px;
-  background: var(--card-bg);
+  background:#ffffff6e;
   border: var(--style-border-always);
   box-shadow: var(--anzhiyu-shadow-border);
   padding: 20px 30px;
   border-radius: 12px;
   margin-top: 8px;
-}
+}}
 #random-post .random-friends-post {
   text-decoration: none;
   border-bottom: 2px solid var(--anzhiyu-lighttext) !important;
@@ -21091,6 +21106,19 @@ body[data-type="fcircle"] #page {
   line-height: 2;
 }
 
+[data-theme="light"] {
+
+#article-container .anzhiyu-flink-list .flink-list-item {
+  background: #ffffff6e !important;
+}
+
+#article-container .anzhiyu-flink-list .flink-list-item:hover a .flink-item-name {
+  color: #3c3d3d;
+}
+#article-container .anzhiyu-flink-list .flink-list-item:hover a .flink-item-desc {
+  color: #3c3d3d;
+}
+}
 #greetingBox {
   position: fixed;
   top: 10px;
@@ -25218,7 +25246,7 @@ div#runtime {
 }
 
 .author-content.author-content-item {
-  height: 19rem;
+  height: 30rem;
   background-color: var(--anzhiyu-main);
   background-position: left 28%;
   background-repeat: no-repeat;
