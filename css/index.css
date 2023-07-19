@@ -10322,7 +10322,6 @@ ul.menus_item_child {
   border-radius: 50px;
 }
 #nav .menus_items .menus_item .menus_item_child:hover {
-  border: var(--style-border-hover);
   -webkit-box-shadow: var(--anzhiyu-shadow-main);
   box-shadow: var(--anzhiyu-shadow-main);
 }
@@ -10685,9 +10684,6 @@ ul.menus_item_child {
 }
 .back-home-button .back-menu-list-group:hover .back-menu-list-title {
   color: var(--anzhiyu-main);
-}
-.back-home-button .back-menu-list-groups:hover {
-  border: var(--style-border-hover);
 }
 .back-home-button .back-menu-list .back-menu-item {
   display: -webkit-box;
@@ -17188,13 +17184,13 @@ body .snackbar-container::after {
   display: flex;
 }
 #page .tk-comments-container > .tk-comment {
-  background: var(--anzhiyu-card-bg);
+  background: rgba(255,255,255,0.22);
   padding: 1rem;
   padding-bottom: 1rem;
   border: var(--style-border);
   border-top: var(--style-border);
-  -webkit-box-shadow: var(--anzhiyu-shadow-border);
-  box-shadow: var(--anzhiyu-shadow-border);
+  -webkit-box-shadow: -20px 18px 16px -4px rgba(44,45,48,0.047);
+  box-shadow: -20px 18px 16px -4px rgba(44,45,48,0.047);
 }
 .tk-content {
   margin-top: 0.5rem;
@@ -18165,7 +18161,7 @@ canvas {
 
 #page-header.nav-fixed #nav {
   backdrop-filter: blur(5px) saturate(150%);
-  background: rgba(255, 255, 255, 0.75) !important;
+  background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 83%);
 }
 
 #footer {
@@ -18199,6 +18195,20 @@ canvas {
   top: -20px;
 
 }
+
+.back-home-button .back-menu-list-groups {
+  background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 93%);
+}
+#rightMenu {
+  background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 93%);
+}
+#nav-music .aplayer {
+  background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 93%) !important;
+}
+#nav .menus_items .menus_item .menus_item_child {
+  background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 93%) !important;
+}
+
 
 #aside-content .card-widget#card-wechat {
   background: #57bd6a;
@@ -20019,9 +20029,6 @@ body[data-type="essay"] #web_bg {
   max-height: 35px;
 }
 
-#bber .timeline ul li.bber-item:hover {
-  border: var(--style-border-hover);
-}
 
 #bber .bber-content-link {
   display: flex;
@@ -20221,7 +20228,6 @@ i.bber-gotobb {
 }
 
 #bbTimeList:hover {
-  border: var(--style-border-hover);
   box-shadow: var(--anzhiyu-shadow-main);
 }
 
@@ -22037,7 +22043,6 @@ b, strong {
   color: var(--anzhiyu-fontcolor);
 }
 #rightMenu:hover {
-  border: var(--style-border-hover);
   box-shadow: var(--anzhiyu-shadow-theme);
 }
 #rightMenu .rightMenu-group {
