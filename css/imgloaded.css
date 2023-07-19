@@ -1,0 +1,69 @@
+/* 首页头图加载 */
+.pl-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    will-change: transform; /* 添加性能优化 */
+    /* animation: blur-to-clear 2s cubic-bezier(.62,.21,.25,1) 0s 1 normal backwards running, scale 1.5s cubic-bezier(.62,.21,.25,1) 0s 1 both; */
+    -webkit-animation: blur-to-clear 2.5s cubic-bezier(.62,.21,.25,1) 0s 1 normal backwards running;
+  }
+  body[data-type=anzhiyu] #page-header {
+    -webkit-animation: scale 1s ease 0s 1 normal backwards running;
+    animation: scale 1s ease 0s 1 normal backwards running;
+}
+#page-header.full_page {
+    height: 100vh;
+    background-attachment: fixed;
+    border-radius: 0;
+}
+  .pl-img {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    transition: opacity 5s;
+  }
+  
+  @keyframes blur-to-clear {
+    0% {
+      filter: blur(50px);
+      opacity: 1;
+    }
+    100% {
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scale {
+    0% {
+      transform: scale(1.5) translateZ(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1) translateZ(0);
+      opacity: 1;
+    }
+  }
+  
+  .pl-visible {
+    opacity: 1;
+  }
+  
+  .pl-blur {
+    /* 小图锯齿多，增加高斯模糊 */
+    filter: blur(50px);
+  }
+    .pl-video {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAKUlEQVQImU3IMREAIAgAwJfNkQCEsH8cijjpMf6vnXlQaIiJFx+omEBfmqIEZLe2jzcAAAAASUVORK5CYII=);
+}
