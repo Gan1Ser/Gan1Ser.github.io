@@ -18405,6 +18405,15 @@ details.folding-tag summary {
 .cf-article {
   background: #ffffff6e !important;
 }}
+div#tag {
+  background: rgb(241 236 236 / 0%);
+}
+body[data-type="tags"] #page {
+  background: transparent !important;
+}
+.layout > div:first-child:not(.recent-posts) {
+  box-shadow: none;
+}
 #aside-content .card-widget#card-wechat {
   background: #57bd6a;
   display: flex;
