@@ -18760,6 +18760,15 @@ body[data-type="collect"] #page {
   -webkit-animation: show 2s linear 1.5s 1 both;
   animation: show 2s linear 1.5s 1 both;
 }
+#aside-content #flip-wrapper #flip-content .face {
+  width: 121% !important;
+  left: -25px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+#aside-content .card-widget#card-wechat {
+  background: transparent !important;
+}
 #aside-content .card-widget#card-wechat {
   background: #57bd6a;
   display: flex;
