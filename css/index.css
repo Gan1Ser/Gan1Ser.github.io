@@ -18737,6 +18737,29 @@ body[data-type="collect"] #page {
 .iconfont {
   font-size: 23px !important;
 }
+
+/*打字机*/
+#site-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  margin: auto;
+  border-radius: 22px;
+  top: 11px;
+  height: 55px;
+  width: 110%;
+  -webkit-animation: color_change 5s linear infinite alternate, swipe_box 2s cubic-bezier(.62,.21,.25,1) 1.5s 1 both;
+  animation: color_change 5s linear infinite alternate, swipe_box 2s cubic-bezier(.62,.21,.25,1) 1.5s 1 both;
+}
+#site-title {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto!important;
+  position: relative;
+  color: #fff0;
+  -webkit-animation: show 2s linear 1.5s 1 both;
+  animation: show 2s linear 1.5s 1 both;
+}
 #aside-content .card-widget#card-wechat {
   background: #57bd6a;
   display: flex;
