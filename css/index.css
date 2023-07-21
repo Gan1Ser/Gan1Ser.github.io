@@ -8035,7 +8035,7 @@ h1.page-title + .tag-cloud-list {
   flex-direction: column;
 }
 #aside-content > .card-widget.card-info {
-  background: #fff url("http://blog.gan1ser.top/1(2).webp") top -1% center no-repeat;
+  background: #fff url("https://pic.imgdb.cn/item/64ba4fe71ddac507cca9da40.webp") top -1% center no-repeat;
   position: relative;
 }
 #aside-content > .card-widget.card-info .author-info__name {
@@ -10355,6 +10355,7 @@ div#travellings_button::after {
 }
 #nav .menus_items .menus_item .menus_item_child li a {
   padding: 2px 16px;
+  -webkit-transition: 0.3s !important;
   border-radius: 50px;
 }
 #nav .menus_items .menus_item .menus_item_child li:hover a {
