@@ -18763,6 +18763,7 @@ body[data-type="collect"] #page {
 #aside-content #flip-wrapper #flip-content .face {
   width: 121% !important;
   left: -25px !important;
+  border-radius: 12px !important;
   object-fit: cover !important;
   object-position: center !important;
 }
