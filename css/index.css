@@ -18755,6 +18755,9 @@ body[data-type="collect"] #page {
 #aside-content .card-widget#card-wechat {
   background: transparent !important;
 }
+.cf-article-author[data-v-56cae500]:hover {
+  color: #bc5f5f !important;
+}
 #aside-content .card-widget#card-wechat {
   background: #57bd6a;
   display: flex;
