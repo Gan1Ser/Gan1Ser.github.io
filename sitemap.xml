@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.gan1ser.top/post/78908sda.html</loc>
-    
-    <lastmod>2023-08-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.gan1ser.top/about/index.html</loc>
     
     <lastmod>2023-08-29</lastmod>
@@ -147,6 +138,15 @@
   
   <url>
     <loc>https://www.gan1ser.top/wordScenery/index.html</loc>
+    
+    <lastmod>2023-08-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/post/78908sda.html</loc>
     
     <lastmod>2023-08-29</lastmod>
     
@@ -1237,14 +1237,14 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/categories/%F0%9F%A6%8BButterfly/</loc>
+    <loc>https://www.gan1ser.top/categories/python/</loc>
     <lastmod>2023-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/categories/python/</loc>
+    <loc>https://www.gan1ser.top/categories/%F0%9F%A6%8BButterfly/</loc>
     <lastmod>2023-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
