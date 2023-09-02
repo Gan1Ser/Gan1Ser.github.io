@@ -18758,6 +18758,29 @@ body[data-type="collect"] #page {
 .cf-article-author[data-v-56cae500]:hover {
   color: #bc5f5f !important;
 }
+
+/*尝试*/
+.climb {
+  display: block;
+  position: absolute;
+  max-width: 270px;
+  z-index: 1;
+  margin-top: -35px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+img {
+  border-style: none;
+  border-radius: 8px;
+  max-width: 100%;
+  transition: all .2s ease 0s;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+  user-drag: none;
+}
 #aside-content .card-widget#card-wechat {
   background: #57bd6a;
   display: flex;
