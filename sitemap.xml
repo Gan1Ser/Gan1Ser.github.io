@@ -74,51 +74,6 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/about/index.html</loc>
-    
-    <lastmod>2023-10-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/album/index.html</loc>
-    
-    <lastmod>2023-10-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/categories/index.html</loc>
-    
-    <lastmod>2023-10-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/collect/index.html</loc>
-    
-    <lastmod>2023-10-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/cookies/index.html</loc>
-    
-    <lastmod>2023-10-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.gan1ser.top/copyright/index.html</loc>
     
     <lastmod>2023-10-07</lastmod>
@@ -164,33 +119,6 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/post/118900qd.html</loc>
-    
-    <lastmod>2023-10-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/post/6668890a.html</loc>
-    
-    <lastmod>2023-10-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/post/9589762b.html</loc>
-    
-    <lastmod>2023-10-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.gan1ser.top/post/458790sd.html</loc>
     
     <lastmod>2023-10-07</lastmod>
@@ -227,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/post/17fc8a7f.html</loc>
+    <loc>https://www.gan1ser.top/about/index.html</loc>
     
     <lastmod>2023-10-07</lastmod>
     
@@ -236,7 +164,34 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/post/27d65431.html</loc>
+    <loc>https://www.gan1ser.top/album/index.html</loc>
+    
+    <lastmod>2023-10-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/categories/index.html</loc>
+    
+    <lastmod>2023-10-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/collect/index.html</loc>
+    
+    <lastmod>2023-10-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/cookies/index.html</loc>
     
     <lastmod>2023-10-07</lastmod>
     
@@ -254,7 +209,52 @@
   </url>
   
   <url>
+    <loc>https://www.gan1ser.top/post/118900qd.html</loc>
+    
+    <lastmod>2023-10-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/post/6668890a.html</loc>
+    
+    <lastmod>2023-10-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/post/9589762b.html</loc>
+    
+    <lastmod>2023-10-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.gan1ser.top/post/234567op.html</loc>
+    
+    <lastmod>2023-10-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/post/17fc8a7f.html</loc>
+    
+    <lastmod>2023-10-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/post/27d65431.html</loc>
     
     <lastmod>2023-10-07</lastmod>
     
@@ -1164,13 +1164,6 @@
   
   <url>
     <loc>https://www.gan1ser.top/tags/PCB/</loc>
-    <lastmod>2023-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/tags/https-pic-gan1ser-top-post-93-webp-%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/</loc>
     <lastmod>2023-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
