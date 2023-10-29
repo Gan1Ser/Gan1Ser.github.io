@@ -18383,7 +18383,7 @@ canvas {
 
 #page-header.nav-fixed #nav {
   backdrop-filter: blur(5px) saturate(150%);
-  background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 83%);
+  background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 83%) !important;
 }
 
 #footer {
