@@ -219,10 +219,10 @@ if (true) {
 <p>综上所述，支持向量机通俗来讲就是针对<code>二分类</code>问题给定可分类样本，寻找最优分界线（超平面）的算法，而这个最优分界面应该是<code>间隔最大化</code>的。</p>
 <h1 id="二、算法求解过程"><a href="#二、算法求解过程" class="headerlink" title="二、算法求解过程"></a>二、算法求解过程</h1><h2 id="2-1-基本概念"><a href="#2-1-基本概念" class="headerlink" title="2.1 基本概念"></a>2.1 基本概念</h2><p><strong>训练集T：</strong></p>
 <script type="math/tex; mode=display">
-T={(x_1,y_1),(x_2,y_2),...,(x_N,y_N)}</script><p>其中，样本$x<em>i=(x</em>{i}^{1},x<em>{i}^{2},…,x</em>{i}^{n})$是n维的向量，表示一个样本由n个特征组成，整个数据集中含有N个样本；标记$y_i\in{(-1,+1)}$表示二分类，只有两种结果。</p>
+T={(x_1,y_1),(x_2,y_2),...,(x_N,y_N)}</script><p>其中，样本$x<em>i=(x</em>{i}^{1},x<em>{i}^{2},…,x</em>{i}^{n})$是n维的向量，表示一个样本由n个特征组成，整个数据集中含有N个样本；标记$y_i{\in}(-1,+1)$表示二分类，只有两种结果。</p>
 <p><strong>最优分界面（超平面方程）：</strong></p>
 <script type="math/tex; mode=display">
-w^*·x+b^*=0</script><p>其中，$w^<em>,x$是向量，$b^</em>$是标量，加$<em>$表示最优。$w^</em>=(w<em>{1}^{*},w</em>{2}^{<em>},…,w_{n}^{</em>},)$,$x=(x^{(1)},x^{(2)},…,x^{(n)})$</p>
+w^*·x+b^*=0</script><p>其中，$w^*,x$是向量，$b^*$是标量，加$*$表示最优。$w^*=(w<em>{1}^{*},w</em>{2}^{*},…,w_{n}^{*},)$,$x=(x^{(1)},x^{(2)},…,x^{(n)})$</p>
 <p><strong>决策函数：</strong></p>
 <script type="math/tex; mode=display">
 f(x)=sign(w^*·x+b^*)</script><script type="math/tex; mode=display">
