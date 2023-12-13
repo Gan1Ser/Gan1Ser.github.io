@@ -14241,6 +14241,8 @@ div.btns.rounded a > i:first-child {
 }
 .card_box .card_content {
   z-index: 1;
+  position: absolute;
+  bottom: 30px;
 }
 .card_box .card_content span {
   font-size: 18px;
