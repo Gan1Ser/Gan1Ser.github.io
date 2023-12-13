@@ -14156,7 +14156,7 @@ div.btns.rounded a > i:first-child {
   overflow: hidden;
   padding: 10px;
   color: #fff !important;
-  margin: 10px auto;
+  margin: auto;
 }
 .card_box::after {
   content: '';
