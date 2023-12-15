@@ -18433,7 +18433,7 @@ div#category {
     .no-text-decoration
   ) {
   font-weight: 500;
-  border-bottom: solid 2px var(--anzhiyu-lighttext);
+  border-bottom: solid 0px var(--anzhiyu-lighttext);
   color: var(--anzhiyu-fontcolor);
   padding: 0 0em;
   text-decoration: none;
