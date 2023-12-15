@@ -16539,7 +16539,7 @@ p.p.gray {
   padding: 6px 20px;
   position: relative;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   background: -webkit-linear-gradient(0deg, #41363c, #494648);
   background: -moz-linear-gradient(0deg, #41363c, #494648);
   background: -o-linear-gradient(0deg, #41363c, #494648);
@@ -16556,6 +16556,7 @@ p.p.gray {
   padding: 0.5rem 0;
 }
 .tip:before {
+  display: none;
   background: -webkit-linear-gradient(90deg, #41363c, #494648);
   background: -moz-linear-gradient(90deg, #41363c, #494648);
   background: -o-linear-gradient(90deg, #41363c, #494648);
