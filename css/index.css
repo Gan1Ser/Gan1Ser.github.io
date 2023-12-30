@@ -18361,7 +18361,7 @@ div#tag {
 
 /* 分类页面 */
 div#category {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0);
 }
 
 /*夜间模式伪类遮罩层透明*/
