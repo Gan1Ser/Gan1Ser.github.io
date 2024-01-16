@@ -17,14 +17,14 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Python细节小小知识点(三)</title>
-    <link href="https://www.gan1ser.top/post/d3e065c1.html"/>
-    <id>https://www.gan1ser.top/post/d3e065c1.html</id>
+    <title>特征金字塔-FPN网络3D版本</title>
+    <link href="https://www.gan1ser.top/post/44edbf80.html"/>
+    <id>https://www.gan1ser.top/post/44edbf80.html</id>
     <published>2024-01-16T22:14:00.000Z</published>
     <updated>2024-01-16T22:14:00.000Z</updated>
     
     
-    <summary type="html">记录一些那些不常用就逐渐忽略的Python小知识点</summary>
+    <summary type="html">特征金字塔-FPN网络3D版本</summary>
     
     
     
@@ -179,7 +179,7 @@
     <link href="https://www.gan1ser.top/post/75bc39e9.html"/>
     <id>https://www.gan1ser.top/post/75bc39e9.html</id>
     <published>2023-12-03T08:36:00.000Z</published>
-    <updated>2024-01-16T02:30:59.314Z</updated>
+    <updated>2024-01-16T03:18:05.878Z</updated>
     
     
     <summary type="html">使用ChatGPT水一篇DSP作业</summary>
