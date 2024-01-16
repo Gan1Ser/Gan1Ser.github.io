@@ -6,7 +6,7 @@
   <link href="https://www.gan1ser.top/atom.xml" rel="self"/>
   
   <link href="https://www.gan1ser.top/"/>
-  <updated>2024-01-12T00:13:00.000Z</updated>
+  <updated>2024-01-16T22:14:00.000Z</updated>
   <id>https://www.gan1ser.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python细节小小知识点(三)</title>
+    <link href="https://www.gan1ser.top/post/d3e065c1.html"/>
+    <id>https://www.gan1ser.top/post/d3e065c1.html</id>
+    <published>2024-01-16T22:14:00.000Z</published>
+    <updated>2024-01-16T22:14:00.000Z</updated>
+    
+    
+    <summary type="html">记录一些那些不常用就逐渐忽略的Python小知识点</summary>
+    
+    
+    
+    <category term="深度学习" scheme="https://www.gan1ser.top/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="随手小记" scheme="https://www.gan1ser.top/tags/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/"/>
+    
+    <category term="大学学习" scheme="https://www.gan1ser.top/tags/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>FPGA课程设计报告-基于VHDL语言的数字钟设计</title>
@@ -158,7 +179,7 @@
     <link href="https://www.gan1ser.top/post/75bc39e9.html"/>
     <id>https://www.gan1ser.top/post/75bc39e9.html</id>
     <published>2023-12-03T08:36:00.000Z</published>
-    <updated>2024-01-15T11:18:00.713Z</updated>
+    <updated>2024-01-16T02:30:59.314Z</updated>
     
     
     <summary type="html">使用ChatGPT水一篇DSP作业</summary>
@@ -373,25 +394,6 @@
     
     
     <summary type="html">统计学习方法实现分类和类聚第三篇--决策树方法</summary>
-    
-    
-    
-    <category term="统计学习" scheme="https://www.gan1ser.top/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="随手小记" scheme="https://www.gan1ser.top/tags/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>统计学习方法实现分类和类聚(二)-朴素贝叶斯方法</title>
-    <link href="https://www.gan1ser.top/post/bdc13501.html"/>
-    <id>https://www.gan1ser.top/post/bdc13501.html</id>
-    <published>2023-10-21T10:36:00.000Z</published>
-    <updated>2023-10-21T10:36:00.000Z</updated>
-    
-    
-    <summary type="html">统计学习方法实现分类和类聚第二篇--朴素贝叶斯方法</summary>
     
     
     
