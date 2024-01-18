@@ -300,17 +300,102 @@ if (true) {
 <ol>
 <li><p>命令模式</p>
 <p>当用户使用vi命令打开文件后，则进入命令模式，用户可以输入命令来执行各种功能。</p>
-<p>|   取值    |         说明         |<br>| :———-: | :—————————: |<br>|     L     | 光标移至屏幕最后一行 |<br>|   space   |   光标右移一个字符   |<br>| backspace |   光标左移一个字符   |<br>|    N+     |   光标向上移动N行    |<br>|    n+     |   光标向下移动n行    |</p>
-</li>
-<li><p>输入模式</p>
-<p>如果用户要对文件进行修改，则可以用下面几种命令，进入输入模式，用户进入输入模式之后，可以任意修改文件，除了<strong>ESC</strong>键外，用户输入的任何字符都会被作为内容写入文件中，用户输入<strong>ESC</strong>可以对文件进行相关操作。</p>
-<p>|      取值       |     说明     |<br>| :——————-: | :—————: |<br>| a,i,r,o,A,I,R,O |   编辑模式   |<br>|       dd        | 删除当前光标 |<br>|       ndd       |   删除n行    |</p>
-</li>
-<li><p>末行模式</p>
-<p>如果用户完成编辑命令，则可以按照<strong>ESC</strong>+<strong>:</strong>进入末行模式，用户可以对文件内容继续进行搜索，可以输入<strong>：wq！</strong>进行文件保存并退出，或者<strong>:q!</strong>强制退出文件编辑。</p>
-<p>|         取值         |               说明               |<br>| :—————————: | :———————————————: |<br>|         :wq!         |            保存并推出            |<br>|         :q!          |             强制退出             |<br>| :s/字符串 1/字符串 2 | 将文件出现的字符串1替换为字符串2 |<br>|       :set nu        |           显示所有行号           |</p>
 </li>
 </ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">取值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">L</td>
+<td style="text-align:center">光标移至屏幕最后一行</td>
+</tr>
+<tr>
+<td style="text-align:center">space</td>
+<td style="text-align:center">光标右移一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">backspace</td>
+<td style="text-align:center">光标左移一个字符</td>
+</tr>
+<tr>
+<td style="text-align:center">N+</td>
+<td style="text-align:center">光标向上移动N行</td>
+</tr>
+<tr>
+<td style="text-align:center">n+</td>
+<td style="text-align:center">光标向下移动n行</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li><p>输入模式</p>
+<p>如果用户要对文件进行修改，则可以用下面几种命令，进入输入模式，用户进入输入模式之后，可以任意修改文件，除了<strong>ESC</strong>键外，用户输入的任何字符都会被作为内容写入文件中，用户输入<strong>ESC</strong>可以对文件进行相关操作。</p>
+</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">取值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a,i,r,o,A,I,R,O</td>
+<td style="text-align:center">编辑模式</td>
+</tr>
+<tr>
+<td style="text-align:center">dd</td>
+<td style="text-align:center">删除当前光标</td>
+</tr>
+<tr>
+<td style="text-align:center">ndd</td>
+<td style="text-align:center">删除n行</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li><p>末行模式</p>
+<p>如果用户完成编辑命令，则可以按照<strong>ESC</strong>+<strong>:</strong>进入末行模式，用户可以对文件内容继续进行搜索，可以输入<strong>：wq！</strong>进行文件保存并退出，或者<strong>:q!</strong>强制退出文件编辑。</p>
+</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">取值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">:wq!</td>
+<td style="text-align:center">保存并推出</td>
+</tr>
+<tr>
+<td style="text-align:center">:q!</td>
+<td style="text-align:center">强制退出</td>
+</tr>
+<tr>
+<td style="text-align:center">:s/字符串 1/字符串 2</td>
+<td style="text-align:center">将文件出现的字符串1替换为字符串2</td>
+</tr>
+<tr>
+<td style="text-align:center">:set nu</td>
+<td style="text-align:center">显示所有行号</td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
 <li>查看、编辑文件命令：cat</li>
 </ul>
@@ -324,9 +409,28 @@ if (true) {
 <ol>
 <li><p>head [参数][文件名]</p>
 <p>例如，使用head命令显示某个文件开始的n行数据：head -n 文件名称</p>
-<p>| 取值 |          说明          |<br>| :—: | :——————————: |<br>|  -n  |    &lt;行数&gt;显示的行数    |<br>| 默认 | 默认显示文件前10行数据 |</p>
 </li>
 </ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">取值</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-n</td>
+<td style="text-align:center">&lt;行数&gt;显示的行数</td>
+</tr>
+<tr>
+<td style="text-align:center">默认</td>
+<td style="text-align:center">默认显示文件前10行数据</td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
 <li>查看文件结尾内容命令：tail</li>
 </ul>
