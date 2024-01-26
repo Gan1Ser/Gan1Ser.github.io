@@ -6,7 +6,7 @@
   <link href="https://www.gan1ser.top/atom.xml" rel="self"/>
   
   <link href="https://www.gan1ser.top/"/>
-  <updated>2024-01-17T17:10:00.000Z</updated>
+  <updated>2024-01-21T09:35:00.000Z</updated>
   <id>https://www.gan1ser.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>是水课还是水了课？-一个在役大学生对“水课”的看法</title>
+    <link href="https://www.gan1ser.top/post/3f67bb24.html"/>
+    <id>https://www.gan1ser.top/post/3f67bb24.html</id>
+    <published>2024-01-21T09:35:00.000Z</published>
+    <updated>2024-01-21T09:35:00.000Z</updated>
+    
+    
+    <summary type="html">是水课还是我们自己水了课？看b站一老师评论区引起的感想！</summary>
+    
+    
+    
+    <category term="随手小记" scheme="https://www.gan1ser.top/categories/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="随手小记" scheme="https://www.gan1ser.top/tags/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux常用命令</title>
@@ -198,7 +217,7 @@
     <link href="https://www.gan1ser.top/post/75bc39e9.html"/>
     <id>https://www.gan1ser.top/post/75bc39e9.html</id>
     <published>2023-12-03T08:36:00.000Z</published>
-    <updated>2024-01-21T01:29:43.216Z</updated>
+    <updated>2024-01-26T12:23:45.802Z</updated>
     
     
     <summary type="html">使用ChatGPT水一篇DSP作业</summary>
@@ -375,25 +394,6 @@
     
     
     <summary type="html">介绍另一种决策树算法-C4.5算法</summary>
-    
-    
-    
-    <category term="统计学习" scheme="https://www.gan1ser.top/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="随手小记" scheme="https://www.gan1ser.top/tags/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>决策树算法-ID3算法</title>
-    <link href="https://www.gan1ser.top/post/21277c20.html"/>
-    <id>https://www.gan1ser.top/post/21277c20.html</id>
-    <published>2023-10-24T15:46:00.000Z</published>
-    <updated>2023-10-24T15:46:00.000Z</updated>
-    
-    
-    <summary type="html">介绍一种决策树算法-ID3算法</summary>
     
     
     
