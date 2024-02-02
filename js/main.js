@@ -1442,7 +1442,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.refreshFn = function () {
     initAdjust();
+    themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    pageHeaderEl = document.getElementById("page-header");
+    navMusicEl = document.getElementById("nav-music");
+    consoleEl = document.getElementById("console");
 
+    addDarkModeEventListener("console", ".darkmode_switchbutton");
+    addDarkModeEventListener("nav-naoDark", ".components");
+    addDarkModeEventListener("console-naoDark", ".components");
     if (GLOBAL_CONFIG_SITE.isPost) {
       GLOBAL_CONFIG.noticeOutdate !== undefined && addPostOutdateNotice();
       GLOBAL_CONFIG.relativeDate.post && relativeDate(document.querySelectorAll("#post-meta time"));
@@ -1483,6 +1490,8 @@ document.addEventListener("DOMContentLoaded", function () {
     listenToPageInputPress();
   };
 
+
   refreshFn();
   unRefreshFn();
 });
+
