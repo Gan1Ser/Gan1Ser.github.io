@@ -71,10 +71,10 @@ class ProgressiveLoad {
   };
   
   const config = {
-    smallSrc: 'https://pic.gan1ser.top/post/15d794ed78d26de94f4de151ab26ac6.jpg', // 小图链接 尽可能配置小于100k的图片
-    largeSrc: 'https://pic.gan1ser.top/post/15d794ed78d26de94f4de151ab26ac6.jpg', // 大图链接 最终显示的图片
-    mobileSmallSrc: 'https://pic.gan1ser.top/post/15d794ed78d26de94f4de151ab26ac6.jpg', // 手机端小图链接 尽可能配置小于100k的图片
-    mobileLargeSrc: 'https://pic.gan1ser.top/post/15d794ed78d26de94f4de151ab26ac6.jpg', // 手机端大图链接 最终显示的图片
+    smallSrc: 'https://pic.gan1ser.top/eassy/qysn.webp', // 小图链接 尽可能配置小于100k的图片
+    largeSrc: 'https://pic.gan1ser.top/eassy/qysn.webp', // 大图链接 最终显示的图片
+    mobileSmallSrc: 'https://pic.gan1ser.top/eassy/qysnmobile.webp', // 手机端小图链接 尽可能配置小于100k的图片
+    mobileLargeSrc: 'https://pic.gan1ser.top/eassy/qysnmobile.webp', // 手机端大图链接 最终显示的图片
     enableRoutes: ['/'],
     };
 
