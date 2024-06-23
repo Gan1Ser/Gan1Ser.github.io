@@ -20207,6 +20207,10 @@ li.item {
     text-shadow: 3px 0 rgba(0, 255, 255, 0.5), 5px 0 rgba(255, 0, 0, 0.5);
   }
 }
+
+.cf-img-avatar[data-v-56cae500] {
+  border-radius: 50% !important;
+}
 #aside-content .card-widget#card-wechat {
   background: #57bd6a;
   display: flex;
