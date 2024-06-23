@@ -6,7 +6,7 @@
   <link href="https://www.gan1ser.top/atom.xml" rel="self"/>
   
   <link href="https://www.gan1ser.top/"/>
-  <updated>2024-05-05T21:13:00.000Z</updated>
+  <updated>2024-06-23T12:07:00.000Z</updated>
   <id>https://www.gan1ser.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OFDM学习过程及仿真</title>
+    <link href="https://www.gan1ser.top/post/ab4c01cf.html"/>
+    <id>https://www.gan1ser.top/post/ab4c01cf.html</id>
+    <published>2024-06-23T12:07:00.000Z</published>
+    <updated>2024-06-23T12:07:00.000Z</updated>
+    
+    
+    <summary type="html">完成通信原理成就性考核，记录OFDM学习过程及仿真</summary>
+    
+    
+    
+    <category term="课程设计" scheme="https://www.gan1ser.top/categories/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="知识" scheme="https://www.gan1ser.top/tags/%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>NLP谷歌语音指令训练大作业</title>
@@ -259,7 +278,7 @@
     <link href="https://www.gan1ser.top/post/75bc39e9.html"/>
     <id>https://www.gan1ser.top/post/75bc39e9.html</id>
     <published>2023-12-03T08:36:00.000Z</published>
-    <updated>2024-06-23T03:13:50.346Z</updated>
+    <updated>2024-06-23T04:18:29.450Z</updated>
     
     
     <summary type="html">使用ChatGPT水一篇DSP作业</summary>
@@ -379,25 +398,6 @@
     
     
     <summary type="html">统计学习方法实现分类和类聚第四篇--K近邻算法</summary>
-    
-    
-    
-    <category term="统计学习" scheme="https://www.gan1ser.top/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="随手小记" scheme="https://www.gan1ser.top/tags/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>统计学习方法实现分类和类聚(三)-随机森林算法</title>
-    <link href="https://www.gan1ser.top/post/8714d931.html"/>
-    <id>https://www.gan1ser.top/post/8714d931.html</id>
-    <published>2023-10-26T18:56:00.000Z</published>
-    <updated>2023-10-26T18:56:00.000Z</updated>
-    
-    
-    <summary type="html">统计学习方法实现分类和类聚第四篇--随机森林算法</summary>
     
     
     
