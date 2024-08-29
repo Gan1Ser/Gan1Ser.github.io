@@ -61,12 +61,16 @@
   islazyload: true,
   isAnchor: true
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'GanSer',
   title: 'Hexo三连上传文章免密登录',
+  postAI: '',
+  pageFillDescription: '问题描述, 查看公钥目录权限, 检查ssh目录权限和属主, 修改ssh目录权限和属主, 查看钩子文件权限, 检查authorized_keys, 修改authorized_keys权限, 查看Username权限, 检查Username权限, 修改Username权限, 总结排查方法问题描述在将本地博客部署到服务器时按照步骤首先创建密钥其次就是将生成的公钥粘贴到服务器文件中按照教程来讲已经成功了但在实际测试时发现我们丢在服务器在文件中的公钥只起到连接的作用在上传文章时仍需要填写用户的密码对于我这种懒人来说这太痛苦了必须要实现免密登录与上传造成免密登录失效的原因是公钥文件权限导致的无法远程使用公钥登录而转为密码登录关于如何排查出是文件目录权限导致的免密登录失效可以看看这位老哥的博客引用站外地址关于免密登录不生效踩坑查看公钥目录权限检查目录权限和属主查看路径的权限并查看属主属主需要是用户修改目录权限和属主需要的权限的是如果不是执行以下命令修改需要的属组是用户如果不是执行以下命令修改这里换成你用户的属组需要的属主是用户如果不是执行以下命令修改这里换成你的用户名用户名查看钩子文件权限检查修改权限需要的权限的是如果不是执行以下命令修改查看权限检查权限修改权限需要的权限是或者其他用户没有权限即可总结排查方法检查项操作示例说明目录的属主属组是否为要登陆的用户与用户组为用户名下同目录的权限是否为目录下的权限是否为目录的权限是否为也可以确保其他人没有权限',
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-12-29 20:03:00'
+  postUpdate: '2022-12-29 20:03:00',
+  postMainColor: '',
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
