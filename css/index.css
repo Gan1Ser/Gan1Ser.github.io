@@ -20364,7 +20364,7 @@ a.catalog-more:hover {
 
 #category-bar #catalog-bar {
   margin-bottom: 0;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   margin: -0.2rem 0;
 }
 
