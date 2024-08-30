@@ -19432,9 +19432,7 @@ canvas {
   box-shadow: 0 5px 15px rgba(0,0,0,.4); 
   transform: scale(1.001);
  } 
-/* [data-theme="light"] #recent-posts > .recent-post-item:not(a) {
-  background: url(kouseki.css) 26% center/cover no-repeat,linear-gradient(90deg,rgba(247,149,51,.1),rgba(243,112,85,.1) 15%,rgba(239,78,123,.1) 30%,rgba(161,102,171,.1) 44%,rgba(80,115,184,.1) 58%,rgba(16,152,173,.1) 72%,rgba(7,179,155,.1) 86%,rgba(109,186,130,.1))!important;
-} */
+
 
 /* 文章页 */
 [data-theme=light] #post {
@@ -19445,15 +19443,12 @@ canvas {
   background: rgba(25, 25, 25, 0.88);
 }
 
-/* [data-theme=light] #body-wrap {
-  background: url(kouseki.css) 26% center/cover no-repeat,linear-gradient(0deg,rgba(247,149,51,.1),rgba(243,112,85,.1) 15%,rgba(239,78,123,.1) 30%,rgba(161,102,171,.1) 44%,rgba(80,115,184,.1) 58%,rgba(16,152,173,.1) 72%,rgba(7,179,155,.1) 86%,rgba(109,186,130,.1))!important;
-  /* background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 93%); */
-/* }
 
-/* #page-header.nav-fixed #nav {
+
+#page-header.nav-fixed #nav {
   backdrop-filter: blur(5px) saturate(150%);
   background: linear-gradient(60deg,#ffd7e4 0,#c8f1ff 83%) !important;
-} */
+}
 
 #footer {
   position: relative;
@@ -19461,9 +19456,7 @@ canvas {
   background-attachment: scroll;
   background-position: bottom;
 }
-/* #random-banner {
-  background: url(kouseki.css) 26% center/cover no-repeat,linear-gradient(0deg,rgba(247,149,51,.1),rgba(243,112,85,.1) 15%,rgba(239,78,123,.1) 30%,rgba(161,102,171,.1) 44%,rgba(80,115,184,.1) 58%,rgba(16,152,173,.1) 72%,rgba(7,179,155,.1) 86%,rgba(109,186,130,.1))!important;
-} */ */ */
+
 
 /* 最新文章图标 */
 .newPost {
