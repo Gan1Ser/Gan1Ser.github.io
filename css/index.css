@@ -19341,9 +19341,9 @@ html.hide-aside .layout > div:first-child {
 }
 
 /* 文章hover边框 */
-#recent-posts .recent-post-item:hover {
+/* #recent-posts .recent-post-item:hover {
   border: var(--style-border-hover);
-}
+} */
 #recent-posts .recent-post-item:hover .recent-post-info .article-title {
   color: var(--anzhiyu-theme);
 }
