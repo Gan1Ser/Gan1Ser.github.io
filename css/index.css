@@ -20225,6 +20225,11 @@ li.item {
         backwards running,
       scale 1.5s cubic-bezier(0.62, 0.21, 0.25, 1) 0s 1 both;
   }
+
+.ant-modal div[aria-hidden="true"] {
+		display: none !important
+}
+
 #aside-content .card-widget#card-wechat {
   background: #57bd6a;
   display: flex;
