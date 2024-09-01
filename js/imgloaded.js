@@ -1,4 +1,4 @@
-class ProgressiveLoad {
+class progressLoad {
   constructor(smallSrc, largeSrc) {
     this.smallSrc = smallSrc;
     this.largeSrc = largeSrc;
@@ -51,7 +51,7 @@ class ProgressiveLoad {
 const executeLoad = (config, target) => {
   console.log('执行渐进背景替换');
   const isMobile = window.matchMedia('(max-width: 767px)').matches;
-  const loader = new progressiveLoad(
+  const loader = new progressLoad(
     isMobile ? config.mobileSmallSrc : config.smallSrc,
     isMobile ? config.mobileLargeSrc : config.largeSrc
   );
