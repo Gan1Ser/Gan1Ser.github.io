@@ -30,7 +30,7 @@ class ProgressiveLoad {
   /**
    * @description 加载背景
    */
-  progressiveLoad() {
+  ProgressiveLoad() {
     this.smallImg.src = this.smallSrc;
     this.largeImg.src = this.largeSrc;
   }
@@ -63,7 +63,7 @@ const executeLoad = (config, target) => {
   if (target.children[0]) {
     target.insertBefore(loader.container, target.children[0]);
   }
-  loader.progressiveLoad();
+  loader.ProgressiveLoad();
 };
 
 const config = {
