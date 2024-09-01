@@ -22,15 +22,18 @@
       this.container = document.createElement('div');
       this.smallStage = document.createElement('div');
       this.largeStage = document.createElement('div');
+      this.videoElement=document.createElement('video');//创建video元素
       this.smallImg = new Image();
       this.largeImg = new Image();
       this.container.className = 'pl-container';
       this.smallStage.className = 'pl-img pl-blur';
       this.largeStage.className = 'pl-img';
+      this.videoElement.className='pl-video'; //设置video元素的类名
       this.container.appendChild(this.smallStage);
       this.container.appendChild(this.largeStage);
       this.smallImg.onload = this._onSmallLoaded.bind(this);
       this.largeImg.onload = this._onLargeLoaded.bind(this);
+      this.container.appendChild(this.videoElement);//将video元素添加到容器中
     }
 
     /**
