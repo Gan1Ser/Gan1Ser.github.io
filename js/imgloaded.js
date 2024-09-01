@@ -16,18 +16,15 @@ class ProgressiveLoad {
     this.container = document.createElement('div');
     this.smallStage = document.createElement('div');
     this.largeStage = document.createElement('div');
-    this.videoElement = document.createElement('video'); // 创建 video 元素
     this.smallImg = new Image();
     this.largeImg = new Image();
     this.container.className = 'pl-container';
     this.smallStage.className = 'pl-img pl-blur';
     this.largeStage.className = 'pl-img';
-    this.videoElement.className = 'pl-video'; // 设置 video 元素的类名
     this.container.appendChild(this.smallStage);
     this.container.appendChild(this.largeStage);
     this.smallImg.onload = this._onSmallLoaded.bind(this);
     this.largeImg.onload = this._onLargeLoaded.bind(this);
-    this.container.appendChild(this.videoElement); // 将 video 元素添加到容器中
   }
 
   /**
@@ -43,7 +40,6 @@ class ProgressiveLoad {
    */
   _onLargeLoaded() {
     this.largeStage.classList.add('pl-visible');
-    this.largeStage.classList.add('pl-video');
     this.largeStage.style.backgroundImage = `url('${this.largeSrc}')`;
   }
 
@@ -71,10 +67,10 @@ const executeLoad = (config, target) => {
 };
 
 const config = {
-  smallSrc: 'https://pic.gan1ser.top/eassy/fufufu.webp', // 小图链接 尽可能配置小于100k的图片
-  largeSrc: 'https://pic.gan1ser.top/eassy/fufufu.webp', // 大图链接 最终显示的图片
-  mobileSmallSrc: 'https://pic.gan1ser.top/eassy/lmyc.webp', // 手机端小图链接 尽可能配置小于100k的图片
-  mobileLargeSrc: 'https://pic.gan1ser.top/eassy/lmyc.webp', // 手机端大图链接 最终显示的图片
+  smallSrc: 'https://pic.gan1ser.top/post/14.webp/cover', // 小图链接 尽可能配置小于100k的图片
+  largeSrc: 'https://pic.gan1ser.top/pic/1.webp', // 大图链接 最终显示的图片
+  mobileSmallSrc: 'https://pic.gan1ser.top/pic/2.webp', // 手机端小图链接 尽可能配置小于100k的图片
+  mobileLargeSrc: 'https://pic.gan1ser.top/pic/3.webp', // 手机端大图链接 最终显示的图片
   enableRoutes: ['/'],
   };
 
@@ -99,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("pjax:complete", function() {
   onPJAXComplete(config);
 });
+
 // class progressLoad {
 //   constructor(smallSrc, largeSrc) {
 //     this.smallSrc = smallSrc;
