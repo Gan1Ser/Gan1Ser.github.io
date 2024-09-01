@@ -1,4 +1,4 @@
-class progressiveLoad {
+class ProgressiveLoad {
   constructor(smallSrc, largeSrc) {
     this.smallSrc = smallSrc;
     this.largeSrc = largeSrc;
