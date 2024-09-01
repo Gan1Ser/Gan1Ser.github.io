@@ -1,3 +1,4 @@
+if (typeof progressLoad === 'undefined') {
 class progressLoad {
   constructor(smallSrc, largeSrc) {
     this.smallSrc = smallSrc;
@@ -91,3 +92,4 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("pjax:complete", function() {
   onPJAXComplete(config);
 });
+}
