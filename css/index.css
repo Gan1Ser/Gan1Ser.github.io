@@ -18311,19 +18311,17 @@ body .snackbar-container::after {
 }
 .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(1):before {
   content: "输入QQ号会自动获取昵称和头像🐧";
-  z-index: 999;
 }
 .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(2):before {
   content: "收到回复将会发送到您的邮箱📧";
-  z-index: 999;
 }
 .el-input.el-input--small.el-input-group.el-input-group--prepend:nth-child(3):before {
   content: "可以通过昵称访问您的网站🔗";
-  z-index: 999;
 }
 .el-input.el-input--small.el-input-group.el-input-group--prepend:focus-within::before,
 .el-input.el-input--small.el-input-group.el-input-group--prepend:focus-within::after {
   display: block;
+  z-index: 999;
 }
 .el-input.el-input--small.el-input-group.el-input-group--prepend::before {
 /* 先隐藏起来 */
