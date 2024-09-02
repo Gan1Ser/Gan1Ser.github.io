@@ -4213,7 +4213,6 @@ body[data-type="about"] #web_bg {
   filter: drop-shadow(0 -500px 0 var(--loadingbar-prospect-color));
   width: 500px;
   height: 62.5px;
-  background: url("https://yuanshen.site/imgs/loading-bar.png") no-repeat left 100%;
   background-size: 500px 62.5px;
   background-position-x: 0;
 }
@@ -4223,6 +4222,11 @@ body[data-type="about"] #web_bg {
   -o-animation: loading-bar 3.5s cubic-bezier(0.28, 0.11, 0.32, 1) infinite forwards;
   -ms-animation: loading-bar 3.5s cubic-bezier(0.28, 0.11, 0.32, 1) infinite forwards;
   animation: loading-bar 3.5s cubic-bezier(0.28, 0.11, 0.32, 1) infinite forwards;
+}
+@media screen and (max-width: 719px) {
+  .loading-bar .loading-bar {
+    display: none;
+  }
 }
 @media screen and (max-width: 719px) and (orientation: landscape) {
   .loading-bar .loading-bar {
