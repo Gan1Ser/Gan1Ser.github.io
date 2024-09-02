@@ -25684,12 +25684,6 @@ body[data-type="room"] #page .page-title {
   background-color: #383358;
 }
 
-.cuadro-l__front {
-  background-image: url("https://img02.anheyu.com/adminuploads/1/2022/10/20/63510384967db.jpg");
-  background-color: #d51e24;
-  border: 1vw solid #d51e24;
-}
-
 .cuadro-l__front::before {
   content: "";
   position: absolute;
@@ -25703,12 +25697,6 @@ body[data-type="room"] #page .page-title {
 
 .cuadro-r {
   left: 20vw;
-}
-
-.cuadro-r__front {
-  background-image: url("https://img02.anheyu.com/adminuploads/1/2022/10/20/6351038496f25.jpg");
-  background-color: #0f1110;
-  border: 0.5vw solid #0f1110;
 }
 
 .cuadro-r__front::before {
