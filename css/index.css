@@ -20308,6 +20308,8 @@ li.item {
 
 #catalog-list {
   /* 分类/标签较少时，可以选择不设置 width，居中显示 catalog-list-item */
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   white-space: nowrap;
 }
