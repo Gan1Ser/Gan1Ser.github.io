@@ -20381,7 +20381,7 @@ a.catalog-more:hover {
 
 #category-bar #catalog-bar {
   margin-bottom: 0;
-  /* overflow-y: hidden; */
+  overflow: auto;
   margin: -0.2rem 0;
 }
 
@@ -20767,7 +20767,7 @@ details .content > *:nth-child(1) {
 .comment-barrage {
   position: fixed;
   bottom: 0;
-  right: 20px;
+  right: 50px;
   padding: 0 0 20px 10px;
   z-index: 100;
   display: flex;
@@ -20783,6 +20783,7 @@ details .content > *:nth-child(1) {
   }
 }
 .comment-barrage-item {
+  z-index: 999 !important;
   min-width: 300px;
   max-width: 300px;
   width: fit-content;
@@ -20804,10 +20805,10 @@ details .content > *:nth-child(1) {
   position: fixed;
   box-shadow: var(--anzhiyu-shadow-border);
 }
-.comment-barrage-item:hover {
+/* .comment-barrage-item:hover {
   border: var(--style-border-hover);
   box-shadow: var(--anzhiyu-shadow-main);
-}
+} */
 .comment-barrage-item.out {
   opacity: 0;
   animation: barrageOut 0.6s cubic-bezier(0.42, 0, 0.3, 1.11);
