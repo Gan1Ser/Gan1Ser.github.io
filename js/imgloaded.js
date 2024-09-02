@@ -77,9 +77,9 @@
 
   const config = {
   smallSrc: 'https://pic.gan1ser.top/post/14.webp/cover', // 小图链接 尽可能配置小于100k的图片
-  largeSrc: 'https://pic.gan1ser.top/pic/1.webp', // 大图链接 最终显示的图片
+  largeSrc: 'https://moe.jitsu.top/img/?sort=pc', // 大图链接 最终显示的图片
   mobileSmallSrc: 'https://pic.gan1ser.top/pic/2.webp', // 手机端小图链接 尽可能配置小于100k的图片
-  mobileLargeSrc: 'https://pic.gan1ser.top/pic/3.webp', // 手机端大图链接 最终显示的图片
+  mobileLargeSrc: 'https://moe.jitsu.top/img/?sort=mp', // 手机端大图链接 最终显示的图片
   enableRoutes: ['/'],
     };
 
