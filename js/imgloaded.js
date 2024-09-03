@@ -111,4 +111,7 @@
     onPJAXComplete(config);
   });
 
+  window.addEventListener('load', function() {
+    initProgressiveLoad(config);
+  });  
 })();
