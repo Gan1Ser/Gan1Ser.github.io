@@ -40,9 +40,8 @@
      * @description 加载背景
      */
     progressiveLoad() {
-      this.smallImg.src = `${this.smallSrc}?t=${Date.now()}`;
-      this.largeImg.src = `${this.largeSrc}?t=${Date.now()}`;
-      
+      this.smallImg.src = this.smallSrc;
+      this.largeImg.src = this.largeSrc;
     }
 
     /**
@@ -110,8 +109,8 @@
   document.addEventListener("pjax:complete", function() {
     onPJAXComplete(config);
   });
-
   window.addEventListener('load', function() {
     initProgressiveLoad(config);
-  });  
+  });
+  
 })();
