@@ -2,97 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.gan1ser.top/privacy/index.html</loc>
-    
-    <lastmod>2024-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/tags/index.html</loc>
-    
-    <lastmod>2024-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/todolist/index.html</loc>
-    
-    <lastmod>2024-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/update/index.html</loc>
-    
-    <lastmod>2024-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/wordScenery/index.html</loc>
-    
-    <lastmod>2024-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.gan1ser.top/manifest.json</loc>
-    
-    <lastmod>2024-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/about/index.html</loc>
-    
-    <lastmod>2024-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/album/index.html</loc>
-    
-    <lastmod>2024-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/categories/index.html</loc>
-    
-    <lastmod>2024-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/collect/index.html</loc>
-    
-    <lastmod>2024-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/cookies/index.html</loc>
     
     <lastmod>2024-09-04</lastmod>
     
@@ -164,6 +74,51 @@
   </url>
   
   <url>
+    <loc>https://www.gan1ser.top/privacy/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/tags/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/todolist/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/update/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/wordScenery/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.gan1ser.top/post/75bc39e9.html</loc>
     
     <lastmod>2024-09-04</lastmod>
@@ -200,7 +155,43 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/post/966cdba7.html</loc>
+    <loc>https://www.gan1ser.top/about/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/album/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/categories/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/collect/index.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/cookies/index.html</loc>
     
     <lastmod>2024-09-04</lastmod>
     
@@ -246,6 +237,15 @@
   
   <url>
     <loc>https://www.gan1ser.top/post/27d65431.html</loc>
+    
+    <lastmod>2024-09-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/post/966cdba7.html</loc>
     
     <lastmod>2024-09-04</lastmod>
     
@@ -1500,21 +1500,14 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/tags/%F0%9F%93%B1%E6%90%9E%E6%9C%BA/</loc>
+    <loc>https://www.gan1ser.top/tags/%E9%9A%8F%E8%BA%ABWIFI/</loc>
     <lastmod>2024-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/tags/%F0%9F%92%BB%E9%9A%8F%E8%BA%ABWIFI/</loc>
-    <lastmod>2024-09-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/tags/%F0%9F%90%89%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/</loc>
+    <loc>https://www.gan1ser.top/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/</loc>
     <lastmod>2024-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
