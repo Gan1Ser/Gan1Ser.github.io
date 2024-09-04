@@ -18182,21 +18182,6 @@ body .snackbar-container::after {
   background: #444;
   color: #fff;
 }
-.el-input.el-input--small.el-input-group.el-input-group--prepend::after {
-  display: none;
-  content: "";
-  position: absolute;
-/* 内容大小（宽高）为0且边框大小不为0的情况下，每一条边（4个边）都是一个三角形，组成一个正方形。
-    我们先将所有边框透明，再给其中的一条边添加颜色就可以实现小三角图标 */
-  border: 12px solid transparent;
-  border-top-color: #444;
-  left: 50%;
-  -webkit-transform: translate(-50%, -48px);
-  -moz-transform: translate(-50%, -48px);
-  -o-transform: translate(-50%, -48px);
-  -ms-transform: translate(-50%, -48px);
-  transform: translate(-50%, -48px);
-}
 .vwrap {
   -webkit-box-shadow: 2px 2px 5px #bbb;
   box-shadow: 2px 2px 5px #bbb;
