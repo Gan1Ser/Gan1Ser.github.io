@@ -18183,7 +18183,7 @@ body .snackbar-container::after {
   border-radius: 12px 0 0 12px;
 }
 #twikoo .tk-comments .tk-meta-input .el-input--small.el-input-group.el-input-group--prepend:focus-within {
-  border: var(--style-border-hover);
+  border: 0px !important;
 }
 #twikoo .tk-comments .tk-row .tk-avatar {
   display: none;
