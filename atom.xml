@@ -6,7 +6,7 @@
   <link href="https://www.gan1ser.top/atom.xml" rel="self"/>
   
   <link href="https://www.gan1ser.top/"/>
-  <updated>2024-10-13T03:38:38.675Z</updated>
+  <updated>2024-09-12T08:30:00.000Z</updated>
   <id>https://www.gan1ser.top/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://www.gan1ser.top/post/0.html"/>
-    <id>https://www.gan1ser.top/post/0.html</id>
-    <published>2024-10-13T03:38:38.675Z</published>
-    <updated>2024-10-13T03:38:38.675Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;对总体方案设计进行编写要求400-450字&lt;/p&gt;
-&lt;p&gt;信盈达远程 AI 识别跟随智能车是一个具有远程视频监控、人体识别、人体跟随、无线控制和循迹等功能的 4 轮差速智能车，该小车结构采用由 ARM 内核</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>阴阳师八周年活动-非酋的自我修养记录</title>
@@ -380,7 +358,7 @@
     <link href="https://www.gan1ser.top/post/75bc39e9.html"/>
     <id>https://www.gan1ser.top/post/75bc39e9.html</id>
     <published>2023-12-03T08:36:00.000Z</published>
-    <updated>2024-10-13T03:38:38.677Z</updated>
+    <updated>2024-10-15T10:38:10.821Z</updated>
     
     
     <summary type="html">使用ChatGPT水一篇DSP作业</summary>
@@ -412,6 +390,25 @@
     <category term="知识" scheme="https://www.gan1ser.top/tags/%E7%9F%A5%E8%AF%86/"/>
     
     <category term="大学学习" scheme="https://www.gan1ser.top/tags/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文论述报告</title>
+    <link href="https://www.gan1ser.top/post/a05abb7.html"/>
+    <id>https://www.gan1ser.top/post/a05abb7.html</id>
+    <published>2023-11-07T12:00:00.000Z</published>
+    <updated>2023-11-07T12:00:00.000Z</updated>
+    
+    
+    <summary type="html">大三上科研实践课程论文论述报告</summary>
+    
+    
+    
+    <category term="课程设计" scheme="https://www.gan1ser.top/categories/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="知识" scheme="https://www.gan1ser.top/tags/%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
