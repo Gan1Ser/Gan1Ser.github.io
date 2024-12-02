@@ -6,7 +6,7 @@
   <link href="https://www.gan1ser.top/atom.xml" rel="self"/>
   
   <link href="https://www.gan1ser.top/"/>
-  <updated>2024-09-12T08:30:00.000Z</updated>
+  <updated>2024-12-02T16:00:00.000Z</updated>
   <id>https://www.gan1ser.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git摘樱桃拆分commit进行提交</title>
+    <link href="https://www.gan1ser.top/post/41115324.html"/>
+    <id>https://www.gan1ser.top/post/41115324.html</id>
+    <published>2024-12-02T16:00:00.000Z</published>
+    <updated>2024-12-02T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">拆分commit进行PR</summary>
+    
+    
+    
+    <category term="随手小记" scheme="https://www.gan1ser.top/categories/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="随手小记" scheme="https://www.gan1ser.top/tags/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/"/>
+    
+    <category term="教程" scheme="https://www.gan1ser.top/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>阴阳师八周年活动-非酋的自我修养记录</title>
@@ -358,7 +379,7 @@
     <link href="https://www.gan1ser.top/post/75bc39e9.html"/>
     <id>https://www.gan1ser.top/post/75bc39e9.html</id>
     <published>2023-12-03T08:36:00.000Z</published>
-    <updated>2024-10-15T10:38:10.821Z</updated>
+    <updated>2024-12-02T09:45:08.653Z</updated>
     
     
     <summary type="html">使用ChatGPT水一篇DSP作业</summary>
@@ -390,25 +411,6 @@
     <category term="知识" scheme="https://www.gan1ser.top/tags/%E7%9F%A5%E8%AF%86/"/>
     
     <category term="大学学习" scheme="https://www.gan1ser.top/tags/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文论述报告</title>
-    <link href="https://www.gan1ser.top/post/a05abb7.html"/>
-    <id>https://www.gan1ser.top/post/a05abb7.html</id>
-    <published>2023-11-07T12:00:00.000Z</published>
-    <updated>2023-11-07T12:00:00.000Z</updated>
-    
-    
-    <summary type="html">大三上科研实践课程论文论述报告</summary>
-    
-    
-    
-    <category term="课程设计" scheme="https://www.gan1ser.top/categories/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="知识" scheme="https://www.gan1ser.top/tags/%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
