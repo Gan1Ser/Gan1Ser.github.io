@@ -6,7 +6,7 @@
   <link href="https://www.gan1ser.top/atom.xml" rel="self"/>
   
   <link href="https://www.gan1ser.top/"/>
-  <updated>2024-12-02T16:00:00.000Z</updated>
+  <updated>2025-03-18T09:03:00.000Z</updated>
   <id>https://www.gan1ser.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>模电面试题总结</title>
+    <link href="https://www.gan1ser.top/post/4b0b46fa.html"/>
+    <id>https://www.gan1ser.top/post/4b0b46fa.html</id>
+    <published>2025-03-18T09:03:00.000Z</published>
+    <updated>2025-03-18T09:03:00.000Z</updated>
+    
+    
+    <summary type="html">斥巨资购买的模电面试题总结</summary>
+    
+    
+    
+    <category term="面试" scheme="https://www.gan1ser.top/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+    <category term="面试" scheme="https://www.gan1ser.top/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Git摘樱桃拆分commit进行提交</title>
@@ -379,7 +398,7 @@
     <link href="https://www.gan1ser.top/post/75bc39e9.html"/>
     <id>https://www.gan1ser.top/post/75bc39e9.html</id>
     <published>2023-12-03T08:36:00.000Z</published>
-    <updated>2025-03-20T06:48:05.509Z</updated>
+    <updated>2025-03-20T06:52:30.599Z</updated>
     
     
     <summary type="html">使用ChatGPT水一篇DSP作业</summary>
@@ -388,27 +407,6 @@
     
     <category term="课程设计" scheme="https://www.gan1ser.top/categories/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/"/>
     
-    
-    <category term="大学学习" scheme="https://www.gan1ser.top/tags/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IIR数字滤波器的设计</title>
-    <link href="https://www.gan1ser.top/post/5e9ffaaf.html"/>
-    <id>https://www.gan1ser.top/post/5e9ffaaf.html</id>
-    <published>2023-11-19T11:31:00.000Z</published>
-    <updated>2023-11-19T11:31:00.000Z</updated>
-    
-    
-    <summary type="html">IIR数字滤波器的设计知识点抄录</summary>
-    
-    
-    
-    <category term="转载" scheme="https://www.gan1ser.top/categories/%E8%BD%AC%E8%BD%BD/"/>
-    
-    
-    <category term="知识" scheme="https://www.gan1ser.top/tags/%E7%9F%A5%E8%AF%86/"/>
     
     <category term="大学学习" scheme="https://www.gan1ser.top/tags/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/"/>
     
