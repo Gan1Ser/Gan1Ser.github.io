@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.gan1ser.top/wordScenery/index.html</loc>
+    
+    <lastmod>2025-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.gan1ser.top/manifest.json</loc>
     
     <lastmod>2025-06-16</lastmod>
@@ -74,24 +83,6 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/wordScenery/index.html</loc>
-    
-    <lastmod>2025-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gan1ser.top/about/index.html</loc>
-    
-    <lastmod>2025-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.gan1ser.top/album/index.html</loc>
     
     <lastmod>2025-06-16</lastmod>
@@ -110,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/cookies/index.html</loc>
+    <loc>https://www.gan1ser.top/collect/index.html</loc>
     
     <lastmod>2025-06-16</lastmod>
     
@@ -119,7 +110,16 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/collect/index.html</loc>
+    <loc>https://www.gan1ser.top/about/index.html</loc>
+    
+    <lastmod>2025-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gan1ser.top/cookies/index.html</loc>
     
     <lastmod>2025-06-16</lastmod>
     
@@ -1737,14 +1737,14 @@
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
+    <loc>https://www.gan1ser.top/categories/%E5%B0%8F%E8%8A%9D%E5%A3%AB/</loc>
     <lastmod>2025-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.gan1ser.top/categories/%E5%B0%8F%E8%8A%9D%E5%A3%AB/</loc>
+    <loc>https://www.gan1ser.top/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</loc>
     <lastmod>2025-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
