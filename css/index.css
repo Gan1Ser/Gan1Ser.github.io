@@ -19529,7 +19529,7 @@ html.hide-aside .layout > div:first-child {
 }
 [data-theme="dark"] #recent-posts .recent-post-item {
   height: fit-content;
-  background: none;
+  background: none !important;
   border-radius: 12px;
   cursor: pointer;
   border: var(--style-border);
@@ -19633,7 +19633,7 @@ canvas {
 
 [data-theme="dark"] #page-header.nav-fixed #nav {
   backdrop-filter: blur(5px) saturate(150%);
-  background: none;
+  background: none !important;
 }
 
 #footer {
