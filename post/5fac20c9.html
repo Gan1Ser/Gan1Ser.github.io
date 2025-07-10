@@ -1,0 +1,1402 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Numpy入门（一） | GanSer</title><meta name="keywords" content="知识,笔记"><meta name="author" content="GanSer"><meta name="copyright" content="GanSer"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Numpy入门（一）"><meta name="application-name" content="Numpy入门（一）"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta name="description" content="仔细学习了以下Numpy包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numpy入门（一）">
+<meta property="og:url" content="https://www.gan1ser.top/post/5fac20c9.html">
+<meta property="og:site_name" content="GanSer">
+<meta property="og:description" content="仔细学习了以下Numpy包">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.gan1ser.top/posts/117.webp/cover">
+<meta property="article:published_time" content="2023-07-31T12:10:00.000Z">
+<meta property="article:modified_time" content="2023-07-31T12:10:00.000Z">
+<meta property="article:author" content="GanSer">
+<meta property="article:tag" content="知识">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.gan1ser.top/posts/117.webp/cover"><link rel="shortcut icon" href="https://pic.gan1ser.top/avatar/17.webp/avatar"><link rel="canonical" href="https://www.gan1ser.top/post/5fac20c9"><link rel="preconnect" href="//npm.elemecdn.com"><meta name="google-site-verification" content="xxx"><meta name="baidu-site-verification" content="code-xxx"><meta name="msvalidate.01" content="xxx"><link rel="manifest" href="/manifest.json"><meta name="msapplication-TileColor" content="var(--anzhiyu-main)"><link rel="mask-icon" href="https://pic.gan1ser.top/avatar/17.webp/avatar" color="#5bbad5"><link rel="apple-touch-icon" sizes="180x180" href="https://pic.gan1ser.top/avatar/17.webp/avatar"><link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://pic.gan1ser.top/avatar/17.webp/avatar"><link rel="icon" type="image/png" sizes="32x32" href="https://pic.gan1ser.top/avatar/17.webp/avatar"><link rel="icon" type="image/png" sizes="16x16" href="https://pic.gan1ser.top/avatar/17.webp/avatar"><link rel="bookmark" href="https://pic.gan1ser.top/avatar/17.webp/avatar"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="https://pic.gan1ser.top/avatar/17.webp/avatar" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><script>if ('serviceWorker' in navigator) {
+  if (navigator.serviceWorker.controller) {
+    navigator.serviceWorker.addEventListener('controllerchange', function() {
+      location.reload()
+    })
+  }
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js')
+  })
+}</script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css#fontawesome_animation 如果有就会加载，示例值：https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0.31/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  friends_vue_info: undefined,
+  navMusic: true,
+  changeMainColorPost: true,
+  algolia: {"appId":"BUJ589YK96","apiKey":"6f398a28bd13fccc3f0ec369fe5b2c45","indexName":"GanSer","hits":{"per_page":10},"languages":{"input_placeholder":"键入后按下回车搜索！","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#465855","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://npm.elemecdn.com/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://npm.elemecdn.com/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'GanSer',
+  title: 'Numpy入门（一）',
+  postAI: '',
+  pageFillDescription: '一、Numpy基础知识, 1.1 按元素简单运算, 1.2 创建ndarray, 1.3 ndarray的数据类型, 二、Numpy数组的运算, 2.1 同尺寸数组算数运算, 2.2 数组与标量算数运算, 三、基本的索引和切片, 3.1 一维数组索引, 3.2 高维数组索引, 3.3 切片索引, 3.4 布尔型索引, 3.5 花式索引一基础知识最重要的一个特点就是其维数组对象即该对象是一个快速而灵活的大数据集容器可以利用这种数组对整块数据执行一些数学运算语法跟标量元素之间的运算一样按元素简单运算随机生成一个的数组符合标准正态分布元素相乘元素相加以上例子中所有的元素都乘以每个元素都与自身相加其结果输出如下元素相乘元素相加是一个通用的同构数据多维容器也就是说其中的所有元素必须是相同类型的每个数组都有一个一个表示各维度大小的元组和一个一个用于说明数组数据类型的对象和输出各维度大小输出数组数据类型输出如下和精通面向数组的编程和思维方式是成为科学计算牛人的一大关键步骤创建使用函数将序列型的对象包括其他数组转换成一个数组除非特别说明会尝试为新建的这个数组推断出一个较为合适的数据类型结果嵌套序列维度尺寸各维度的大小结果除之外还有一些函数也可以新建数组比如和分别可以创建指定长度或形状的全或全数组可以创建一个没有任何具体值的数组要用这些方法创建多维数组只需传入一个表示形状的元组即可全零全一空数组的创建全零数组全一数组空数组认为会返回全数组的想法是不安全的很多情况下如前所示它返回的都是一些未初始化的垃圾值结果全零数组全一数组空数组是内置函数的数组版结果表列出了一些数组创建函数由于关注的是数值计算因此如果没有特别指定数据类型基本都是浮点数的数据类型数据类型是一个特殊的对象它含有将一块内存解释为特定数据类型所需的信息结果是灵活交互其它系统的源泉之一多数情况下它们直接映射到相应的机器表示这使得读写磁盘上的二进制数据流以及集成低级语言代码如等工作变得更加简单数值型的命名方式相同一个类型名如或后面跟一个用于表示各元素位长的数字标准的双精度浮点值即中的对象需要占用字节即位因此该类型在中就记作记不住这些的也没关系新手更是如此通常只需要知道你所处理的数据的大致类型是浮点数复数整数布尔值字符串还是普通的对象即可当你需要控制数据在内存和磁盘中的存储方式时尤其是对大数据集那就得了解如何控制存储类型可以通过的方法明确地将一个数组从一个转换成另一个转换结果如果将浮点数转换成整数则小数部分将会被截取删除转换结果如果某字符串数组表示的全是数字也可以用将其转换为数值形式转换结果二进制注意使用类型时一定要小心因为的字符串数据是大小固定的发生截取时不会发出警告提供了更多非数值数据的便利的处理方法如果转换过程因为某种原因而失败了比如某个不能被转换为的字符串就会引发一个很聪明它会将类型映射到等价的上所以原作者写的是而不是数组的还有另一个属性另外的属性结果注意调用总会创建一个新的数组一个数据的备份所以它不是操作即使新的与旧的相同二数组的运算同尺寸数组算数运算大小相等的数组之间的任何算术运算都会将运算应用到元素级乘法减法结果乘法减法数组与标量算数运算数组与标量的算术运算会将标量值传播到各个元素数组与标量算数运算标量与数组结果标量与数组大小相同的数组之间的比较会生成布尔值数组数组之间的比较大小相同的数组之间的比较结果大小相同的数组之间的比较不同大小的数组之间的运算叫做广播三基本的索引和切片一维数组索引一维数组很简单从表面上看它们跟列表的功能差不多一维数组的值为索引操作的值为切片操作的值为切片赋值操作赋值后的值为其结果为的值为的值为的值为赋值后的值为当你将一个标量值赋值给一个切片时如该值会自动传播也就说后面将会讲到的广播到整个选区跟列表最重要的区别在于数组切片是原始数组的视图这意味着数据不会被复制视图上的任何修改都会直接反映到源数组上验证作用在源数组上作用在源数组上的值为的值为此时的值为其结果如下切实的反映到源数组元素中作用在源数组上的值为的值为此时的值为如果你想要得到的是切片的一份副本而非视图就需要明确地进行复制操作例如高维数组索引对于高维度数组能做的事情更多在一个二维数组中各索引位置上的元素不再是标量而是一维数组因此可以对各个元素进行递归访问但这样需要做的事情有点多你可以传入一个以逗号隔开的索引列表来选取单个元素也就是说下面两种方式是等价的二维数组结果多维数组中如果省略了后面的索引则返回对象会是一个维度低一点的它含有高一级维度上的所有数据因此在数组中三维数组的值为的值为结果的值为的值为是一个数组标量值和数组都可以被赋值给标量赋值的值为赋值数组的值为结果的值为的值为相似的可以访问索引以开头的那些值以一维数组的形式返回的值为的值为的值为其结果为的值为的值为的值为注意在上面所有这些选取数组子集的例子中返回的数组都是视图切片索引的切片语法跟列表这样的一维对象差不多一维数组的值为结果的值为对于之前的二维数组其切片方式稍显不同二位数组的值为的值为结果的值为的值为可以看出它是沿着第轴即第一个轴切片的也就是说切片是沿着一个轴向选取元素的表达式可以被认为是选取的前两行以一次传入多个切片就像传入多个索引那样的值为结果的值为像这样进行切片时只能得到相同维数的数组视图通过将整数索引和切片混合可以得到低维度的切片的值为选取第二行的前两列的值为选择第三列的前两行结果的值为的值为只有冒号表示选取整个轴也可以像下面这样只对高维轴进行切片的值为结果的值为对切片表达式的赋值操作也会被扩散到整个选区结果布尔型索引假设我们有一个用于存储数据的数组以及一个存储姓名的数组含有重复项在这里我将使用中的函数生成一些正态分布的随机数据假设每个名字都对应数组中的一行而我们想要选出对应于名字的所有行跟算术运算一样数组的比较运算如也是矢量化的因此对和字符串的比较运算将会产生一个布尔型数组这个布尔型数组可用于数组索引索引结果如下索引如果布尔型数组的长度不对布尔型选择就会出错因此一定要小心可以将布尔型数组跟切片整数或整数序列稍后将对此进行详细讲解混合使用索引与切片等混用结果注意这里因为重新运行了程序所以不一样了索引与切片等混用要选择除以外的其他值既可以使用不等于符号也可以通过对条件进行否定反转结果结果反转结果选取这三个名字中的两个需要组合应用多个布尔条件使用和或之类的布尔算术运算符即可不一样的结果结果不一样的结果通过布尔型索引选取数组中的数据将总是创建数据的副本即使返回一模一样的数组也是如此关键字和在布尔型数组中无效要使用与通过布尔型数组设置值是一种经常用到的手段为了将中的所有负值都设置为我们只需通过设置数值的值结果通过设置数值的值通过一维布尔数组设置整行或列的值也很简单通过设置数值的值结果通过设置数值的值花式索引花式索引是一个术语它指的是利用整数数组进行索引下面有一个数组其结果为为了以特定顺序选取子集只需要传入一个用于指定顺序的整数列表或即可结果使用负数索引将会从末尾开始选取行结果一次传入多个索引数组会有一点特别它返回的是一个一维数组其中的元素对应各个索引元组结果最终选出的是元素无论数组是多少维的花式索引总是一维的选取矩阵的行列子集应该是矩形区域的形式才对下面是得到该结果的一个办法结果花式索引跟切片不一样它总是将数据复制到新数组中',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-31 12:10:00',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/imgloaded.css?1"><meta name="google-site-verification" content="Tfw3UBpa3L-1YpdcSpYfgEpo2yPLlJBOVXR_aAsqjT0"><meta name="baidu-site-verification" content="codeva-lGhY19ZM6U"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"><link rel="stylesheet" href="/css/home.css"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4177998_ufp3xnlc2xn.css"><link rel="stylesheet" href="/css/todolist.css"><link rel="stylesheet" href="https://pic.gan1ser.top/emoji%20/swiper-bundle.min.css"><style>#left-mid-img1 {
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  top: calc(50% - 50px);
+  transform: translateY(-50%);
+  width: 100px;
+  height: auto;
+}
+
+#left-mid-img2 {
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  top: calc(50% + 50px);
+  transform: translateY(-50%);
+  width: 100px;
+  height: auto;
+}
+#right-mid-img1 {
+  z-index: 999;
+  position: fixed;
+  right: 0;
+  top: calc(50% - 50px);
+  transform: translateY(-50%);
+  width: 110px;
+  height: auto;
+}
+#right-mid-img2 {
+  z-index: 999;
+  position: fixed;
+  right: 0;
+  top: calc(50% + 50px);
+  transform: translateY(-50%);
+  width: 110px;
+  height: auto;
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="GanSer" type="application/atom+xml">
+<link href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css" rel="stylesheet"></head><body data-type="anzhiyu"><img id="left-mid-img1" src="https://pic.gan1ser.top/pic/banner2.gif" alt="Image 1 Description"><img id="left-mid-img2" src="https://pic.gan1ser.top/pic/banner0.gif" alt="Image 2 Description"><img id="right-mid-img1" src="https://pic.gan1ser.top/pic/banner1.gif" alt="Image 1 Description"><img id="right-mid-img2" src="https://pic.gan1ser.top/pic/banner3.gif" alt="Image 2 Description"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://pic.gan1ser.top/avatar/17.webp/avatar"><div class="loading-image-dot"></div><div id="loading-percentage">0%</div></div></div><script>const loadingPercentage = document.getElementById("loading-percentage");
+let loadingPercentageTimer = setInterval(function() {
+  var progressBar = document.querySelector(".pace-progress");
+  if (!progressBar) return
+  var currentValue = progressBar.getAttribute("data-progress-text");
+  if (currentValue !== loadingPercentage.textContent) {
+    loadingPercentage.textContent = currentValue;
+    if (currentValue === "100%") {
+      clearInterval(loadingPercentageTimer);
+    }
+  }
+}, 100);
+const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+    Pace.restart()
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/progress_bar/progress_bar.css"><script async="async" src="https://npm.elemecdn.com/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div id="web_box"><div id="web_container"><div id="menu-mask"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">线路</div><div class="back-menu-list"><a class="back-menu-item" href="https://www.gan1ser.top" title="主域名线路" target="_blank"><img class="back-menu-item-icon" src="https://pic.gan1ser.top/avatar/17.webp/avatar" alt="主域名线路"><span class="back-menu-item-text">主域名线路</span></a><a class="back-menu-item" href="https://chenchuang.top" title="个人主页" target="_blank"><img class="back-menu-item-icon" src="https://pic.gan1ser.top/avatar/86.webp/avatar" alt="个人主页"><span class="back-menu-item-text">个人主页</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">智能传送</div><div class="back-menu-list"><a class="back-menu-item" href="https://www.github.com/Gan1Ser" title="Github主页" target="_blank"><img class="back-menu-item-icon" src="https://pic.gan1ser.top/avatar/89.webp/avatar" alt="Github主页"><span class="back-menu-item-text">Github主页</span></a><a class="back-menu-item" href="https://drive.gan1ser.top" title="OneDrive" target="_blank"><img class="back-menu-item-icon" src="https://pic.gan1ser.top/avatar/90.webp/avatar" alt="OneDrive"><span class="back-menu-item-text">OneDrive</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">GanSer</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/memos/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 即刻短文</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=7750616521&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/collect/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 影漫佳选</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/todolist/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 待办清单</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://pic.gan1ser.top/pic/37.webp" target="_blank"><img class="post-qr-code-img" alt="wechat" src="https://pic.gan1ser.top/pic/37.webp"></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://pic.gan1ser.top/pic/38.webp" target="_blank"><img class="post-qr-code-img" alt="alipay" src="https://pic.gan1ser.top/pic/38.webp"></a><div class="post-qr-code-desc">alipay</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments" onclick="anzhiyu.hideConsole()"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> <span>最新评论</span></span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags" onclick="anzhiyu.hideConsole()"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Butterfly/" style="font-size: 1.05rem;">Butterfly<sup>2</sup></a><a href="/tags/Dart/" style="font-size: 1.05rem;">Dart<sup>1</sup></a><a href="/tags/Github/" style="font-size: 1.05rem;">Github<sup>1</sup></a><a href="/tags/Linux/" style="font-size: 1.05rem;">Linux<sup>1</sup></a><a href="/tags/MSP432/" style="font-size: 1.05rem;">MSP432<sup>4</sup></a><a href="/tags/PCB/" style="font-size: 1.05rem;">PCB<sup>1</sup></a><a href="/tags/Python/" style="font-size: 1.05rem;">Python<sup>1</sup></a><a href="/tags/python/" style="font-size: 1.05rem;">python<sup>3</sup></a><a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 1.05rem;">单片机<sup>6</sup></a><a href="/tags/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.05rem;">大学学习<sup>6</sup></a><a href="/tags/%E5%A5%BD%E8%BD%AF%E5%88%86%E4%BA%AB/" style="font-size: 1.05rem;">好软分享<sup>1</sup></a><a href="/tags/%E5%AE%9E%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 1.05rem;">实习记录<sup>1</sup></a><a href="/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" style="font-size: 1.05rem;">年度总结<sup>2</sup></a><a href="/tags/%E5%BD%B1%E8%AF%84/" style="font-size: 1.05rem;">影评<sup>2</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.05rem;">教程<sup>15</sup></a><a href="/tags/%E6%99%BA%E8%83%BD%E8%BD%A6/" style="font-size: 1.05rem;">智能车<sup>20</sup></a><a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.05rem;">服务器<sup>2</sup></a><a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 1.05rem;">游戏<sup>4</sup></a><a href="/tags/%E7%9F%A5%E8%AF%86/" style="font-size: 1.05rem;">知识<sup>52</sup></a><a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.05rem;">神经网络<sup>1</sup></a><a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.05rem;">笔记<sup>33</sup></a><a href="/tags/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/" style="font-size: 1.05rem;">考研数学<sup>1</sup></a><a href="/tags/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/" style="font-size: 1.05rem;">随手小记<sup>53</sup></a><a href="/tags/%E9%9A%8F%E8%BA%ABWIFI/" style="font-size: 1.05rem;">随身WIFI<sup>1</sup></a><a href="/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/" style="font-size: 1.05rem;">青龙面板<sup>1</sup></a><a href="/tags/%E9%9D%9E%E9%85%8B%E6%8A%BD%E5%8D%A1/" style="font-size: 1.05rem;">非酋抽卡<sup>2</sup></a><a href="/tags/%F0%9F%92%BB%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.05rem;">💻服务器<sup>1</sup></a><a href="/tags/%F0%9F%93%95%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/" style="font-size: 1.05rem;">📕年度总结<sup>1</sup></a></div></div><hr></div></div><div class="console-card history" onclick="anzhiyu.hideConsole()"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="anzhiyufont anzhiyu-icon-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">十二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li></ul></div><hr></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" onclick="anzhiyu.switchDarkMode()" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="anzhiyu.keyboardToggle()" title="快捷键开关"><a class="keyboard-switch"><i class="anzhiyufont anzhiyu-icon-keyboard"></i></a></div><div id="console-naoDark"><div class="container"><div class="components"><div class="main-button"><div class="moon"></div><div class="moon"></div><div class="moon"></div></div><div class="daytime-backgrond"></div><div class="daytime-backgrond"></div><div class="daytime-backgrond"></div><div class="cloud"><div class="cloud-son"></div><div class="cloud-son"></div><div class="cloud-son"></div><div class="cloud-son"></div><div class="cloud-son"></div><div class="cloud-son"></div></div><div class="cloud-light"><div class="cloud-son"></div><div class="cloud-son"></div><div class="cloud-son"></div><div class="cloud-son"></div><div class="cloud-son"></div><div class="cloud-son"></div></div><div class="stars"><div class="star big"><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div></div><div class="star big"><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div></div><div class="star medium"><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div></div><div class="star medium"><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div></div><div class="star small"><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div></div><div class="star small"><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div><div class="star-son"></div></div></div></div></div></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86/" tabindex="-1"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>知识</span></a><a class="article-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/" tabindex="-1"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>笔记</span></a></span></div></div><h1 class="post-title">Numpy入门（一）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-31T12:10:00.000Z" title="发表于 2023-07-31 12:10:00">2023-07-31</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-31T12:10:00.000Z" title="更新于 2023-07-31 12:10:00">2023-07-31</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">4.6k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>18分钟</span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为郑州"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>郑州</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://pic.gan1ser.top/posts/117.webp/cover"></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="一-numpy基础知识">一、Numpy基础知识</h2>
+<p><strong>NumPy</strong>最重要的一个特点就是其N维数组对象（即ndarray），该对象是一个快速而灵活的大数据集容器。可以利用这种数组对整块数据执行一些数学运算，语法跟标量元素之间的运算一样。</p>
+<h3 id="1-1-按元素简单运算">1.1 按元素简单运算</h3>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data = np.random.randn(<span class="number">2</span>,<span class="number">3</span>)  <span class="comment"># 随机生成一个2x3的数组，符合标准正态分布</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(data), <span class="string">'\n'</span> ,data)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-----元素相乘-----"</span>)</span><br><span class="line">data_mul = data * <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(data_mul), <span class="string">'\n'</span> ,data_mul)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-----元素相加-----"</span>)</span><br><span class="line">data_sum = data + data</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(data_sum), <span class="string">'\n'</span> ,data_sum)</span><br></pre></td></tr></tbody></table></figure>
+<p>以上例子中，所有的元素都乘以10，每个元素都与自身相加，其结果输出如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;class <span class="string">'numpy.ndarray'</span>&gt; </span><br><span class="line"> [[ 0.22458451  1.50467481 -1.10270028]</span><br><span class="line"> [-0.6519424  -1.78475736  1.62477908]]</span><br><span class="line">-----元素相乘-----</span><br><span class="line">&lt;class <span class="string">'numpy.ndarray'</span>&gt; </span><br><span class="line"> [[  2.24584506  15.04674812 -11.02700277]</span><br><span class="line"> [ -6.51942398 -17.84757364  16.24779077]]</span><br><span class="line">-----元素相加-----</span><br><span class="line">&lt;class <span class="string">'numpy.ndarray'</span>&gt; </span><br><span class="line"> [[ 0.44916901  3.00934962 -2.20540055]</span><br><span class="line"> [-1.3038848  -3.56951473  3.24955815]]</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>ndarray</strong>是一个通用的同构数据多维容器，也就是说，其中的所有元素必须是相同类型的。每个数组都有一个<code>shape</code>（一个表示<strong>各维度</strong>大小的元组）和一个<code>dtype</code>（一个用于说明数组数据类型的对象）：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-----shape和dtype-----"</span>)</span><br><span class="line"><span class="built_in">print</span>(data.shape) <span class="comment"># 输出各维度大小</span></span><br><span class="line"><span class="built_in">print</span>(data.dtype) <span class="comment"># 输出数组数据类型</span></span><br></pre></td></tr></tbody></table></figure>
+<p>输出如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-----shape和dtype-----</span><br><span class="line">(2, 3)</span><br><span class="line">float64</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>精通面向数组的编程和思维方式是成为Python科学计算牛人的一大关键步骤。</strong></p>
+<h3 id="1-2-创建ndarray">1.2 创建ndarray</h3>
+<p>使用array函数，将序列型的对象（包括其他数组）转换成一个Numpy数组。除非特别说明，np.array会尝试为新建的这个数组推断出一个较为合适的数据类型。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3.4</span>, <span class="number">7</span>, <span class="number">0</span>]</span><br><span class="line">arr1 = np.array(data1)</span><br><span class="line"><span class="built_in">print</span>(arr1)</span><br><span class="line"><span class="built_in">print</span>(arr1.dtype)</span><br><span class="line"></span><br><span class="line"><span class="comment">#结果</span></span><br><span class="line">[<span class="number">1.</span>  <span class="number">2.</span>  <span class="number">3.4</span> <span class="number">7.</span>  <span class="number">0.</span> ]</span><br><span class="line">float64</span><br></pre></td></tr></tbody></table></figure>
+<p>嵌套序列</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line">data2 = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]]</span><br><span class="line">arr2 = np.array(data2)</span><br><span class="line"><span class="built_in">print</span>(arr2)</span><br><span class="line"><span class="built_in">print</span>(arr2.ndim) <span class="comment"># 维度</span></span><br><span class="line"><span class="built_in">print</span>(arr2.shape) <span class="comment"># 尺寸（各维度的大小）</span></span><br><span class="line"><span class="built_in">print</span>(arr2.dtype)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>]</span><br><span class="line"> [<span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span>]]</span><br><span class="line"><span class="number">2</span></span><br><span class="line">(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">int64</span><br></pre></td></tr></tbody></table></figure>
+<p>除<code>np.array</code>之外，还有一些函数也可以新建数组。比如，<strong>zeros</strong>和<strong>ones</strong>分别可以创建指定长度或形状的全0或全1数组。<strong>empty</strong>可以创建一个没有任何具体值的数组。要用这些方法创建多维数组，只需传入一个表示形状的元组即可：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="comment"># 全零/全一/空数组的创建</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'----全零数组-----'</span>)</span><br><span class="line">data3 = np.zeros((<span class="number">18</span>))</span><br><span class="line"><span class="built_in">print</span>(data3)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----全一数组-----'</span>)</span><br><span class="line">data4 = np.zeros((<span class="number">3</span>,<span class="number">6</span>))</span><br><span class="line"><span class="built_in">print</span>(data4)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----空数组-----'</span>)</span><br><span class="line">data5 = np.empty((<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>)) <span class="comment"># 认为np.empty会返回全0数组的想法是不安全的。很多情况下（如前所示），它返回的都是一些未初始化的垃圾值。</span></span><br><span class="line"><span class="built_in">print</span>(data5)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">----全零数组-----</span><br><span class="line">[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line">-----全一数组-----</span><br><span class="line">[[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line">-----空数组-----</span><br><span class="line">[[[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line">  [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line">  [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br><span class="line"></span><br><span class="line"> [[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line">  [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line">  [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]]</span><br></pre></td></tr></tbody></table></figure>
+<p><code>arange</code>是Python内置函数range的数组版：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="comment"># arange</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----arange-----'</span>)</span><br><span class="line">data6 = np.arange(<span class="number">16</span>)</span><br><span class="line"><span class="built_in">print</span>(data6)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">-----arange-----</span><br><span class="line">[ <span class="number">0</span>  <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span></span><br></pre></td></tr></tbody></table></figure>
+<p>表4-1列出了一些数组创建函数。由于NumPy关注的是数值计算，因此，如果没有特别指定，数据类型基本都是float64（浮点数）。</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="/go.html?u=aHR0cHM6Ly9jYW1vLmdpdGh1YnVzZXJjb250ZW50LmNvbS9hNWJmYzdkZGIzMDg0ZTcyYmNmYzkwNTdkODE1MjQ5NjBhNmI0OTBkNzMwOTA0M2JjNTQ3NjcwZmY0MGMxNDlkLzY4NzQ3NDcwM2EyZjJmNzU3MDZjNmY2MTY0MmQ2OTZkNjE2NzY1NzMyZTZhNjk2MTZlNzM2ODc1MmU2OTZmMmY3NTcwNmM2ZjYxNjQ1ZjY5NmQ2MTY3NjU3MzJmMzczMTM3MzgzNjM5MzEyZDM3Mzg2MTYyMzEzMTY2MzYzNzY1MzczMDM3Mzc2MTM2MmU3MDZlNjczZjY5NmQ2MTY3NjU0ZDZmNjc3MjMyMmY2MTc1NzQ2ZjJkNmY3MjY5NjU2ZTc0MmY3Mzc0NzI2OTcwMjUzNzQzNjk2ZDYxNjc2NTU2Njk2NTc3MzIyZjMyMmY3NzJmMzEzMjM0MzA="><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://camo.githubusercontent.com/a5bfc7ddb3084e72bcfc9057d81524960a6b490d7309043bc547670ff40c149d/687474703a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f373137383639312d373861623131663637653730373761362e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" alt="表4-1 数组创建函数"></a></p>
+<h3 id="1-3-ndarray的数据类型">1.3 ndarray的数据类型</h3>
+<p>dtype（数据类型）是一个特殊的对象，它含有ndarray将一块内存解释为特定数据类型所需的信息：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr1 = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], dtype = np.float64)</span><br><span class="line">arr2 = np.array([<span class="number">1.3</span>, <span class="number">2.1</span>, <span class="number">3.8</span>], dtype = np.int32)</span><br><span class="line"><span class="built_in">print</span>(arr1, <span class="string">'\n'</span> ,arr1.dtype)</span><br><span class="line"><span class="built_in">print</span>(arr2, <span class="string">'\n'</span> ,arr2.dtype)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[<span class="number">1.</span> <span class="number">2.</span> <span class="number">3.</span>] </span><br><span class="line"> float64</span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>] </span><br><span class="line"> int32</span><br></pre></td></tr></tbody></table></figure>
+<p>dtype是NumPy灵活交互其它系统的源泉之一。多数情况下，它们直接映射到相应的机器表示，这使得“读写磁盘上的二进制数据流”以及“集成低级语言代码（如C、Fortran）”等工作变得更加简单。数值型dtype的命名方式相同：一个类型名（如float或int），后面跟一个用于表示各元素位长的数字。标准的双精度浮点值（即Python中的float对象）需要占用8字节（即64位）。因此，该类型在NumPy中就记作float64。<strong>记不住这些NumPy的dtype也没关系，新手更是如此。通常只需要知道你所处理的数据的大致类型是浮点数、复数、整数、布尔值、字符串，还是普通的Python对象即可。当你需要控制数据在内存和磁盘中的存储方式时（尤其是对大数据集），那就得了解如何控制存储类型。</strong></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://camo.githubusercontent.com/2ca5aaac884f4a14cdc99918d182c6069d40032a8c97905bb9d3a636b87d49a4/687474703a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f373137383639312d326632643734303661386263303736632e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" alt=""></p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://camo.githubusercontent.com/c1ea9b9f461ca902a07ad693c89adfa5dce49036cb750956514e7b17aed3fe11/687474703a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f373137383639312d356363333131313536313537333762372e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" alt=""></p>
+<p>可以通过ndarray的astype方法明确地将一个数组从一个dtype转换成另一个dtype：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment"># astype转换dtype</span></span><br><span class="line">arr = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"><span class="built_in">print</span>(arr.dtype)</span><br><span class="line">float_arr = arr.astype(np.float64)</span><br><span class="line"><span class="built_in">print</span>(float_arr.dtype)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">int64</span><br><span class="line">float64</span><br></pre></td></tr></tbody></table></figure>
+<p>如果将浮点数转换成整数，则<strong>小数部分将会被截取删除</strong>：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment"># astype转换dtype</span></span><br><span class="line">arr = np.array([<span class="number">1.1</span>, <span class="number">2.2</span>, <span class="number">3.3</span>, <span class="number">4.6</span>, <span class="number">5.7</span>])</span><br><span class="line"><span class="built_in">print</span>(arr.dtype)</span><br><span class="line">int_arr = arr.astype(np.int64)</span><br><span class="line"><span class="built_in">print</span>(int_arr)</span><br><span class="line"><span class="built_in">print</span>(int_arr.dtype)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">float64</span><br><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span>]</span><br><span class="line">int64</span><br></pre></td></tr></tbody></table></figure>
+<p>如果某字符串数组表示的全是数字，也可以用astype将其转换为数值形式：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="comment"># astype转换dtype</span></span><br><span class="line">numeric_strings = np.array([<span class="string">'1.25'</span>, <span class="string">'-9.6'</span>, <span class="string">'42'</span>], dtype = np.string_)</span><br><span class="line"><span class="built_in">print</span>(numeric_strings)</span><br><span class="line">arr_string = numeric_strings.astype(np.float64)</span><br><span class="line"><span class="built_in">print</span>(arr_string, arr_string.dtype)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[<span class="string">b'1.25'</span> <span class="string">b'-9.6'</span> <span class="string">b'42'</span>]  <span class="comment"># 二进制</span></span><br><span class="line">[ <span class="number">1.25</span> -<span class="number">9.6</span>  <span class="number">42.</span>  ] float64</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>注意</strong>：使用numpy.string_类型时，一定要小心，因为NumPy的字符串数据是大小固定的，发生截取时，不会发出警告。pandas提供了更多非数值数据的便利的处理方法。</p>
+<p>如果转换过程因为某种原因而失败了（比如某个不能被转换为float64的字符串），就会引发一个ValueError。NumPy很聪明，它会将Python类型映射到等价的dtype上（所以原作者写的是float而不是np.float64）。</p>
+<p>数组的dtype还有另一个属性：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="comment"># dtype另外的属性</span></span><br><span class="line">int_array = np.arange(<span class="number">10</span>)</span><br><span class="line">calibers = np.array([<span class="number">.22</span>, <span class="number">.270</span>, <span class="number">.357</span>, <span class="number">.380</span>, <span class="number">.44</span>, <span class="number">.50</span>], dtype=np.float64)</span><br><span class="line">int_array = int_array.astype(calibers.dtype)</span><br><span class="line"><span class="built_in">print</span>(int_array.dtype)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">float64</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>注意：调用astype总会创建一个新的数组（一个数据的备份）所以它不是inplace操作，即使新的dtype与旧的dtype相同。</strong></p>
+<h2 id="二-numpy数组的运算">二、Numpy数组的运算</h2>
+<h3 id="2-1-同尺寸数组算数运算">2.1 同尺寸数组算数运算</h3>
+<p><strong>大小相等的数组</strong>之间的任何算术运算都会将运算应用到元素级：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">arr = np.array([[<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>], [<span class="number">4.</span>, <span class="number">5.</span>, <span class="number">6.</span>]])</span><br><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----乘法-----'</span>)</span><br><span class="line">mul_arr = arr * arr</span><br><span class="line"><span class="built_in">print</span>(mul_arr)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----减法-----'</span>)</span><br><span class="line">sub_arr = arr - arr</span><br><span class="line"><span class="built_in">print</span>(sub_arr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[[<span class="number">1.</span> <span class="number">2.</span> <span class="number">3.</span>]</span><br><span class="line"> [<span class="number">4.</span> <span class="number">5.</span> <span class="number">6.</span>]]</span><br><span class="line">-----乘法-----</span><br><span class="line">[[ <span class="number">1.</span>  <span class="number">4.</span>  <span class="number">9.</span>]</span><br><span class="line"> [<span class="number">16.</span> <span class="number">25.</span> <span class="number">36.</span>]]</span><br><span class="line">-----减法-----</span><br><span class="line">[[<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="2-2-数组与标量算数运算">2.2 数组与标量算数运算</h3>
+<p>数组与标量的算术运算会将标量值<strong>传播</strong>到各个元素：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="comment"># 数组与标量算数运算</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----标量与数组-----'</span>)</span><br><span class="line">scalar_arr = <span class="number">1</span> / arr</span><br><span class="line"><span class="built_in">print</span>(scalar_arr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[[<span class="number">1.</span> <span class="number">2.</span> <span class="number">3.</span>]</span><br><span class="line"> [<span class="number">4.</span> <span class="number">5.</span> <span class="number">6.</span>]]</span><br><span class="line">-----标量与数组-----</span><br><span class="line">[[<span class="number">1.</span>         <span class="number">0.5</span>        <span class="number">0.33333333</span>]</span><br><span class="line"> [<span class="number">0.25</span>       <span class="number">0.2</span>        <span class="number">0.16666667</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p>大小相同的数组之间的比较会生成布尔值数组：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="comment"># 数组之间的比较</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----大小相同的数组之间的比较------'</span>)</span><br><span class="line">arr2 = np.random.randn(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">bool_arr = arr2 &gt; arr</span><br><span class="line"><span class="built_in">print</span>(arr2)</span><br><span class="line"><span class="built_in">print</span>(bool_arr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[[<span class="number">1.</span> <span class="number">2.</span> <span class="number">3.</span>]</span><br><span class="line"> [<span class="number">4.</span> <span class="number">5.</span> <span class="number">6.</span>]]</span><br><span class="line">-----大小相同的数组之间的比较------</span><br><span class="line">[[-<span class="number">0.03972645</span>  <span class="number">0.48887017</span> -<span class="number">0.12327814</span>]</span><br><span class="line"> [ <span class="number">0.79288534</span>  <span class="number">0.22763344</span> -<span class="number">1.8064193</span> ]]</span><br><span class="line">[[<span class="literal">False</span> <span class="literal">False</span> <span class="literal">False</span>]</span><br><span class="line"> [<span class="literal">False</span> <span class="literal">False</span> <span class="literal">False</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p>不同大小的数组之间的运算叫做广播（broadcasting）</p>
+<h2 id="三-基本的索引和切片">三、基本的索引和切片</h2>
+<h3 id="3-1-一维数组索引">3.1 一维数组索引</h3>
+<p>一维数组很简单。从表面上看，它们跟Python列表的功能差不多：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一维数组</span></span><br><span class="line">arr = np.arange(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr的值为<span class="subst">{arr}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 索引操作</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr[5]的值为<span class="subst">{arr[<span class="number">5</span>]}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切片操作</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr[5:8]的值为<span class="subst">{arr[<span class="number">5</span>:<span class="number">8</span>]}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切片赋值操作</span></span><br><span class="line">arr[<span class="number">5</span>:<span class="number">8</span>] = <span class="number">12</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'赋值后arr的值为<span class="subst">{arr}</span>'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>其结果为：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr的值为[0 1 2 3 4 5 6 7 8 9]</span><br><span class="line">arr[5]的值为5</span><br><span class="line">arr[5:8]的值为[5 6 7]</span><br><span class="line">赋值后arr的值为[ 0  1  2  3  4 12 12 12  8  9]</span><br></pre></td></tr></tbody></table></figure>
+<p>当你将一个标量值赋值给一个切片时（如arr[5:8]=12），该值会自动传播（也就说后面将会讲到的“广播”）到整个选区。跟列表最重要的区别在于，<strong>数组切片是原始数组的视图。这意味着数据不会被复制，视图上的任何修改都会直接反映到源数组上。</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="comment"># 验证作用在源数组上</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----作用在源数组上-----'</span>)</span><br><span class="line">arr_slice = arr[<span class="number">5</span>:<span class="number">8</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr_slice的值为<span class="subst">{arr_slice}</span>'</span>)</span><br><span class="line">arr_slice[<span class="number">1</span>] = <span class="number">12345</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr_slice的值为<span class="subst">{arr_slice}</span>'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'此时arr的值为<span class="subst">{arr}</span>'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>其结果如下，切实的反映到源数组元素中：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-----作用在源数组上-----</span><br><span class="line">arr_slice的值为[<span class="number">12</span> <span class="number">12</span> <span class="number">12</span>]</span><br><span class="line">arr_slice的值为[   <span class="number">12</span> <span class="number">12345</span>    <span class="number">12</span>]</span><br><span class="line">此时arr的值为[    <span class="number">0</span>     <span class="number">1</span>     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span>    <span class="number">12</span> <span class="number">12345</span>    <span class="number">12</span>     <span class="number">8</span>     <span class="number">9</span>]</span><br></pre></td></tr></tbody></table></figure>
+<p>如果你想要得到的是ndarray切片的一份副本而非视图，就需要明确地进行复制操作，例如<code>arr[5:8].copy()</code></p>
+<h3 id="3-2-高维数组索引">3.2 高维数组索引</h3>
+<p>对于高维度数组，能做的事情更多。在一个二维数组中，各索引位置上的元素不再是标量而是一维数组。因此，可以对各个元素进行递归访问，但这样需要做的事情有点多。你可以传入一个以逗号隔开的索引列表来选取单个元素。也就是说，下面两种方式是等价的：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二维数组</span></span><br><span class="line">arr2d = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line"><span class="built_in">print</span>(arr2d[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(arr2d[<span class="number">0</span>][<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(arr2d[<span class="number">0</span>, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[<span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></tbody></table></figure>
+<p>多维数组中，如果省略了后面的索引，则返回对象会是一个维度低一点的ndarray（它含有高一级维度上的所有数据）。因此，在2×2×3数组arr3d中：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy  <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数组</span></span><br><span class="line">arr3d = np.array([[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]], [[<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>]]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr3d的值为<span class="subst">{arr3d}</span>'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\n'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr3d[0]的值为<span class="subst">{arr3d[<span class="number">0</span>]}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">arr3d的值为[[[ <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>]</span><br><span class="line">  [ <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line"> [[ <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span>]</span><br><span class="line">  [<span class="number">10</span> <span class="number">11</span> <span class="number">12</span>]]]</span><br><span class="line"></span><br><span class="line">arr3d[<span class="number">0</span>]的值为[[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p>arr3d[0]是一个2×3数组。标量值和数组都可以被赋值给arr3d[0]：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line">old_values = arr3d[<span class="number">0</span>].copy()</span><br><span class="line">arr3d[<span class="number">0</span>] = <span class="number">42</span> <span class="comment"># 标量赋值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr3d的值为<span class="subst">{arr3d}</span>'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\n'</span>)</span><br><span class="line">arr3d[<span class="number">0</span>] = old_values <span class="comment"># 赋值数组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr3d的值为<span class="subst">{arr3d}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">arr3d的值为[[[<span class="number">42</span> <span class="number">42</span> <span class="number">42</span>]</span><br><span class="line">  [<span class="number">42</span> <span class="number">42</span> <span class="number">42</span>]]</span><br><span class="line"></span><br><span class="line"> [[ <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span>]</span><br><span class="line">  [<span class="number">10</span> <span class="number">11</span> <span class="number">12</span>]]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">arr3d的值为[[[ <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>]</span><br><span class="line">  [ <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line"> [[ <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span>]</span><br><span class="line">  [<span class="number">10</span> <span class="number">11</span> <span class="number">12</span>]]]</span><br></pre></td></tr></tbody></table></figure>
+<p>相似的，arr3d[1,0]可以访问索引以(1,0)开头的那些值（以一维数组的形式返回）：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr3d[1,0]的值为<span class="subst">{arr3d[<span class="number">1</span>,<span class="number">0</span>]}</span>'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr3d[1]的值为<span class="subst">{arr3d[<span class="number">1</span>]}</span>'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr3d[0]的值为<span class="subst">{arr3d[<span class="number">0</span>]}</span>'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>其结果为：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr3d[1,0]的值为[7 8 9]</span><br><span class="line">arr3d[1]的值为[[ 7  8  9]</span><br><span class="line"> [10 11 12]]</span><br><span class="line">arr3d[0]的值为[[1 2 3]</span><br><span class="line"> [4 5 6]]</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>注意，在上面所有这些选取数组子集的例子中，返回的数组都是视图。</strong></p>
+<h3 id="3-3-切片索引">3.3 切片索引</h3>
+<p>ndarray的切片语法跟Python列表这样的一维对象差不多：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一维数组</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.arange(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr[1:6]的值为<span class="subst">{arr[<span class="number">1</span>:<span class="number">6</span>]}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">arr[<span class="number">1</span>:<span class="number">6</span>]的值为[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span>]</span><br></pre></td></tr></tbody></table></figure>
+<p>对于之前的二维数组arr2d，其切片方式稍显不同：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二位数组</span></span><br><span class="line">arr2d = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr2d的值为<span class="subst">{arr2d}</span>'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr2d[:2]的值为<span class="subst">{arr2d[:<span class="number">2</span>]}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">arr2d的值为[[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line"> [<span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]]</span><br><span class="line">arr2d[:<span class="number">2</span>]的值为[[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p>可以看出，它是沿着第0轴（即第一个轴）切片的。也就是说，切片是沿着一个轴向选取元素的。表达式arr2d[:2]可以被认为是“选取arr2d的前两行”。</p>
+<p>以一次传入多个切片，就像传入多个索引那样：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr2d[:2, 1:]的值为<span class="subst">{arr2d[:<span class="number">2</span>, <span class="number">1</span>:]}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">arr2d[:<span class="number">2</span>, <span class="number">1</span>:]的值为[[<span class="number">2</span> <span class="number">3</span>]</span><br><span class="line"> [<span class="number">5</span> <span class="number">6</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p>像这样进行切片时，只能得到相同维数的数组视图。通过将整数索引和切片混合，可以得到低维度的切片。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr2d[1, :2]的值为<span class="subst">{arr2d[<span class="number">1</span>, :<span class="number">2</span>]}</span>'</span>) <span class="comment"># 选取第二行的前两列</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr2d[:2, 2]的值为<span class="subst">{arr2d[:<span class="number">2</span>, <span class="number">2</span>]}</span>'</span>) <span class="comment"># 选择第三列的前两行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">arr2d[<span class="number">1</span>, :<span class="number">2</span>]的值为[<span class="number">4</span> <span class="number">5</span>]</span><br><span class="line">arr2d[:<span class="number">2</span>, <span class="number">2</span>]的值为[<span class="number">3</span> <span class="number">6</span>]</span><br></pre></td></tr></tbody></table></figure>
+<p>“只有冒号”表示选取整个轴，也可以像下面这样只对高维轴进行切片：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f'arr2d[:, :1]的值为<span class="subst">{arr2d[:, :<span class="number">1</span>]}</span>'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">arr2d[:, :<span class="number">1</span>]的值为[[<span class="number">1</span>]</span><br><span class="line"> [<span class="number">4</span>]</span><br><span class="line"> [<span class="number">7</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p>对切片表达式的赋值操作也会被扩散到整个选区：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line">arr2d[:<span class="number">2</span>, <span class="number">1</span>] = <span class="number">88</span></span><br><span class="line"><span class="built_in">print</span>(arr2d)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[[ <span class="number">1</span> <span class="number">88</span>  <span class="number">3</span>]</span><br><span class="line"> [ <span class="number">4</span> <span class="number">88</span>  <span class="number">6</span>]</span><br><span class="line"> [ <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="3-4-布尔型索引">3.4 布尔型索引</h3>
+<p>假设我们有一个用于存储数据的数组以及一个存储姓名的数组（含有重复项）。在这里，我将使用numpy.random中的randn函数生成一些正态分布的随机数据。假设每个名字都对应data数组中的一行，而我们想要选出对应于名字"Bob"的所有行。跟算术运算一样，数组的比较运算（如==）也是矢量化的。因此，对names和字符串"Bob"的比较运算将会产生一个布尔型数组，这个布尔型数组可用于数组索引：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">names = np.array([<span class="string">'chen'</span>, <span class="string">'zhang'</span>, <span class="string">'li'</span>, <span class="string">'xu'</span>, <span class="string">'zhao'</span>, <span class="string">'chen'</span>])</span><br><span class="line">data = np.random.randn(<span class="number">6</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----names-----'</span>)</span><br><span class="line"><span class="built_in">print</span>(names)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----data-----'</span>)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----Bool_Numpy-----'</span>)</span><br><span class="line">bool_numpy = names == <span class="string">'chen'</span></span><br><span class="line"><span class="built_in">print</span>(bool_numpy)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----Bool索引-----'</span>)</span><br><span class="line"><span class="built_in">print</span>(data[bool_numpy])</span><br></pre></td></tr></tbody></table></figure>
+<p>结果如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-----names-----</span><br><span class="line">[<span class="string">'chen'</span> <span class="string">'zhang'</span> <span class="string">'li'</span> <span class="string">'xu'</span> <span class="string">'zhao'</span> <span class="string">'chen'</span>]</span><br><span class="line">-----data-----</span><br><span class="line">[[ 0.54172558 -0.63760429 -1.52236895  0.47188601]</span><br><span class="line"> [-0.6040155  -0.47223536 -0.76297061 -1.04636066]</span><br><span class="line"> [-0.73840056 -2.39232494 -1.2425439   0.06129273]</span><br><span class="line"> [-1.13550151  0.61874361  1.09254494  0.30680673]</span><br><span class="line"> [ 0.04550459  0.3549206   0.83898802 -0.07078892]</span><br><span class="line"> [-0.610355   -0.51592092 -0.82877266  1.15671715]]</span><br><span class="line">-----Bool_Numpy-----</span><br><span class="line">[ True False False False False  True]</span><br><span class="line">-----Bool索引-----</span><br><span class="line">[[ 0.54172558 -0.63760429 -1.52236895  0.47188601]</span><br><span class="line"> [-0.610355   -0.51592092 -0.82877266  1.15671715]]</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>如果布尔型数组的长度不对，布尔型选择就会出错，因此一定要小心。</strong></p>
+<p>可以将布尔型数组跟切片、整数（或整数序列，稍后将对此进行详细讲解）混合使用：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----Bool索引与切片等混用-----'</span>)</span><br><span class="line"><span class="built_in">print</span>(data[bool_numpy, :<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'\n'</span>)</span><br><span class="line"><span class="built_in">print</span>(data[bool_numpy, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果， 注意这里因为重新运行了程序，所以data不一样了</span></span><br><span class="line">-----Bool索引与切片等混用-----</span><br><span class="line">[[ <span class="number">1.73880662</span> -<span class="number">1.04527357</span>]</span><br><span class="line"> [ <span class="number">0.96951486</span> -<span class="number">0.17282384</span>]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[-<span class="number">1.04527357</span> -<span class="number">0.17282384</span>]</span><br></pre></td></tr></tbody></table></figure>
+<p>要选择除"Bob"以外的其他值，既可以使用不等于符号（!=），也可以通过~对条件进行否定：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----反转Bool结果-----'</span>)</span><br><span class="line"><span class="built_in">print</span>(data[~bool_numpy])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">-----反转Bool结果-----</span><br><span class="line">[[ <span class="number">0.93945161</span> -<span class="number">0.7544237</span>  -<span class="number">0.34644503</span> -<span class="number">0.09743455</span>]</span><br><span class="line"> [-<span class="number">0.42706265</span>  <span class="number">0.43095953</span> -<span class="number">0.3795392</span>   <span class="number">0.69471133</span>]</span><br><span class="line"> [ <span class="number">0.18386234</span>  <span class="number">1.33093908</span>  <span class="number">0.45020598</span>  <span class="number">0.29030489</span>]</span><br><span class="line"> [ <span class="number">1.3630922</span>  -<span class="number">0.62001429</span> -<span class="number">0.64274597</span> -<span class="number">0.47705963</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p>选取这三个名字中的两个需要组合应用多个布尔条件，使用&amp;（和）、|（或）之类的布尔算术运算符即可：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----不一样的Bool结果-----'</span>)</span><br><span class="line">bool_numpy = (names == <span class="string">'chen'</span>) | (names == <span class="string">'zhang'</span>)</span><br><span class="line"><span class="built_in">print</span>(bool_numpy)</span><br><span class="line"><span class="built_in">print</span>(data[bool_numpy])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">-----不一样的Bool结果-----</span><br><span class="line">[ <span class="literal">True</span>  <span class="literal">True</span> <span class="literal">False</span> <span class="literal">False</span> <span class="literal">False</span>  <span class="literal">True</span>]</span><br><span class="line">[[-<span class="number">1.66626687</span>  <span class="number">1.05335126</span>  <span class="number">1.33397161</span>  <span class="number">0.1272513</span> ]</span><br><span class="line"> [-<span class="number">0.16854486</span>  <span class="number">0.80258699</span>  <span class="number">1.53339818</span> -<span class="number">1.35417792</span>]</span><br><span class="line"> [-<span class="number">1.10472392</span> -<span class="number">0.25433755</span>  <span class="number">0.70161534</span>  <span class="number">0.46733374</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>通过布尔型索引选取数组中的数据，将总是创建数据的副本，即使返回一模一样的数组也是如此。Python关键字and和or在布尔型数组中无效。要使用&amp;与|。</strong></p>
+<p>通过布尔型数组设置值是一种经常用到的手段。为了将data中的所有负值都设置为0，我们只需：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----通过Bool设置数值的值-----'</span>)</span><br><span class="line">data[data &lt; <span class="number">0</span>] = <span class="number">0</span></span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">-----通过Bool设置数值的值-----</span><br><span class="line">[[<span class="number">0.</span>         <span class="number">0.45907411</span> <span class="number">0.23298449</span> <span class="number">0.</span>        ]</span><br><span class="line"> [<span class="number">0.</span>         <span class="number">0.</span>         <span class="number">0.92147962</span> <span class="number">2.43230256</span>]</span><br><span class="line"> [<span class="number">0.</span>         <span class="number">0.65158384</span> <span class="number">0.</span>         <span class="number">0.93109638</span>]</span><br><span class="line"> [<span class="number">1.12697997</span> <span class="number">0.22151994</span> <span class="number">0.</span>         <span class="number">0.</span>        ]</span><br><span class="line"> [<span class="number">0.</span>         <span class="number">0.08199407</span> <span class="number">1.32571875</span> <span class="number">0.</span>        ]</span><br><span class="line"> [<span class="number">0.12717105</span> <span class="number">0.67663375</span> <span class="number">0.49319767</span> <span class="number">0.21915886</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p>通过一维布尔数组设置整行或列的值也很简单：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(<span class="string">'-----通过Bool设置数值的值-----'</span>)</span><br><span class="line">data[names != <span class="string">'chen'</span>] = <span class="number">7</span></span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">-----通过Bool设置数值的值-----</span><br><span class="line">[[-<span class="number">2.69925965</span> -<span class="number">0.90946446</span> -<span class="number">0.25263602</span>  <span class="number">0.15827415</span>]</span><br><span class="line"> [ <span class="number">7.</span>          <span class="number">7.</span>          <span class="number">7.</span>          <span class="number">7.</span>        ]</span><br><span class="line"> [ <span class="number">7.</span>          <span class="number">7.</span>          <span class="number">7.</span>          <span class="number">7.</span>        ]</span><br><span class="line"> [ <span class="number">7.</span>          <span class="number">7.</span>          <span class="number">7.</span>          <span class="number">7.</span>        ]</span><br><span class="line"> [ <span class="number">7.</span>          <span class="number">7.</span>          <span class="number">7.</span>          <span class="number">7.</span>        ]</span><br><span class="line"> [-<span class="number">0.7369675</span>   <span class="number">0.55405615</span> -<span class="number">0.88576397</span> -<span class="number">0.43520667</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="3-5-花式索引">3.5 花式索引</h3>
+<p>花式索引（Fancy indexing）是一个NumPy术语，它指的是利用<strong>整数数组</strong>进行索引。下面有一个8x4数组：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">arr = np.empty((<span class="number">8</span>, <span class="number">4</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">    arr[i] = i</span><br><span class="line"><span class="built_in">print</span>(arr)</span><br></pre></td></tr></tbody></table></figure>
+<p>其结果为：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[0. 0. 0. 0.]</span><br><span class="line"> [1. 1. 1. 1.]</span><br><span class="line"> [2. 2. 2. 2.]</span><br><span class="line"> [3. 3. 3. 3.]</span><br><span class="line"> [4. 4. 4. 4.]</span><br><span class="line"> [5. 5. 5. 5.]</span><br><span class="line"> [6. 6. 6. 6.]</span><br><span class="line"> [7. 7. 7. 7.]]</span><br></pre></td></tr></tbody></table></figure>
+<p>为了以特定顺序选取子集，只需要传入一个用于指定顺序的整数列表或ndarray即可：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(arr[[<span class="number">4</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">6</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[[<span class="number">4.</span> <span class="number">4.</span> <span class="number">4.</span> <span class="number">4.</span>]</span><br><span class="line"> [<span class="number">3.</span> <span class="number">3.</span> <span class="number">3.</span> <span class="number">3.</span>]</span><br><span class="line"> [<span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span> <span class="number">0.</span>]</span><br><span class="line"> [<span class="number">6.</span> <span class="number">6.</span> <span class="number">6.</span> <span class="number">6.</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p>使用负数索引将会从末尾开始选取行：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(arr[[-<span class="number">1</span>, -<span class="number">2</span>, -<span class="number">3</span>, -<span class="number">4</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[[<span class="number">7.</span> <span class="number">7.</span> <span class="number">7.</span> <span class="number">7.</span>]</span><br><span class="line"> [<span class="number">6.</span> <span class="number">6.</span> <span class="number">6.</span> <span class="number">6.</span>]</span><br><span class="line"> [<span class="number">5.</span> <span class="number">5.</span> <span class="number">5.</span> <span class="number">5.</span>]</span><br><span class="line"> [<span class="number">4.</span> <span class="number">4.</span> <span class="number">4.</span> <span class="number">4.</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p>一次传入<strong>多个索引数组</strong>会有一点特别。它返回的是一个一维数组，其中的元素对应各个索引元组：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"><span class="built_in">print</span>(arr[[<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>],[<span class="number">0</span>,<span class="number">3</span>,<span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[<span class="number">1.</span> <span class="number">5.</span> <span class="number">7.</span>]</span><br></pre></td></tr></tbody></table></figure>
+<p>最终选出的是元素(1,0)、(5,3)、(7,1)。<strong>无论数组是多少维的，花式索引总是一维的。</strong></p>
+<p>选取矩阵的行列子集应该是矩形区域的形式才对。下面是得到该结果的一个办法：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">····</span><br><span class="line"><span class="built_in">print</span>(arr[[<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">2</span>]][:,[<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">[[<span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span> <span class="number">1.</span>]</span><br><span class="line"> [<span class="number">5.</span> <span class="number">5.</span> <span class="number">5.</span> <span class="number">5.</span>]</span><br><span class="line"> [<span class="number">7.</span> <span class="number">7.</span> <span class="number">7.</span> <span class="number">7.</span>]</span><br><span class="line"> [<span class="number">2.</span> <span class="number">2.</span> <span class="number">2.</span> <span class="number">2.</span>]]</span><br></pre></td></tr></tbody></table></figure>
+<p><strong>花式索引跟切片不一样，它总是将数据复制到新数组中。</strong></p>
+</article><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://pic.gan1ser.top/pic/37.webp" target="_blank"><img class="post-qr-code-img" src="https://pic.gan1ser.top/pic/37.webp" alt="wechat"></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="https://pic.gan1ser.top/pic/38.webp" target="_blank"><img class="post-qr-code-img" src="https://pic.gan1ser.top/pic/38.webp" alt="alipay"></a><div class="post-qr-code-desc">alipay</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://www.gan1ser.top/post/5fac20c9.html"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Numpy入门（一）&amp;url=https://www.gan1ser.top/post/5fac20c9.html&amp;pic=https://pic.gan1ser.top/posts/117.webp/cover" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E7%9F%A5%E8%AF%86/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>知识<span class="tagsPageCount">52</span></a><a class="post-meta__box__tags" href="/tags/%E7%AC%94%E8%AE%B0/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>笔记<span class="tagsPageCount">33</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://pic.gan1ser.top/posts/133.webp/cover" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css" media="print" onload="this.media='all'"><script src="https://lib.baomitu.com/social-share.js/1.0.16/js/social-share.min.js" defer="defer"></script></div></div></div><div class="post-copyright"><i class="anzhiyufont anzhiyu-icon-copyright"></i><div class="post-copyright__author"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://www.gan1ser.top/post/5fac20c9.html">原创</a><a class="post-copyright-title"><span>Numpy入门（一）</span></a></div><div class="post-copyright-info-box"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"></span><a class="link" href="https://www.gan1ser.top">GanSer</a></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a class="link" href="https://www.gan1ser.top/post/5fac20c9.html">https://www.gan1ser.top/post/5fac20c9.html</a></span><span class="copy-button" onclick="rm.copyPageUrl('https://www.gan1ser.top/post/5fac20c9.html')"><i class="anzhiyufont anzhiyu-icon-copy"></i></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.gan1ser.top" target="_blank">GanSer</a>！</span></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/post/1b809c7b.html"><img class="prev-cover" src="https://pic.gan1ser.top/posts/16.webp/cover" onerror="onerror=null;src='https://pic.gan1ser.top/pic/4.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">常用第三方模块</div></div></a></div><div class="next-post pull-right"><a href="/post/6fbacc11.html"><img class="next-cover" src="https://pic.gan1ser.top/posts/114.webp/cover" onerror="onerror=null;src='https://pic.gan1ser.top/pic/4.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Numpy入门（二）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/post/1b809c7b.html" title="常用内建模块(一)"><img class="cover" src="https://pic.gan1ser.top/posts/18.webp/cover" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-07-30</div><div class="title">常用内建模块(一)</div></div></a></div><div><a href="/post/ca1e50ee.html" title="Deformable ConvNets-可变形卷积学习"><img class="cover" src="https://pic.gan1ser.top/posts/103.webp/cover" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-14</div><div class="title">Deformable ConvNets-可变形卷积学习</div></div></a></div><div><a href="/post/8c94c2b9.html" title="Markdown公式语法汇总"><img class="cover" src="https://pic.gan1ser.top/posts/109.webp/cover" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-01-10</div><div class="title">Markdown公式语法汇总</div></div></a></div><div><a href="/post/22a46f43.html" title="Numpy入门（三）"><img class="cover" src="https://pic.gan1ser.top/posts/115.webp/cover" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-08-09</div><div class="title">Numpy入门（三）</div></div></a></div><div><a href="/post/6fbacc11.html" title="Numpy入门（二）"><img class="cover" src="https://pic.gan1ser.top/posts/114.webp/cover" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-07-31</div><div class="title">Numpy入门（二）</div></div></a></div><div><a href="/post/95897626.html" title="Numpy入门（四）"><img class="cover" src="https://pic.gan1ser.top/posts/116.webp/cover" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-08-09</div><div class="title">Numpy入门（四）</div></div></a></div></div></div><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="author-info-top"> <div class="card-info-avatar"><a class="avatar-img" href="/about"><img src="https://pic.gan1ser.top/avatar/17.webp/avatar" onerror="this.onerror=null;this.src='https://pic.gan1ser.top/pic/4.gif'" alt="avatar"></a><div class="author-status-box"><div class="author-status"><g-emoji class="g-emoji" alias="writing_hand" fallback-src="https://pic.gan1ser.top/avatar/87.webp/avatar">✍️</g-emoji><span>on Studying</span></div></div></div></div><div class="author-info__sayhi" id="author-info__sayhi"></div><h1 class="author-info__name">GanSer</h1><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(11, 231, 255);">（づ￣3￣）づ╭❤～恭喜小伙伴发现博客世界的一角，这是一名普通大学生关于<b style="color:#078B99">知识、科技、生活</b>相关的记录和分享，还有<b style="color:#078B99">课外学习</b>和<b style="color:#078B99">搞怪</b>。</div></div><div class="banner-button-group"><a class="banner-button" onclick="pjax.loadUrl(&quot;/about/&quot;)"><span class="banner-button-text">了解更多</span><i class="anzhiyufont anzhiyu-icon-arrow-circle-right" style="font-size: 1.5rem"></i></a></div><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Gan1Ser" target="_blank" title="Github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-github"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1742158140@qq.com" target="_blank" title="Email"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-youxiang"></use></svg></a><a class="social-icon faa-parent animated-hover" href="/atom.xml" target="_blank" title="RSS"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-RSS"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/628891869" target="_blank" title="BiliBili"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-bilibili"></use></svg></a></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://pic.imgdb.cn/item/64ba6cbb1ddac507cc15022b.gif) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://pic.imgdb.cn/item/64ba67aa1ddac507cc03647b.gif) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-numpy%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-text">一、Numpy基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%8C%89%E5%85%83%E7%B4%A0%E7%AE%80%E5%8D%95%E8%BF%90%E7%AE%97"><span class="toc-text">1.1 按元素简单运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%88%9B%E5%BB%BAndarray"><span class="toc-text">1.2 创建ndarray</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-ndarray%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">1.3 ndarray的数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-numpy%E6%95%B0%E7%BB%84%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-text">二、Numpy数组的运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%90%8C%E5%B0%BA%E5%AF%B8%E6%95%B0%E7%BB%84%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97"><span class="toc-text">2.1 同尺寸数组算数运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%95%B0%E7%BB%84%E4%B8%8E%E6%A0%87%E9%87%8F%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97"><span class="toc-text">2.2 数组与标量算数运算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E5%9F%BA%E6%9C%AC%E7%9A%84%E7%B4%A2%E5%BC%95%E5%92%8C%E5%88%87%E7%89%87"><span class="toc-text">三、基本的索引和切片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84%E7%B4%A2%E5%BC%95"><span class="toc-text">3.1 一维数组索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%AB%98%E7%BB%B4%E6%95%B0%E7%BB%84%E7%B4%A2%E5%BC%95"><span class="toc-text">3.2 高维数组索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%88%87%E7%89%87%E7%B4%A2%E5%BC%95"><span class="toc-text">3.3 切片索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%B8%83%E5%B0%94%E5%9E%8B%E7%B4%A2%E5%BC%95"><span class="toc-text">3.4 布尔型索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E8%8A%B1%E5%BC%8F%E7%B4%A2%E5%BC%95"><span class="toc-text">3.5 花式索引</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/post/22956134.html" title="Dart学习"><img src="https://pic.gan1ser.top/posts/133.webp/cover" onerror="this.onerror=null;this.src='https://pic.gan1ser.top/pic/4.gif'" alt="Dart学习"></a><div class="content"><a class="title" href="/post/22956134.html" title="Dart学习">Dart学习</a><time datetime="2025-04-20T12:04:00.000Z" title="发表于 2025-04-20 12:04:00">2025-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/41115324.html" title="Git摘樱桃拆分commit进行提交"><img src="https://pic.gan1ser.top/posts/131.webp/cover" onerror="this.onerror=null;this.src='https://pic.gan1ser.top/pic/4.gif'" alt="Git摘樱桃拆分commit进行提交"></a><div class="content"><a class="title" href="/post/41115324.html" title="Git摘樱桃拆分commit进行提交">Git摘樱桃拆分commit进行提交</a><time datetime="2024-12-02T16:00:00.000Z" title="发表于 2024-12-02 16:00:00">2024-12-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/4bfe597f.html" title="阴阳师八周年活动-非酋的自我修养记录"><img src="https://pic.gan1ser.top/posts/130.webp/cover" onerror="this.onerror=null;this.src='https://pic.gan1ser.top/pic/4.gif'" alt="阴阳师八周年活动-非酋的自我修养记录"></a><div class="content"><a class="title" href="/post/4bfe597f.html" title="阴阳师八周年活动-非酋的自我修养记录">阴阳师八周年活动-非酋的自我修养记录</a><time datetime="2024-09-12T08:30:00.000Z" title="发表于 2024-09-12 08:30:00">2024-09-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/6a236522.html" title="Serv00部署Memos"><img src="https://pic.gan1ser.top/posts/125.webp/cover" onerror="this.onerror=null;this.src='https://pic.gan1ser.top/pic/4.gif'" alt="Serv00部署Memos"></a><div class="content"><a class="title" href="/post/6a236522.html" title="Serv00部署Memos">Serv00部署Memos</a><time datetime="2024-08-03T11:23:00.000Z" title="发表于 2024-08-03 11:23:00">2024-08-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/post/754a429b.html" title="信盈达实习记录"><img src="https://pic.gan1ser.top/posts/93.webp/cover" onerror="this.onerror=null;this.src='https://pic.gan1ser.top/pic/4.gif'" alt="信盈达实习记录"></a><div class="content"><a class="title" href="/post/754a429b.html" title="信盈达实习记录">信盈达实习记录</a><time datetime="2024-07-07T09:13:00.000Z" title="发表于 2024-07-07 09:13:00">2024-07-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="shine-footer-bar"><div class="footer-logo"><i class="iconfont icon-GanSer" style="width: 2.5em; height: 1.5em; margin-right: 4px;"><use xlink:href="#icon-GanSer"></use></i></div><div class="footer-bar-description">来自 GanSer - 紫箫吟断,素笺恨切💕</div><a class="footer-bar-link" data-pjax-state="" href="/">了解更多</a></div><div id="footer_deal"><a class="deal_link" href="mailto:1742158140@qq.com" title="email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://weibo.com/u/7793068106" title="微博"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://www.facebook.com/profile.php?id=124072204066287&amp;sk=about" title="facebook"><i class="anzhiyufont anzhiyu-icon-facebook1"></i></a><img class="footer_mini_logo" title="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src="https://pic.gan1ser.top/avatar/17.webp/avatar" size="50px"><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/Gan1Ser/" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/628891869" title="Bilibili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://v.douyin.com/iXbJbQ9/" title="抖音"><i class="anzhiyufont anzhiyu-icon-tiktok"></i></a></div><div id="anzhiyu-footer"><div class="footer-group"><div class="footer-title">服务</div><div class="footer-links"><a class="footer-item" title="51la统计" target="_blank" href="https://v6.51.la/">51la统计</a><a class="footer-item" title="十年之约" target="_blank" href="https://www.foreverblog.cn/">十年之约</a><a class="footer-item" title="开往" target="_blank" href="https://github.com/travellings-link/travellings">开往</a></div></div><div class="footer-group"><div class="footer-title">主题</div><div class="footer-links"><a class="footer-item" title="文档" target="_blank" href="https://blog.anheyu.com/docs/">文档</a><a class="footer-item" title="源码" target="_blank" href="https://github.com/Gan1Ser/Gan1Ser.github.io">源码</a><a class="footer-item" title="更新日志" target="_blank" href="/update/">更新日志</a></div></div><div class="footer-group"><div class="footer-title">导航</div><div class="footer-links"><a class="footer-item" title="即刻短文" target="_blank" href="/memos/">即刻短文</a><a class="footer-item" title="友链文章" target="_blank" href="/fcircle/">友链文章</a><a class="footer-item" title="留言板" target="_blank" href="/comments/">留言板</a></div></div><div class="footer-group"><div class="footer-title">协议</div><div class="footer-links"><a class="footer-item" title="隐私协议" target="_blank" href="/privacy/">隐私协议</a><a class="footer-item" title="Cookies" target="_blank" href="/cookies/">Cookies</a><a class="footer-item" title="版权协议" target="_blank" href="/copyright/">版权协议</a></div></div><div class="footer-group"><div class="footer-title-group"><div class="footer-title">友链</div><a class="random-friends-btn" id="footer-random-friends-btn" href="javascript:addFriendLinksInFooter();" title="换一批友情链接"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i></a></div><div class="footer-links" id="friend-links-in-footer"></div></div></div><div class="copyright">©2022 - 2025 By GanSer</div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title="博客框架为Hexo_v5.4.0"><img src="https://pic.gan1ser.top/pic/26.webp" alt="博客框架为Hexo_v5.4.0"></a><a class="github-badge" target="_blank" href="https://anheyu.com/" style="margin-inline:5px" data-title="本站使用AnZhiYu主题" title="本站使用AnZhiYu主题"><img src="https://pic.gan1ser.top/pic/27.webp" alt="本站使用AnZhiYu主题"></a><a class="github-badge" target="_blank" href="https://www.dogecloud.com/" style="margin-inline:5px" data-title="本站使用多吉云为静态资源提供CDN加速" title="本站使用多吉云为静态资源提供CDN加速"><img src="https://pic.gan1ser.top/pic/28.webp" alt="本站使用多吉云为静态资源提供CDN加速"></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/" style="margin-inline:5px" data-title="本站已在豫进行备案" title="本站已在豫进行备案"><img src="https://pic.gan1ser.top/pic/4.webp" alt="本站已在豫进行备案"></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title="本站项目由Github托管"><img src="https://pic.gan1ser.top/pic/29.webp" alt="本站项目由Github托管"></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://pic.gan1ser.top/pic/30.webp" alt="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></footer></div></div></div><div id="sidebar"><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic.gan1ser.top/avatar/17.webp/avatar" onerror="onerror=null;src='https://pic.gan1ser.top/pic/4.gif'" alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">131</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">34</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/memos/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 即刻短文</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=7750616521&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/collect/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 影漫佳选</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/todolist/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 待办清单</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div></div><div id="keyboard-tips"><div class="keyboardTitle">博客快捷键</div><div class="keybordList"><div class="keybordItem"><div class="keyGroup"><div class="key">shift K</div></div><div class="keyContent"><div class="content">关闭快捷键功能</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift A</div></div><div class="keyContent"><div class="content">打开中控台</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift M</div></div><div class="keyContent"><div class="content">播放/暂停音乐</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift D</div></div><div class="keyContent"><div class="content">深色/浅色显示模式</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift S</div></div><div class="keyContent"><div class="content">站内搜索</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift R</div></div><div class="keyContent"><div class="content">随机访问</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift H</div></div><div class="keyContent"><div class="content">返回首页</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift F</div></div><div class="keyContent"><div class="content">友链鱼塘</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift L</div></div><div class="keyContent"><div class="content">友链页面</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift P</div></div><div class="keyContent"><div class="content">关于本站</div></div></div><div class="keybordItem"><div class="keyGroup"><div class="key">shift I</div></div><div class="keyContent"><div class="content">原版右键菜单</div></div></div></div></div><script>var anzhiyu_intype = false
+var anzhiyu_keyUpEvent_timeoutId = null
+var anzhiyu_keyUpShiftDelayEvent_timeoutId = null
+function addKeyShotListener() {
+  const windowObject = window;
+  windowObject.removeEventListener("keydown", keyDownEvent);
+  windowObject.removeEventListener("keyup", keyUpEvent);
+  windowObject.addEventListener("keydown", keyDownEvent);
+  windowObject.addEventListener("keyup", keyUpEvent);
+}
+
+function keyDownEvent(event) {
+  const isEscapeKeyPressed = event.keyCode === 27;
+  const isShiftKeyPressed = event.shiftKey;
+  const isKeyboardEnabled = anzhiyu_keyboard;
+  const isInInputField = anzhiyu_intype;
+
+  if (isEscapeKeyPressed) {
+    anzhiyu.hideLoading();
+    anzhiyu.hideConsole();
+    rm.hideRightMenu();
+  }
+
+  if (isKeyboardEnabled && isShiftKeyPressed && !isInInputField) {
+    anzhiyu_keyUpShiftDelayEvent_timeoutId = setTimeout(()=>{
+      switch (event.keyCode) {
+        case 16:
+          anzhiyu_keyUpEvent_timeoutId = setTimeout(()=>{
+            document.querySelector("#keyboard-tips").classList.add("show");
+          }, 200);
+          break;
+        case 65:
+          anzhiyu.showConsole();
+          break;
+        case 77:
+          anzhiyu.musicToggle();
+          break;
+        case 75:
+          anzhiyu.keyboardToggle();
+          break;
+        case 73:
+          anzhiyu.rightMenuToggle();
+          break;
+        case 82:
+          toRandomPost();
+          break;
+        case 72:
+          pjax.loadUrl("/");
+          break;
+        case 68:
+          anzhiyu.switchDarkMode();
+          break;
+        case 70:
+          pjax.loadUrl("/fcircle/");
+          break;
+        case 76:
+          pjax.loadUrl("/link/");
+          break;
+        case 80:
+          pjax.loadUrl("/about/");
+          break;
+        default:
+          break;
+      }
+
+      event.preventDefault();
+    }, 100);
+  }
+}
+
+addKeyShotListener();
+
+window.onfocus = function() {
+  document.getElementById("keyboard-tips").classList.remove("show")
+}
+
+function setInputFocusListener() {
+  const inputs = document.querySelectorAll("input, textarea");
+
+  inputs.forEach((input) => {
+    input.addEventListener("focus", () => {
+      setanzhiyuIntype(true);
+    });
+
+    input.addEventListener("blur", () => {
+      setanzhiyuIntype(false);
+    });
+  });
+}
+
+function setanzhiyuIntype(value) {
+  anzhiyu_intype = value;
+}
+
+function keyUpEvent(event) {
+  anzhiyu_keyUpEvent_timeoutId && clearTimeout(anzhiyu_keyUpEvent_timeoutId);
+  anzhiyu_keyUpShiftDelayEvent_timeoutId && clearTimeout(anzhiyu_keyUpShiftDelayEvent_timeoutId);
+  if (event.keyCode === 16) {
+    const keyboardTips = document.querySelector("#keyboard-tips");
+    keyboardTips.classList.remove("show");
+  }
+}
+
+function listenToPageInputPress() {
+  const inputElement = document.getElementById("toPageText");
+  const buttonElement = document.getElementById("toPageButton");
+
+  if (!inputElement) {
+    return;
+  }
+
+  inputElement.addEventListener("keydown", (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      anzhiyu.toPage();
+      pjax.loadUrl(buttonElement.href);
+    }
+  });
+
+  inputElement.addEventListener("input", () => {
+    const value = inputElement.value;
+    if (!value || value === "0") {
+      buttonElement.classList.remove("haveValue");
+    } else {
+      buttonElement.classList.add("haveValue");
+    }
+
+    const pageNumbers = document.querySelectorAll(".page-number");
+    const maxPageNumber = +pageNumbers[pageNumbers.length - 1].innerHTML;
+
+    if (+value > maxPageNumber) {
+      inputElement.value = maxPageNumber;
+    }
+  });
+}
+
+setInputFocusListener()</script><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><a id="switch_commentBarrage" href="javascript:anzhiyu.switchCommentBarrage();" title="开关弹幕"><i class="anzhiyufont anzhiyu-icon-danmu"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7750616521" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.4.0/source/js/utils.js"></script><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.4.0/source/js/main.js"></script><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.4.0/source/js/tw_cn.js"></script><script src="https://npm.elemecdn.com/@fancyapps/ui@4.0.31/dist/fancybox.umd.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/instant.page/5.1.0/instantpage.min.js" type="module"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/vanilla-lazyload/17.3.1/lazyload.iife.min.js"></script><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/node-snackbar/0.1.16/snackbar.min.js"></script><canvas id="universe"></canvas><script async="" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async="" src="/anzhiyu/random.js"></script><script src="https://npm.elemecdn.com/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js"></script><script src="https://npm.elemecdn.com/instantsearch.js@4.46.1/dist/instantsearch.production.min.js"></script><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.4.0/source/js/search/algolia.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.gan1ser.top/',
+      region: '',
+      onCommentLoaded: function () {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.gan1ser.top/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init();
+    
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://pic.gan1ser.top/emoji%20/twikoo.all.min.js').then(runFn)
+  }
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo.gan1ser.top/',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://pic.gan1ser.top/emoji%20/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick}</span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script async="" data-pjax="" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "1742158140@qq.com";</script><script>//动态标题
+let leaveTitle = 'w(ﾟДﾟ)w 不要走！再看看嘛！';
+let backTitle = '♪(^∇^*)欢迎肥来！';
+let OriginTitile = document.title
+let titleTime
+document.addEventListener('visibilitychange', function () {
+  if (document.hidden) {
+    //离开当前页面时标签显示内容
+    document.title = leaveTitle
+    clearTimeout(titleTime)
+  } else {
+    //返回当前页面时标签显示内容
+    document.title = backTitle + OriginTitile
+    //两秒后变回正常标题
+    titleTime = setTimeout(function () {
+      document.title = OriginTitile
+    }, 2000)
+  }
+})</script><script data-pjax="true">if (document.querySelector(".comment-barrage")){
+  var commentBarrageConfig = {
+    maxBarrage: 1,
+    barrageTime: 4000,
+    twikooUrl: "https://twikoo.gan1ser.top/",
+    accessToken: "034aa2035fc6c553efefed34b8041214",
+    mailMd5: "",
+    pageUrl: window.location.pathname,
+    barrageTimer: [],
+    barrageList: [],
+    barrageIndex: 0,
+    dom: document.querySelector(".comment-barrage"),
+  };
+  var commentInterval = null;
+  var hoverOnCommentBarrage = false;
+  
+  document.querySelector(".comment-barrage").addEventListener("mouseenter", function() {
+    hoverOnCommentBarrage = true;
+  });
+  document.querySelector(".comment-barrage").addEventListener("mouseleave", function() {
+    hoverOnCommentBarrage = false;
+  });
+
+  function initCommentBarrage() {
+    if (!commentBarrageConfig.dom) return;
+
+    var data = JSON.stringify({
+      event: "COMMENT_GET",
+      "commentBarrageConfig.accessToken": commentBarrageConfig.accessToken,
+      url: commentBarrageConfig.pageUrl,
+    });
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4 && this.responseText) {
+        commentBarrageConfig.barrageList = commentLinkFilter(JSON.parse(this.responseText).data);
+        commentBarrageConfig.dom.innerHTML = "";
+      }
+    });
+    xhr.open("POST", commentBarrageConfig.twikooUrl);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(data);
+
+    clearInterval(commentInterval);
+    commentInterval = null;
+
+    commentInterval = setInterval(() => {
+      if (commentBarrageConfig.barrageList.length && !hoverOnCommentBarrage) {
+        popCommentBarrage(commentBarrageConfig.barrageList[commentBarrageConfig.barrageIndex]);
+        commentBarrageConfig.barrageIndex += 1;
+        commentBarrageConfig.barrageIndex %= commentBarrageConfig.barrageList.length;
+      }
+      if (
+        commentBarrageConfig.barrageTimer.length >
+          (commentBarrageConfig.barrageList.length > commentBarrageConfig.maxBarrage
+            ? commentBarrageConfig.maxBarrage
+            : commentBarrageConfig.barrageList.length) &&
+        !hoverOnCommentBarrage
+      ) {
+        removeCommentBarrage(commentBarrageConfig.barrageTimer.shift());
+      }
+    }, commentBarrageConfig.barrageTime);
+  }
+
+  function commentLinkFilter(data) {
+    data.sort((a, b) => {
+      return a.created - b.created;
+    });
+    let newData = [];
+    data.forEach(item => {
+      newData.push(...getCommentReplies(item));
+    });
+    return newData;
+  }
+
+  function getCommentReplies(item) {
+    if (item.replies) {
+      let replies = [item];
+      item.replies.forEach(item => {
+        replies.push(...getCommentReplies(item));
+      });
+      return replies;
+    } else {
+      return [];
+    }
+  }
+
+  function popCommentBarrage(data) {
+    let barrage = document.createElement("div");
+    barrage.className = "comment-barrage-item";
+    barrage.innerHTML = `
+        <div class="barrageHead">
+          <a class="barrageTitle ${
+            data.mailMd5 === commentBarrageConfig.mailMd5 ? "barrageBloggerTitle" : ""
+          }" href="javascript:anzhiyu.scrollTo('#post-comment')"">
+            ${data.mailMd5 === commentBarrageConfig.mailMd5 ? "博主" : "热评"}
+          </a>
+          <div class="barrageNick">${data.nick}</div>
+          <img class="nolazyload barrageAvatar" src="https://cravatar.cn/avatar/${data.mailMd5}"/>
+          <a class="comment-barrage-close" href="javascript:anzhiyu.switchCommentBarrage()"><i class="anzhiyufont anzhiyu-icon-xmark"></i></a>
+        </div>
+        <a class="barrageContent" href="#${data.id}">
+          <object>${data.comment}</object>
+        </a>
+      `;
+    commentBarrageConfig.barrageTimer.push(barrage);
+    commentBarrageConfig.dom.append(barrage);
+  }
+
+  function removeCommentBarrage(barrage) {
+    barrage.className = "comment-barrage-item out";
+
+    setTimeout(() => {
+      if (commentBarrageConfig.dom && commentBarrageConfig.dom.contains(barrage)) {
+        commentBarrageConfig.dom.removeChild(barrage);
+      }
+      }, 1000);
+    }
+
+    // 自动隐藏
+    const commentEntryCallback = (entries) => {
+      const commentBarrage = document.querySelector(".comment-barrage");
+      const postComment = document.getElementById("post-comment");
+
+      entries.forEach(entry => {
+        if (postComment && commentBarrage && document.body.clientWidth > 768) {
+          commentBarrage.style.bottom = entry.isIntersecting ? "-200px" : "0";
+        }
+      });
+    };
+    // 创建IntersectionObserver实例
+    const observer = new IntersectionObserver(commentEntryCallback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0
+    });
+    // 监视目标元素
+    const postCommentTarget = document.getElementById("post-comment");
+    if (postCommentTarget) {
+      observer.observe(postCommentTarget);
+    }
+
+    initCommentBarrage();
+
+    if (localStorage.getItem("commentBarrageSwitch") !== "false") {
+      document.querySelector(".comment-barrage").style.display = "flex";
+      document.querySelector(".menu-commentBarrage-text").textContent = "关闭热评";
+    } else {
+      document.querySelector(".comment-barrage").style.display = "none";
+      document.querySelector(".menu-commentBarrage-text").textContent = "显示热评";
+    }
+
+    document.addEventListener("pjax:send", function () {
+      clearInterval(commentInterval);
+    });
+
+  }</script><script async="" data-pjax="" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script>// 初始化函数
+let rm = {};
+
+//禁止图片与超链接拖拽
+let aElements = document.getElementsByTagName("a");
+for (let i = 0; i < aElements.length; i++) {
+  aElements[i].setAttribute("draggable", "false");
+  let imgElements = aElements[i].getElementsByTagName("img");
+  for (let j = 0; j < imgElements.length; j++) {
+    imgElements[j].setAttribute("draggable", "false");
+  }
+}
+
+// 显示菜单
+rm.showRightMenu = function (isTrue, x = 0, y = 0) {
+  console.info(x, y)
+  let rightMenu = document.getElementById("rightMenu");
+  rightMenu.style.top = x + "px";
+  rightMenu.style.left = y + "px";
+  if (isTrue) {
+    rightMenu.style.display = "block";
+    stopMaskScroll();
+  } else {
+    rightMenu.style.display = "none";
+  }
+};
+
+// 隐藏菜单
+rm.hideRightMenu = function () {
+  rm.showRightMenu(false);
+  let rightMenuMask = document.querySelector("#rightmenu-mask");
+  rightMenuMask.style.display = "none";
+};
+
+// 尺寸
+let rmWidth = document.getElementById("rightMenu").offsetWidth;
+let rmHeight = document.getElementById("rightMenu").offsetHeight;
+
+// 重新定义尺寸
+rm.reloadrmSize = function () {
+  rightMenu.style.visibility = "hidden";
+  rightMenu.style.display = "block";
+  // 获取宽度和高度
+  rmWidth = document.getElementById("rightMenu").offsetWidth;
+  rmHeight = document.getElementById("rightMenu").offsetHeight;
+  rightMenu.style.visibility = "visible";
+};
+
+// 获取点击的href
+let domhref = "";
+let domImgSrc = "";
+let globalEvent = null;
+
+var oncontextmenuFunction = function (event) {
+  if (document.body.clientWidth > 768) {
+    let pageX = event.clientX + 10; //加10是为了防止显示时鼠标遮在菜单上
+    let pageY = event.clientY;
+
+    //其他额外菜单
+    const $rightMenuOther = document.querySelector(".rightMenuOther");
+    const $rightMenuPlugin = document.querySelector(".rightMenuPlugin");
+    const $rightMenuCopyText = document.querySelector("#menu-copytext");
+    const $rightMenuPasteText = document.querySelector("#menu-pastetext");
+    const $rightMenuCommentText = document.querySelector("#menu-commenttext");
+    const $rightMenuNewWindow = document.querySelector("#menu-newwindow");
+    const $rightMenuNewWindowImg = document.querySelector("#menu-newwindowimg");
+    const $rightMenuCopyLink = document.querySelector("#menu-copylink");
+    const $rightMenuCopyImg = document.querySelector("#menu-copyimg");
+    const $rightMenuDownloadImg = document.querySelector("#menu-downloadimg");
+    const $rightMenuSearch = document.querySelector("#menu-search");
+    const $rightMenuSearchBaidu = document.querySelector("#menu-searchBaidu");
+    const $rightMenuMusicToggle = document.querySelector("#menu-music-toggle");
+    const $rightMenuMusicBack = document.querySelector("#menu-music-back");
+    const $rightMenuMusicForward = document.querySelector("#menu-music-forward");
+    const $rightMenuMusicPlaylist = document.querySelector("#menu-music-playlist");
+    const $rightMenuMusicCopyMusicName = document.querySelector("#menu-music-copyMusicName");
+
+    let href = event.target.href;
+    let imgsrc = event.target.currentSrc;
+
+    // 判断模式 扩展模式为有事件
+    let pluginMode = false;
+    $rightMenuOther.style.display = "block";
+    globalEvent = event;
+
+    // 检查是否需要复制 是否有选中文本
+    if (selectTextNow && window.getSelection()) {
+      pluginMode = true;
+      $rightMenuCopyText.style.display = "block";
+      $rightMenuCommentText.style.display = "block";
+      $rightMenuSearch.style.display = "block";
+      $rightMenuSearchBaidu.style.display = "block";
+    } else {
+      $rightMenuCopyText.style.display = "none";
+      $rightMenuCommentText.style.display = "none";
+      $rightMenuSearchBaidu.style.display = "none";
+      $rightMenuSearch.style.display = "none";
+    }
+
+    //检查是否右键点击了链接a标签
+    if (href) {
+      pluginMode = true;
+      $rightMenuNewWindow.style.display = "block";
+      $rightMenuCopyLink.style.display = "block";
+      domhref = href;
+    } else {
+      $rightMenuNewWindow.style.display = "none";
+      $rightMenuCopyLink.style.display = "none";
+    }
+
+    //检查是否需要复制图片
+    if (imgsrc) {
+      pluginMode = true;
+      $rightMenuCopyImg.style.display = "block";
+      $rightMenuDownloadImg.style.display = "block";
+      $rightMenuNewWindowImg.style.display = "block";
+      document.getElementById("rightMenu").style.width="12rem"
+      domImgSrc = imgsrc;
+    } else {
+      $rightMenuCopyImg.style.display = "none";
+      $rightMenuDownloadImg.style.display = "none";
+      $rightMenuNewWindowImg.style.display = "none";
+    }
+
+    // 判断是否为输入框
+    if (event.target.tagName.toLowerCase() === "input" || event.target.tagName.toLowerCase() === "textarea") {
+      pluginMode = true;
+      $rightMenuPasteText.style.display = "block";
+    } else {
+      $rightMenuPasteText.style.display = "none";
+    }
+    const navMusicEl = document.querySelector("#nav-music");
+    //判断是否是音乐
+    if (navMusicEl && navMusicEl.contains(event.target)) {
+      pluginMode = true;
+      $rightMenuMusicToggle.style.display = "block";
+      $rightMenuMusicBack.style.display = "block";
+      $rightMenuMusicForward.style.display = "block";
+      $rightMenuMusicPlaylist.style.display = "block";
+      $rightMenuMusicCopyMusicName.style.display = "block";
+    } else {
+      $rightMenuMusicToggle.style.display = "none";
+      $rightMenuMusicBack.style.display = "none";
+      $rightMenuMusicForward.style.display = "none";
+      $rightMenuMusicPlaylist.style.display = "none";
+      $rightMenuMusicCopyMusicName.style.display = "none";
+    }
+
+    // 如果不是扩展模式则隐藏扩展模块
+    if (pluginMode) {
+      $rightMenuOther.style.display = "none";
+      $rightMenuPlugin.style.display = "block";
+    } else {
+      $rightMenuPlugin.style.display = "none";
+    }
+
+    rm.reloadrmSize();
+
+    // 鼠标默认显示在鼠标右下方，当鼠标靠右或靠下时，将菜单显示在鼠标左方\上方
+    if (pageX + rmWidth > window.innerWidth) {
+      pageX -= rmWidth + 10;
+    }
+    if (pageY + rmHeight > window.innerHeight) {
+      pageY -= pageY + rmHeight - window.innerHeight;
+    }
+
+    rm.showRightMenu(true, pageY, pageX);
+    document.getElementById("rightmenu-mask").style.display = "flex";
+    return false;
+  }
+};
+
+// 监听右键初始化
+window.oncontextmenu = oncontextmenuFunction
+
+// 下载图片状态
+rm.downloadimging = false;
+
+// 复制图片到剪贴板
+rm.writeClipImg = function (imgsrc) {
+  console.log("按下复制");
+  rm.hideRightMenu();
+  anzhiyu.snackbarShow("正在下载中，请稍后", false, 10000);
+  if (rm.downloadimging == false) {
+    rm.downloadimging = true;
+    setTimeout(function () {
+      copyImage(imgsrc);
+      anzhiyu.snackbarShow("复制成功！图片已添加盲水印，请遵守版权协议");
+      rm.downloadimging = false;
+    }, "10000");
+  }
+};
+
+function imageToBlob(imageURL) {
+  const img = new Image();
+  const c = document.createElement("canvas");
+  const ctx = c.getContext("2d");
+  img.crossOrigin = "";
+  img.src = imageURL;
+  return new Promise(resolve => {
+    img.onload = function () {
+      c.width = this.naturalWidth;
+      c.height = this.naturalHeight;
+      ctx.drawImage(this, 0, 0);
+      c.toBlob(
+        blob => {
+          // here the image is a blob
+          resolve(blob);
+        },
+        "image/png",
+        0.75
+      );
+    };
+  });
+}
+
+async function copyImage(imageURL) {
+  const blob = await imageToBlob(imageURL);
+  const item = new ClipboardItem({ "image/png": blob });
+  navigator.clipboard.write([item]);
+}
+
+rm.copyUrl = function (id) {
+  const input = document.createElement("input"); // Create a new <input> element
+  input.id = "copyVal"; // Set the id of the new element to "copyVal"
+  document.body.appendChild(input); // Append the new element to the end of the <body> element
+  
+  const text = id;
+  input.value = text;
+  input.select();
+  input.setSelectionRange(0, input.value.length);
+  document.execCommand("copy");
+  
+  input.remove(); // Remove the <input> element from the DOM
+};
+
+function stopMaskScroll() {
+  if (document.getElementById("rightmenu-mask")) {
+    let xscroll = document.getElementById("rightmenu-mask");
+    xscroll.addEventListener(
+      "mousewheel",
+      function (e) {
+        //阻止浏览器默认方法
+        rm.hideRightMenu();
+        // e.preventDefault();
+      },
+      { passive: true }
+    );
+  }
+  if (document.getElementById("rightMenu")) {
+    let xscroll = document.getElementById("rightMenu");
+    xscroll.addEventListener(
+      "mousewheel",
+      function (e) {
+        //阻止浏览器默认方法
+        rm.hideRightMenu();
+        // e.preventDefault();
+      },
+      { passive: true }
+    );
+  }
+}
+
+rm.rightmenuCopyText = function (txt) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt);
+  }
+  rm.hideRightMenu();
+};
+
+rm.copyPageUrl = function (url) {
+  if (!url) {
+    url = window.location.href;
+  }
+  rm.copyUrl(url);
+  anzhiyu.snackbarShow("复制本页链接地址成功", false, 2000);
+  rm.hideRightMenu();
+};
+
+rm.sharePage = function () {
+  var content = window.location.href;
+  rm.copyUrl(url);
+  anzhiyu.snackbarShow("复制本页链接地址成功", false, 2000);
+  rm.hideRightMenu();
+};
+
+// 复制当前选中文本
+var selectTextNow = "";
+document.onmouseup = document.ondblclick = selceText;
+
+function selceText() {
+  var txt;
+  if (document.selection) {
+    txt = document.selection.createRange().text;
+  } else {
+    txt = window.getSelection().toString();
+  }
+  selectTextNow = txt !== "" ? txt : "";
+}
+
+// 读取剪切板
+rm.readClipboard = function () {
+  if (navigator.clipboard) {
+    navigator.clipboard.readText().then(clipText => rm.insertAtCaret(globalEvent.target, clipText));
+  }
+};
+
+// 粘贴文本到焦点
+rm.insertAtCaret = function (elemt, value) {
+  const startPos = elemt.selectionStart,
+    endPos = elemt.selectionEnd;
+  if (document.selection) {
+    elemt.focus();
+    var sel = document.selection.createRange();
+    sel.text = value;
+    elemt.focus();
+  } else {
+    if (startPos || startPos == "0") {
+      var scrollTop = elemt.scrollTop;
+      elemt.value = elemt.value.substring(0, startPos) + value + elemt.value.substring(endPos, elemt.value.length);
+      elemt.focus();
+      elemt.selectionStart = startPos + value.length;
+      elemt.selectionEnd = startPos + value.length;
+      elemt.scrollTop = scrollTop;
+    } else {
+      elemt.value += value;
+      elemt.focus();
+    }
+  }
+};
+
+//粘贴文本
+rm.pasteText = function () {
+  const result = rm.readClipboard() || "";
+  rm.hideRightMenu();
+};
+
+//引用到评论
+rm.rightMenuCommentText = function (txt) {
+  rm.hideRightMenu();
+  const postCommentDom = document.getElementById("post-comment");
+  var domTop = postCommentDom.offsetTop;
+  window.scrollTo(0, domTop - 80);
+  if (txt == "undefined" || txt == "null") txt = "好棒！";
+  function setText() {
+    setTimeout(() => {
+      var input = document.getElementsByClassName("el-textarea__inner")[0];
+      if (!input) setText();
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("input", true, true);
+      let inputValue = replaceAll(txt, "\n", "\n> ");
+      input.value = "> " + inputValue + "\n\n";
+      input.dispatchEvent(evt);
+      input.focus();
+      input.setSelectionRange(-1, -1);
+      if (document.getElementById("comment-tips")) {
+        document.getElementById("comment-tips").classList.add("show");
+      }
+    }, 100);
+  }
+  setText();
+};
+
+//替换所有内容
+function replaceAll(string, search, replace) {
+  return string.split(search).join(replace);
+}
+
+// 百度搜索
+rm.searchBaidu = function () {
+  anzhiyu.snackbarShow("即将跳转到百度搜索", false, 2000);
+  setTimeout(function () {
+    window.open("https://www.baidu.com/s?wd=" + selectTextNow);
+  }, "2000");
+  rm.hideRightMenu();
+};
+
+//分享链接
+rm.copyLink = function () {
+  rm.rightmenuCopyText(domhref);
+  anzhiyu.snackbarShow("已复制链接地址");
+};
+
+function addRightMenuClickEvent() {
+  // 添加点击事件
+  document.getElementById("menu-backward").addEventListener("click", function () {
+  window.history.back();
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-forward").addEventListener("click", function () {
+    window.history.forward();
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-refresh").addEventListener("click", function () {
+    window.location.reload();
+  });
+
+  document.getElementById("menu-top").addEventListener("click", function () {
+    anzhiyu.scrollToDest(0, 500);
+    rm.hideRightMenu();
+  });
+
+  const menuLinks = document.querySelectorAll(".menu-link");
+  menuLinks.forEach(function (link) {
+    link.addEventListener("click", rm.hideRightMenu);
+  });
+
+  document.getElementById("menu-darkmode").addEventListener("click", anzhiyu.switchDarkMode);
+
+  document.getElementById("menu-home") && document.getElementById("menu-home").addEventListener("click", function () {
+    window.location.href = window.location.origin;
+  });
+
+  document.getElementById("menu-randomPost").addEventListener("click", function () {
+    toRandomPost();
+  });
+
+  document.getElementById("menu-commentBarrage").addEventListener("click", anzhiyu.switchCommentBarrage);
+
+  document.getElementById("rightmenu-mask").addEventListener("click", rm.hideRightMenu);
+
+  document.getElementById("rightmenu-mask").addEventListener("contextmenu", function (event) {
+    rm.hideRightMenu();
+    event.preventDefault(); // Prevent the default context menu from appearing
+  });
+
+  document.getElementById("menu-copy").addEventListener("click", rm.copyPageUrl);
+
+  document.getElementById("menu-pastetext").addEventListener("click", rm.pasteText);
+
+  document.getElementById("menu-copytext").addEventListener("click", function () {
+    rm.rightmenuCopyText(selectTextNow);
+    anzhiyu.snackbarShow("复制成功，复制和转载请标注本文地址");
+  });
+
+  document.getElementById("menu-commenttext").addEventListener("click", function () {
+    rm.rightMenuCommentText(selectTextNow);
+  });
+
+  document.getElementById("menu-newwindow").addEventListener("click", function () {
+    window.open(domhref, "_blank");
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-copylink").addEventListener("click", rm.copyLink);
+
+  document.getElementById("menu-downloadimg").addEventListener("click", function () {
+    anzhiyu.downloadImage(domImgSrc, "anzhiyu");
+  });
+
+  document.getElementById("menu-newwindowimg").addEventListener("click", function () {
+    window.open(domImgSrc, "_blank");
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-copyimg").addEventListener("click", function () {
+    rm.writeClipImg(domImgSrc);
+  });
+
+  document.getElementById("menu-searchBaidu").addEventListener("click", rm.searchBaidu);
+
+  //音乐
+  document.getElementById("menu-music-toggle").addEventListener("click", anzhiyu.musicToggle);
+
+  document.getElementById("menu-music-back").addEventListener("click", anzhiyu.musicSkipBack);
+
+  document.getElementById("menu-music-forward").addEventListener("click", anzhiyu.musicSkipForward);
+
+  document.getElementById("menu-music-copyMusicName").addEventListener("click", function () {
+    rm.rightmenuCopyText(anzhiyu.musicGetName());
+    anzhiyu.snackbarShow("复制歌曲名称成功", false, 3000);
+  });
+
+}
+
+addRightMenuClickEvent();</script><script data-pjax="">var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+var pageHeaderEl = document.getElementById("page-header");
+var navMusicEl = document.getElementById("nav-music");
+var consoleEl = document.getElementById("console");
+// 已随机的歌曲
+var selectRandomSong = [];
+// 音乐默认声音大小
+var musicVolume = 0.8;
+// 是否切换了周杰伦音乐列表
+var changeMusicListFlag = false;
+// 当前默认播放列表
+var defaultPlayMusicList = [];
+
+document.getElementById("page-name").innerText = document.title.split(" | GanSer")[0];
+anzhiyu.initIndexEssay();
+anzhiyu.changeTimeInEssay();
+anzhiyu.removeBodyPaceClass();
+anzhiyu.qrcodeCreate();
+anzhiyu.changeTimeInAlbumDetail();
+anzhiyu.reflashEssayWaterFall();
+anzhiyu.sayhi();
+anzhiyu.stopImgRightDrag();
+anzhiyu.addNavBackgroundInit();
+anzhiyu.setValueToBodyType();
+anzhiyu.catalogActive();
+anzhiyu.tagsPageActive();
+anzhiyu.categoriesBarActive();
+anzhiyu.topCategoriesBarScroll();
+anzhiyu.switchRightClickMenuHotReview();
+anzhiyu.getCustomPlayList();
+anzhiyu.addEventListenerConsoleMusicList(false);
+setTimeout(() => {
+  if (typeof addFriendLinksInFooter === "function") {
+    addFriendLinksInFooter();
+  }
+}, 200)</script><script charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js"></script><script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script><script>LA.init({id: "K2Vkt1ZVOZBb2pOv", ck: "K2Vkt1ZVOZBb2pOv"});
+//- new LingQue.Monitor().init({id: "", sendSpaPv:true});</script><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.1.4/icon/ali_iconfont_css.css"><script async="" data-pjax="" src="/js/imgloaded.js?1"></script><script defer="" src="//at.alicdn.com/t/c/font_3816086_jveqqa1cjpg.js"></script><script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://pic.gan1ser.top/emoji%20/pace.min.js"></script><script src="https://pic.gan1ser.top/emoji%20/swiper-bundle.min.js"></script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://npm.elemecdn.com/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div></body></html>
