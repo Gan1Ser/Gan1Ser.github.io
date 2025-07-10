@@ -6,7 +6,7 @@
   <link href="https://www.gan1ser.top/atom.xml" rel="self"/>
   
   <link href="https://www.gan1ser.top/"/>
-  <updated>2025-04-20T12:04:00.000Z</updated>
+  <updated>2025-07-10T08:36:00.000Z</updated>
   <id>https://www.gan1ser.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025上半年我看的番</title>
+    <link href="https://www.gan1ser.top/post/c325c178.html"/>
+    <id>https://www.gan1ser.top/post/c325c178.html</id>
+    <published>2025-07-10T08:36:00.000Z</published>
+    <updated>2025-07-10T08:36:00.000Z</updated>
+    
+    
+    <summary type="html">记录2025上半年我看的番剧</summary>
+    
+    
+    
+    <category term="番剧推荐" scheme="https://www.gan1ser.top/categories/%E7%95%AA%E5%89%A7%E6%8E%A8%E8%8D%90/"/>
+    
+    
+    <category term="番剧推荐" scheme="https://www.gan1ser.top/tags/%E7%95%AA%E5%89%A7%E6%8E%A8%E8%8D%90/"/>
+    
+  </entry>
   
   <entry>
     <title>Dart学习</title>
@@ -390,25 +409,6 @@
     
     
     <category term="随手小记" scheme="https://www.gan1ser.top/tags/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数字滤波器调研报告</title>
-    <link href="https://www.gan1ser.top/post/75bc39e9.html"/>
-    <id>https://www.gan1ser.top/post/75bc39e9.html</id>
-    <published>2023-12-03T08:36:00.000Z</published>
-    <updated>2025-07-10T03:05:50.794Z</updated>
-    
-    
-    <summary type="html">使用ChatGPT水一篇DSP作业</summary>
-    
-    
-    
-    <category term="课程设计" scheme="https://www.gan1ser.top/categories/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-    <category term="大学学习" scheme="https://www.gan1ser.top/tags/%E5%A4%A7%E5%AD%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
